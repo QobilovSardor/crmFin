@@ -119,14 +119,16 @@ body {
 /* scrollbar */
 
 /* button */
-
+input {
+  @apply !outline-none;
+}
 @layer components {
   .btn {
     @apply inline-flex whitespace-nowrap items-center gap-2 rounded-lg transition px-4 py-3 md:text-sm text-xs;
   }
 
   .btn-primary {
-    @apply bg-[#407BFF] text-white;
+    @apply bg-blue text-white;
   }
 
   .btn-primary:disabled {
@@ -138,7 +140,7 @@ body {
   }
 
   .btn-full-outline {
-    @apply border-none text-[#707D89];
+    @apply border-none text-gray-base;
   }
 
   .btn-sm {
@@ -162,30 +164,176 @@ body {
   }
 
   .select-toggle {
-    @apply h-11 w-full gap-3 rounded-lg border border-[#DEE3F3] bg-transparent px-4 py-2.5 md:text-sm text-xs cursor-pointer flex items-center justify-between;
+    @apply h-11 w-full gap-1.5 rounded-lg border border-line bg-transparent px-4 py-2.5 md:text-sm text-xs cursor-pointer flex items-center justify-between;
   }
 
   .select-display {
-    @apply text-[#707D89];
+    @apply text-gray-base;
   }
 
   .select-arrow {
-    @apply transition-transform duration-200;
-  }
-
-  .select-arrow.rotate-180 {
-    @apply rotate-180;
+    @apply transition-transform duration-200 min-w-4;
   }
 
   .select-options {
-    @apply absolute z-[110] top-full p-1 mt-1 w-full rounded-lg border border-gray-300 bg-white shadow-lg max-h-60 overflow-y-auto;
+    @apply absolute z-[110] top-full p-1 mt-1 w-full rounded-lg border border-gray-300 bg-white shadow-theme-lg max-h-60 overflow-y-auto;
   }
 
   .select-option {
-    @apply px-4 py-2.5 md:text-sm text-xs rounded-[6px] cursor-pointer hover:bg-[#F4F8FF] text-gray-700;
+    @apply px-4 py-2.5 md:text-sm text-xs rounded-[6px] cursor-pointer hover:bg-blue-light text-gray-700;
   }
 
   .select-option-selected {
-    @apply bg-[#F4F8FF] font-medium;
+    @apply bg-blue-light font-medium;
   }
+
+  .form-control {
+    @apply h-11 w-full rounded-lg border border-line px-4 py-2.5 md:text-sm text-xs font-normal shadow-theme-xs placeholder:text-gray-base focus:border-[#93B7FF] focus:shadow-input-focus;
+  }
+
+  .dual-range-slider {
+    @apply relative w-full flex items-center;
+  }
+
+  .slider-track {
+    @apply absolute w-full bg-gray-300 rounded-lg;
+  }
+
+  .slider-range {
+    @apply absolute bg-blue rounded-lg;
+  }
+
+  .slider-container {
+    @apply relative border border-gray-300 py-3 px-4 rounded-lg bg-white;
+  }
+
+  .slider-label {
+    @apply block text-xs font-normal text-gray-base mb-1.5;
+  }
+
+  .slider-value {
+    @apply text-xs text-gray-base mb-2;
+  }
+
+  .date-picker {
+    @apply flex flex-col gap-1 !w-full;
+  }
+
+  .date-picker-label {
+    @apply text-sm text-gray-base;
+  }
+
+  .date-picker-input {
+    @apply h-11 !w-full rounded-lg border !bg-white border-line bg-transparent px-4 py-2.5 md:text-sm text-xs shadow-theme-xs placeholder:text-gray-base focus:border-[#93B7FF] focus:shadow-input-focus;
+  }
+  .date-picker-icon {
+    @apply absolute text-gray-base -translate-y-1/2 pointer-events-none right-[15px] top-1/2;
+  }
+
+  .flatpickr-wrapper {
+    @apply !w-full;
+  }
+
+  .flatpickr-calendar {
+    @apply mt-2 bg-white rounded-xl p-5 border border-gray-300 text-gray-base;
+  }
+
+  .flatpickr-weekdays {
+    @apply mt-6 mb-4 bg-transparent;
+  }
+
+  .flatpickr-weekday {
+    @apply text-xs font-medium text-gray-base bg-transparent;
+  }
+
+  .flatpickr-day {
+    @apply flex items-center text-xs font-medium text-black;
+  }
+
+  .flatpickr-day.nextMonthDay,
+  .flatpickr-day.prevMonthDay {
+    @apply text-gray-base;
+  }
+
+  .flatpickr-month .flatpickr-current-month .flatpickr-monthDropdown-months {
+    @apply font-medium;
+  }
+
+  .flatpickr-month
+    .flatpickr-current-month
+    .flatpickr-monthDropdown-months:focus {
+    @apply outline-none border-0;
+  }
+
+  .flatpickr-current-month .cur-month,
+  .flatpickr-current-month input.cur-year {
+    @apply h-auto pt-0 text-lg font-medium text-black;
+  }
+  .flatpickr-calendar.static.open {
+    @apply !left-0 !z-[99999];
+  }
+  /* checkbox */
+  .checkbox-container {
+    @apply flex items-center space-x-3 cursor-pointer;
+  }
+
+  .checkbox-container[data-disabled='true'] {
+    @apply cursor-not-allowed opacity-60;
+  }
+
+  .checkbox-wrapper {
+    @apply relative w-5 h-5 flex items-center justify-center;
+  }
+
+  .checkbox-input {
+    @apply w-4 h-4 border border-blue checked:bg-blue checked:border-transparent rounded-sm;
+  }
+
+  .checkbox-input:disabled {
+    @apply opacity-60;
+  }
+
+  .checkbox-check {
+    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none;
+  }
+
+  .checkbox-disabled {
+    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none;
+  }
+
+  .checkbox-label {
+    @apply md:text-sm text-xs text-black;
+  }
+
+  .checkbox-link {
+    @apply md:text-sm text-xs text-blue;
+  }
+}
+.flatpickr-wrapper {
+  width: 100% !important;
+}
+
+.checkbox-input {
+  /* Default checkboxni olib tashlaymiz */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  /* Checkboxning o'z border va radiusini beramiz */
+  width: 20px; /* yoki w-4 */
+  height: 20px; /* yoki h-4 */
+  border: 1px solid #dee3f3;
+  border-radius: 6px;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+}
+
+.checkbox-input:checked {
+  border-color: transparent;
+  background: #3b82f6 url(../images/icons/check.svg) no-repeat;
+  background-position: center;
+}
+
+.checkbox-input:checked {
 }
