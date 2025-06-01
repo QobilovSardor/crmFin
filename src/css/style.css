@@ -1,3 +1,119 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* core style */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply font-Montserrat text-sm font-normal bg-bg-avatar;
+}
+
+/* core styles */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.menu-item {
+  @apply flex items-center gap-3 px-3 py-3 rounded-lg transition-all duration-200 relative w-full text-left;
+}
+
+.menu-item-active {
+  @apply bg-blue-light text-blue;
+}
+
+.menu-item-inactive {
+  @apply text-gray-600 hover:bg-gray-50 hover:text-gray-900;
+}
+
+.menu-item-icon-size {
+  @apply w-6 h-6 flex-shrink-0;
+}
+
+.menu-item-icon-active {
+  @apply text-blue;
+}
+
+.menu-item-icon-inactive {
+  @apply text-black group-hover:text-blue;
+}
+
+.menu-item-text {
+  @apply font-medium text-sm;
+}
+
+.menu-notification-badge {
+  @apply bg-blue-light absolute right-3 top-1/2 -translate-y-1/2 w-6 h-6 flex items-center justify-center rounded-full text-xs text-blue font-normal;
+}
+
+.menu-dropdown-item {
+  @apply flex items-center justify-between px-3 py-2 text-sm rounded-md transition-colors duration-200;
+}
+
+.menu-dropdown-item-active {
+  @apply bg-blue text-blue;
+}
+
+.menu-dropdown-item-inactive {
+  @apply text-gray-600 hover:bg-gray-50 hover:text-gray-900;
+}
+
+.menu-dropdown-badge {
+  @apply px-2 py-1 text-xs rounded-full font-medium;
+}
+
+.menu-dropdown-badge-active {
+  @apply bg-blue text-blue;
+}
+
+.menu-dropdown-badge-inactive {
+  @apply bg-gray-100 text-gray-600;
+}
+
+/* scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #dee3f3;
+  border-radius: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #707d89;
+}
+
+.menu-scroll {
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+/* Dropdown styles */
+.dropdown {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: visibility 0s, opacity 0.2s, transform 0.2s;
+}
+
+.dropdown.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-item__hover:hover {
+  background-color: #f4f8ff;
+}
+/* scrollbar */
