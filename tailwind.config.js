@@ -17,7 +17,7 @@ module.exports = {
         'blue': '#407BFF',
         'blue-light': "#F4F8FF",
         black: '#141414',
-
+        blackLight: '#1D2939',
         border: {
           light: '#DEE3F3', // Used for borders
         },
@@ -25,7 +25,11 @@ module.exports = {
           hover: '#F4F8FF', // Used for hover states
           avatar: '#F9FBFF', // Used for avatar background
         },
-        // Shadow utilities
+        gray: {
+          'base': '#707D89',
+          '400': '#667085'
+        },
+        line: "#DEE3F3"
       },
       boxShadow: {
         'theme-xs': '0px 1px 2px 0px rgba(16, 24, 40, 0.05)',
@@ -34,6 +38,12 @@ module.exports = {
       },
       backgroundImage: {
 
+      },
+      space: {
+        '1.5': '6px'
+      },
+      gap: {
+        '1.5': '6px'
       },
       screens: {
 

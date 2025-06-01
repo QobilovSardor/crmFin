@@ -359,7 +359,162 @@
         </div>
       </header>
       <div class="p-4 md:p-6 relative min-h-[calc(100%_-_77px)] lg:pt-6 pt-[80px]">
-        
+        <div class="flex flex-wrap items-center justify-between gap-3 md:mb-6 sm:mb-5 mb-4">
+          <h2 class="md:text-2xl text-xl font-semibold text-black">
+            Заявки
+          </h2>
+          <nav class="sm:block hidden">
+            <ol class="flex items-center gap-1.5">
+              <li>
+                <a class="inline-flex items-center gap-1.5 text-gray-400 text-xs" href="/">
+                  <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M4.70898 0.574148C5.47339 0.00103593 6.52472 0.000923544 7.28906 0.574148L11.123 3.44915C11.6641 3.85517 11.9824 4.49241 11.9824 5.16887V9.83294C11.9824 11.0201 11.0201 11.983 9.83301 11.9833H2.16602C0.978605 11.9833 0.015625 11.0203 0.015625 9.83294V5.16887C0.0156706 4.49227 0.334728 3.85516 0.875977 3.44915L4.70898 0.574148ZM6.50977 1.61419C6.20764 1.38759 5.79146 1.38773 5.48926 1.61419L1.65625 4.48919C1.44225 4.64968 1.31645 4.90139 1.31641 5.16887V9.83294C1.31641 10.3024 1.69657 10.6835 2.16602 10.6835H5.34863V8.83294C5.34884 8.47413 5.64017 8.18255 5.99902 8.18255C6.31305 8.18255 6.57503 8.40601 6.63574 8.70208L6.64941 8.83294V10.6835H9.83301C10.3022 10.6832 10.6826 10.3022 10.6826 9.83294V5.16887C10.6826 4.90153 10.5566 4.6497 10.3428 4.48919L6.50977 1.61419Z"
+                      fill="#667085" />
+                  </svg>
+                  Главная
+                </a>
+              </li>
+              <li class="text-xs text-400">/</li>
+              <li class="text-blackLight text-xs">Sample Page</li>
+            </ol>
+          </nav>
+        </div>
+
+        <!-- PageBreadcrumb component (pageTitle="Заявки", breadcrumb=false) -->
+        <div class="flex justify-between md:mb-6 sm:mb-5 mb-4 sm:flex-row flex-col w-full gap-4">
+          <div class="flex gap-3 sm:w-fit w-full sm:justify-start justify-between">
+            <button id="filter-toggle" class="btn btn-primary btn-sm">
+              <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg"
+                class="md:w-5 w-[15px]">
+                <path d="M4 7H16M1 1H19M7 13H13" stroke="#fff" strokeWidth="1.5" strokeLinecap="round"
+                  strokeLinejoin="round" />
+              </svg>
+              <span>Фильтр</span>
+            </button>
+            <!-- Button component (variant="fullOutline", className="sm:w-fit w-full justify-center") -->
+            <button class="btn btn-full-outline">Сбросить фильтр</button>
+          </div>
+          <div class="flex gap-3 sm:w-fit w-full">
+            <div class="md:block hidden">
+              <!-- Button component -->
+              <button class="btn btn-primary">Быстрый фильтр</button>
+            </div>
+            <div class="w-[116px]">
+              <div class="select " role="combobox" aria-expanded="false" aria-controls="select-options-1" tabindex="0"
+                data-options='[{"value":"Москва1","label":"Москва1"},{"value":"Москва2","label":"Москва2"},{"value":"Москва3","label":"Москва3"}]'>
+                <div class="select-toggle">
+                  <span class="select-display font-medium text-black text-sm">Москва</span>
+                  <svg class="select-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 6L8 10L12 6" stroke="#407BFF" stroke-width="1.5" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <ul class="select-options hidden" role="listbox">
+                  <li class="select-option" data-value="Москва1" role="option" aria-selected="false">Москва1</li>
+                  <li class="select-option" data-value="Москва2" role="option" aria-selected="false">Москва2</li>
+                  <li class="select-option" data-value="Москва3" role="option" aria-selected="false">Москва3</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="filter-section" class="md:my-6 sm:my-5 my-4 space-y-4 filter-section sm:mb-5 mb-8 hidden">
+          <div class="grid md:grid-cols-3 grid-cols-1 gap-3">
+            <div>
+              <!-- Label component (className="text-[#707D89]") -->
+              <label class="text-[#707D89]">Период</label>
+              <!-- DatePicker component (id="scheduler-date-range", mode="range", placeholder="DD.MM.YYYY — DD.MM.YYYY", className="w-full bg-white") -->
+              <input type="text" placeholder="DD.MM.YYYY — DD.MM.YYYY"
+                class="w-full bg-white border border-gray-300 rounded px-2 py-1" />
+            </div>
+            <div>
+              <!-- Label component (className="text-[#707D89]") -->
+              <label class="text-[#707D89]">Регион</label>
+              <div class="relative bg-white">
+                <!-- Input component (value="Самарская область") -->
+                <input type="text" value="Самарская область" class="w-full border border-gray-300 rounded px-2 py-1" />
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  class="absolute top-1/2 -translate-y-1/2 right-[18px] sm:w-[18px] sm:h-[18px] w-[15px] h-[15px]">
+                  <path
+                    d="M16.5 16.5L13.5834 13.5833M15.6667 8.58333C15.6667 12.4954 12.4954 15.6667 8.58333 15.6667C4.67132 15.6667 1.5 12.4954 1.5 8.58333C1.5 4.67132 4.67132 1.5 8.58333 1.5C12.4954 1.5 15.6667 4.67132 15.6667 8.58333Z"
+                    stroke="#707D89" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
+            </div>
+            <div>
+              <!-- Label component (className="text-[#707D89]") -->
+              <label class="text-[#707D89]">Город</label>
+              <div class="relative bg-white">
+                <!-- Input component -->
+                <input type="text" class="w-full border border-gray-300 rounded px-2 py-1" />
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  class="absolute top-1/2 -translate-y-1/2 right-[18px] sm:w-[18px] sm:h-[18px] w-[15px] h-[15px]">
+                  <path
+                    d="M16.5 16.5L13.5834 13.5833M15.6667 8.58333C15.6667 12.4954 12.4954 15.6667 8.58333 15.6667C4.67132 15.6667 1.5 12.4954 1.5 8.58333C1.5 4.67132 4.67132 1.5 8.58333 1.5C12.4954 1.5 15.6667 4.67132 15.6667 8.58333Z"
+                    stroke="#707D89" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-3">
+            <div>
+              <!-- Label component (className="text-[#707D89]") -->
+              <label class="text-[#707D89]">Возраст</label>
+              <!-- DualRangeSlider component (min=20, max=50, step=1, value=[20,50], formatValue, className="px-4 bg-white") -->
+              <div class="px-4 bg-white border border-gray-300 rounded py-2">Возраст: 20 - 50</div>
+            </div>
+            <div>
+              <!-- Label component (className="text-[#707D89]") -->
+              <label class="text-[#707D89]">Вид кредита</label>
+              <!-- Select component (options=["Marketing", "Template", "Development"], placeholder="Потребительский кредит", defaultValue="Потребительский кредит", className="bg-white") -->
+              <select class="bg-white border border-gray-300 rounded px-2 py-1">
+                <option value="Потребительский кредит" selected>Потребительский кредит</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Template">Template</option>
+                <option value="Development">Development</option>
+              </select>
+            </div>
+            <div>
+              <!-- Label component (className="text-[#707D89]") -->
+              <label class="text-[#707D89]">Сумма кредита</label>
+              <!-- DualRangeSlider component (min=10000, max=3000000, step=1000, value=[10000,3000000], formatValue, className="px-4 bg-white") -->
+              <div class="px-4 bg-white border border-gray-300 rounded py-2">Сумма кредита: 10,000 - 3,000,000</div>
+            </div>
+            <div>
+              <!-- Label component (className="text-[#707D89]") -->
+              <label class="text-[#707D89]">Цена заявки</label>
+              <!-- DualRangeSlider component (min=70, max=200, step=1, value=[70,200], formatValue, className="px-4 bg-white") -->
+              <div class="px-4 bg-white border border-gray-300 rounded py-2">Цена заявки: 70 - 200</div>
+            </div>
+          </div>
+          <div class="flex sm:items-center justify-between pt-2 sm:flex-row flex-col gap-4">
+            <!-- Checkbox component (label="Уникальная заявка (в одни руки)") -->
+            <label class="flex items-center gap-2">
+              <input type="checkbox" id="unique-checkbox" />
+              Уникальная заявка (в одни руки)
+            </label>
+            <div class="flex gap-3">
+              <!-- Button component (className="sm:w-fit h-11 w-full justify-center") -->
+              <button class="sm:w-fit h-11 w-full justify-center bg-blue-600 text-white rounded px-4">Применить</button>
+              <!-- Button component (className="sm:w-fit w-full h-11 justify-center", variant="outline") -->
+              <button
+                class="sm:w-fit w-full h-11 justify-center border border-gray-300 text-gray-700 rounded px-4">Сбросить</button>
+            </div>
+          </div>
+        </div>
+        <!-- Select component (options=["Москва", "Москва2", "Москва3"], placeholder="Москва", defaultValue="Москва", className="gap-3 sm:hidden -mt-4 mb-4 blue-icon") -->
+        <select class="gap-3 sm:hidden -mt-4 mb-4 bg-white border border-gray-300 rounded px-2 py-1">
+          <option value="Москва" selected>Москва</option>
+          <option value="Москва2">Москва2</option>
+          <option value="Москва3">Москва3</option>
+        </select>
+        <span class="sm:text-sm text-xs leading-5 text-[#707D89] md:mb-6 sm:mb-5 mb-4 block">
+          Найдено <span class="text-[#407BFF]">37</span> заявок
+        </span>
+        <!-- ApplicationTable component -->
+        <div>ApplicationTable placeholder</div>
       </div>
     </div>
   </main>

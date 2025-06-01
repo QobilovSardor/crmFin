@@ -117,3 +117,75 @@ body {
   background-color: #f4f8ff;
 }
 /* scrollbar */
+
+/* button */
+
+@layer components {
+  .btn {
+    @apply inline-flex whitespace-nowrap items-center gap-2 rounded-lg transition px-4 py-3 md:text-sm text-xs;
+  }
+
+  .btn-primary {
+    @apply bg-[#407BFF] text-white;
+  }
+
+  .btn-primary:disabled {
+    @apply bg-[#93B7FF];
+  }
+
+  .btn-outline {
+    @apply text-gray-700 ring-1 ring-inset ring-gray-300 hover:bg-gray-50;
+  }
+
+  .btn-full-outline {
+    @apply border-none text-[#707D89];
+  }
+
+  .btn-sm {
+    @apply px-4 py-3 md:text-sm text-xs;
+  }
+
+  .btn-md {
+    @apply px-5 py-3.5 text-sm;
+  }
+
+  .btn-sm-icon {
+    @apply p-3 md:text-sm text-xs w-11;
+  }
+
+  .btn:disabled {
+    @apply cursor-not-allowed opacity-50;
+  }
+
+  .select {
+    @apply relative w-full z-[100];
+  }
+
+  .select-toggle {
+    @apply h-11 w-full gap-3 rounded-lg border border-[#DEE3F3] bg-transparent px-4 py-2.5 md:text-sm text-xs cursor-pointer flex items-center justify-between;
+  }
+
+  .select-display {
+    @apply text-[#707D89];
+  }
+
+  .select-arrow {
+    @apply transition-transform duration-200;
+  }
+
+  .select-arrow.rotate-180 {
+    @apply rotate-180;
+  }
+
+  .select-options {
+    @apply absolute z-[110] top-full p-1 mt-1 w-full rounded-lg border border-gray-300 bg-white shadow-lg max-h-60 overflow-y-auto;
+  }
+
+  .select-option {
+    @apply px-4 py-2.5 md:text-sm text-xs rounded-[6px] cursor-pointer hover:bg-[#F4F8FF] text-gray-700;
+  }
+
+  .select-option-selected {
+    @apply bg-[#F4F8FF] font-medium;
+  }
+}
