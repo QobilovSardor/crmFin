@@ -8,7 +8,7 @@ html {
 }
 
 body {
-  @apply font-Montserrat text-sm font-normal bg-bg-avatar;
+  @apply font-Montserrat text-sm font-normal bg-bg-avatar text-black;
 }
 
 /* core styles */
@@ -289,6 +289,9 @@ input {
 
   .checkbox-link {
     @apply md:text-sm text-xs text-blue;
+  }
+  .label {
+    
   }
 }
 .flatpickr-wrapper {

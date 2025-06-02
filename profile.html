@@ -308,11 +308,11 @@
                   <ul class="flex flex-col sm:gap-1 pt-4 pb-3 border-b border-gray-200">
                     <li>
                       <a href="/profile"
-                        class="flex items-center gap-3 sm:pl-3 pl-0 px-3 py-[10px] font-medium text-gray-700 rounded-lg group md:text-theme-sm text-xs hover:bg-bg-hover hover:text-gray-700 group">
+                        class="flex items-center gap-3 sm:pl-3 pl-0 px-3 py-[10px] font-medium rounded-lg group md:text-theme-sm text-xs bg-bg-hover text-black group">
                         <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path
                             d="M4.3163 18.4384C4.92462 17.0052 6.34492 16 8 16H14C15.6551 16 17.0754 17.0052 17.6837 18.4384M15 8.5C15 10.7091 13.2091 12.5 11 12.5C8.79086 12.5 7 10.7091 7 8.5C7 6.29086 8.79086 4.5 11 4.5C13.2091 4.5 15 6.29086 15 8.5ZM21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z"
-                            stroke="#707D89" class="group:hover:fill-[red]" stroke-width="1.5" stroke-linecap="round"
+                            stroke="#141414" class="group:hover:fill-[red]" stroke-width="1.5" stroke-linecap="round"
                             stroke-linejoin="round" />
                         </svg>
                         Профиль
@@ -394,24 +394,23 @@
             </div>
             <div id="editButtonContainer" class="sm:w-fit w-full">
               <!-- Button (Edit) -->
-              <button id="editButton"
-                class="btn btn-outline w-full justify-center">
+              <button id="editButton" class="btn btn-outline w-full justify-center">
                 <!-- PencilIcon -->
                 <img src="src/images/icons/pencil.svg" alt="">
                 <span>Редактировать</span>
               </button>
             </div>
-            <div id="actionButtonsContainer" class="hidden flex-col sm:flex-row sm:w-fit w-full gap-4">
-              <!-- Button (Save) -->
-              <button id="saveButton"
-                class="w-full sm:w-fit justify-center rounded bg-blue-500 text-white px-4 py-2 hover:bg-blue-600">
-                Сохранить
-              </button>
-              <!-- Button (Cancel) -->
-              <button id="cancelButton"
-                class="w-full sm:w-fit justify-center border border-gray-300 rounded px-4 py-2 hover:bg-gray-50">
-                Закрыть без сохранения
-              </button>
+            <div id="actionButtonsContainer" class="hidden sm:flex-row flex-col sm:w-fit w-full gap-4">
+              <div class="flex sm:flex-row flex-col sm:w-fit w-full gap-4">
+                <!-- Button (Save) -->
+                <button id="saveButton" class="sm:w-fit w-full justify-center btn btn-primary">
+                  Сохранить
+                </button>
+                <!-- Button (Cancel) -->
+                <button id="cancelButton" class="btn btn-outline sm:w-fit w-full justify-center">
+                  Закрыть без сохранения
+                </button>
+              </div>
             </div>
           </div>
 
@@ -423,27 +422,24 @@
             <div class="card-content p-4 flex flex-wrap md:gap-6 gap-4 w-full">
               <div class="w-full sm:max-w-[365px]">
                 <!-- Label -->
-                <span class="label text-[10px] sm:text-xs text-[#707D89] block mb-2">Имя</span>
+                <span class="block text-[10px] sm:text-xs text-gray-base mb-2">Имя</span>
                 <span id="firstNameDisplay" class="md:text-sm text-xs font-semibold"></span>
                 <!-- Input -->
-                <input id="firstNameInput" class="form-control hidden w-full border border-gray-300 rounded px-2 py-1"
-                  type="text">
+                <input id="firstNameInput" class="form-control hidden" type="text">
               </div>
               <div class="w-full sm:max-w-[365px]">
                 <!-- Label -->
-                <span class="label text-[10px] sm:text-xs text-[#707D89] block mb-2">Фамилия</span>
+                <span class="block text-[10px] sm:text-xs text-gray-base mb-2">Фамилия</span>
                 <span id="lastNameDisplay" class="md:text-sm text-xs font-semibold"></span>
                 <!-- Input -->
-                <input id="lastNameInput" class="form-control hidden w-full border border-gray-300 rounded px-2 py-1"
-                  type="text">
+                <input id="lastNameInput" class="form-control hidden" type="text">
               </div>
               <div class="w-full sm:max-w-[365px]">
                 <!-- Label -->
-                <span class="label text-[10px] sm:text-xs text-[#707D89] block mb-2">Отчество</span>
+                <span class="block text-[10px] sm:text-xs text-gray-base mb-2">Отчество</span>
                 <span id="middleNameDisplay" class="md:text-sm text-xs font-semibold"></span>
                 <!-- Input -->
-                <input id="middleNameInput" class="form-control hidden w-full border border-gray-300 rounded px-2 py-1"
-                  type="text">
+                <input id="middleNameInput" class="form-control hidden" type="text">
               </div>
             </div>
           </div>
@@ -454,37 +450,48 @@
               <h3 class="card-title text-lg font-semibold">Личные данные</h3>
             </div>
             <div class="card-content p-4 flex flex-wrap md:gap-6 gap-4 w-full">
-              <div class="w-full sm:max-w-[365px]">
+              <div class="w-full sm:w-[360px]">
                 <!-- Label -->
-                <span class="label text-[10px] sm:text-xs text-[#707D89] block mb-2">Мобильный</span>
+                <span class="block text-[10px] sm:text-xs text-gray-base mb-2">Мобильный</span>
                 <span id="mobileDisplay" class="md:text-sm text-xs font-semibold"></span>
                 <!-- Input -->
-                <input id="mobileInput" class="form-control hidden w-full border border-gray-300 rounded px-2 py-1"
-                  type="text">
+                <input id="mobileInput" class="form-control hidden" type="text">
               </div>
-              <div class="w-full sm:max-w-[365px]">
+              <div class="w-full sm:w-[360px]">
                 <!-- Label -->
-                <span class="label text-[10px] sm:text-xs text-[#707D89] block mb-2">Почта</span>
+                <span class="block text-[10px] sm:text-xs text-gray-base mb-2">Почта</span>
                 <span id="emailDisplay" class="md:text-sm text-xs font-semibold"></span>
                 <!-- Input -->
-                <input id="emailInput" class="form-control hidden w-full border border-gray-300 rounded px-2 py-1"
-                  type="text">
+                <input id="emailInput" class="form-control hidden" type="text">
               </div>
-              <div class="w-full sm:max-w-[365px]">
+              <div class="w-full sm:w-[360px] relative">
                 <!-- Label -->
-                <span class="label text-[10px] sm:text-xs text-[#707D89] block mb-2">Областькрай</span>
+                <span class="block text-[10px] sm:text-xs text-gray-base mb-2">Область\край</span>
                 <span id="regionDisplay" class="md:text-sm text-xs font-semibold"></span>
-                <!-- Input -->
-                <input id="regionInput" class="form-control hidden w-full border border-gray-300 rounded px-2 py-1"
-                  type="text">
+                <div class="relative bg-white form-control-box hidden" id="regionInput">
+                  <input type="text" class="form-control shadow-none">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="absolute top-1/2 -translate-y-1/2 right-[18px] sm:w-[18px] sm:h-[18px] w-[15px] h-[15px]">
+                    <path
+                      d="M16.5 16.5L13.5834 13.5833M15.6667 8.58333C15.6667 12.4954 12.4954 15.6667 8.58333 15.6667C4.67132 15.6667 1.5 12.4954 1.5 8.58333C1.5 4.67132 4.67132 1.5 8.58333 1.5C12.4954 1.5 15.6667 4.67132 15.6667 8.58333Z"
+                      stroke="#707D89" strokewidth="1.5" strokelinecap="round" strokelinejoin="round"></path>
+                  </svg>
+                </div>
               </div>
-              <div class="w-full sm:max-w-[365px]">
+              <div class="w-full sm:w-[360px]">
                 <!-- Label -->
-                <span class="label text-[10px] sm:text-xs text-[#707D89] block mb-2">Город</span>
+                <span class="block text-[10px] sm:text-xs text-gray-base mb-2">Город</span>
                 <span id="cityDisplay" class="md:text-sm text-xs font-semibold"></span>
-                <!-- Input -->
-                <input id="cityInput" class="form-control hidden w-full border border-gray-300 rounded px-2 py-1"
-                  type="text">
+                <div class="relative bg-white form-control-box hidden" id="cityInput">
+                  <input type="text" class="form-control">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="absolute top-1/2 -translate-y-1/2 right-[18px] sm:w-[18px] sm:h-[18px] w-[15px] h-[15px]">
+                    <path
+                      d="M16.5 16.5L13.5834 13.5833M15.6667 8.58333C15.6667 12.4954 12.4954 15.6667 8.58333 15.6667C4.67132 15.6667 1.5 12.4954 1.5 8.58333C1.5 4.67132 4.67132 1.5 8.58333 1.5C12.4954 1.5 15.6667 4.67132 15.6667 8.58333Z"
+                      stroke="#707D89" strokewidth="1.5" strokelinecap="round" strokelinejoin="round"></path>
+                  </svg>
+                </div>
+
               </div>
             </div>
           </div>
@@ -495,37 +502,33 @@
               <h3 class="card-title text-lg font-semibold">Информация о работе</h3>
             </div>
             <div class="card-content p-4 flex flex-wrap md:gap-6 gap-4 w-full">
-              <div class="w-full sm:max-w-[365px]">
+              <div class="w-full sm:max-w-[360px]">
                 <!-- Label -->
-                <span class="label text-[10px] sm:text-xs text-[#707D89] block mb-2">Наименование компании</span>
+                <span class="block text-[10px] sm:text-xs text-gray-base mb-2">Наименование компании</span>
                 <span id="companyNameDisplay" class="md:text-sm text-xs font-semibold"></span>
                 <!-- Input -->
-                <input id="companyNameInput" class="form-control hidden w-full border border-gray-300 rounded px-2 py-1"
-                  type="text">
+                <input id="companyNameInput" class="form-control hidden" type="text">
               </div>
-              <div class="w-full sm:max-w-[365px]">
+              <div class="w-full sm:max-w-[360px]">
                 <!-- Label -->
-                <span class="label text-[10px] sm:text-xs text-[#707D89] block mb-2">Сайт</span>
+                <span class="block text-[10px] sm:text-xs text-gray-base mb-2">Сайт</span>
                 <span id="websiteDisplay" class="md:text-sm text-xs font-semibold"></span>
                 <!-- Input -->
-                <input id="websiteInput" class="form-control hidden w-full border border-gray-300 rounded px-2 py-1"
-                  type="text">
+                <input id="websiteInput" class="form-control hidden" type="text">
               </div>
-              <div class="w-full sm:max-w-[365px]">
+              <div class="w-full sm:max-w-[360px]">
                 <!-- Label -->
-                <span class="label text-[10px] sm:text-xs text-[#707D89] block mb-2">Телефон</span>
+                <span class="block text-[10px] sm:text-xs text-gray-base mb-2">Телефон</span>
                 <span id="companyPhoneDisplay" class="md:text-sm text-xs font-semibold"></span>
                 <!-- Input -->
-                <input id="companyPhoneInput"
-                  class="form-control hidden w-full border border-gray-300 rounded px-2 py-1" type="text">
+                <input id="companyPhoneInput" class="form-control hidden" type="text">
               </div>
-              <div class="w-full sm:max-w-[365px]">
+              <div class="w-full sm:max-w-[360px]">
                 <!-- Label -->
-                <span class="label text-[10px] sm:text-xs text-[#707D89] block mb-2">Почта компании</span>
+                <span class="block text-[10px] sm:text-xs text-gray-base mb-2">Почта компании</span>
                 <span id="companyEmailDisplay" class="md:text-sm text-xs font-semibold"></span>
                 <!-- Input -->
-                <input id="companyEmailInput"
-                  class="form-control hidden w-full border border-gray-300 rounded px-2 py-1" type="text">
+                <input id="companyEmailInput" class="form-control hidden" type="text">
               </div>
             </div>
           </div>
