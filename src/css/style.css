@@ -123,6 +123,13 @@ input {
   @apply !outline-none;
 }
 @layer components {
+  #overlay {
+    @apply lg:hidden hidden;
+  }
+  #overlay.show {
+    @apply block;
+  }
+
   .btn {
     @apply inline-flex whitespace-nowrap items-center gap-2 rounded-lg transition px-4 py-3 md:text-sm text-xs;
   }
@@ -136,7 +143,7 @@ input {
   }
 
   .btn-outline {
-    @apply text-gray-700 ring-1 ring-inset ring-gray-300 hover:bg-gray-50;
+    @apply text-black ring-1 ring-inset ring-gray-300 hover:bg-gray-50;
   }
 
   .btn-full-outline {
@@ -190,31 +197,6 @@ input {
   .form-control {
     @apply h-11 w-full rounded-lg border border-line px-4 py-2.5 md:text-sm text-xs font-normal shadow-theme-xs placeholder:text-gray-base focus:border-[#93B7FF] focus:shadow-input-focus;
   }
-
-  .dual-range-slider {
-    @apply relative w-full flex items-center;
-  }
-
-  .slider-track {
-    @apply absolute w-full bg-gray-300 rounded-lg;
-  }
-
-  .slider-range {
-    @apply absolute bg-blue rounded-lg;
-  }
-
-  .slider-container {
-    @apply relative border border-gray-300 py-3 px-4 rounded-lg bg-white;
-  }
-
-  .slider-label {
-    @apply block text-xs font-normal text-gray-base mb-1.5;
-  }
-
-  .slider-value {
-    @apply text-xs text-gray-base mb-2;
-  }
-
   .date-picker {
     @apply flex flex-col gap-1 !w-full;
   }
@@ -335,5 +317,89 @@ input {
   background-position: center;
 }
 
-.checkbox-input:checked {
+/* scroll box */
+.scroll-box::-webkit-scrollbar {
+  @apply h-[6px] rounded-[20px];
+}
+.scroll-box::-webkit-scrollbar-thumb {
+  @apply bg-[#DEE3F3] rounded-[20px];
+}
+
+.custom-scrollbar,
+.scroll-box {
+  /* WebKit-specific styles for Chrome, Safari, Edge */
+  &::-webkit-scrollbar {
+    @apply size-1.5 bg-transparent; /* 1.5px width/height, transparent background */
+  }
+
+  &::-webkit-scrollbar-track {
+    @apply rounded-full bg-transparent; /* Rounded, transparent track */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    @apply bg-[#DEE3F3] rounded-[20px]; /* #DEE3F3 thumb, 20px border-radius */
+  }
+
+  /* Hover effect for WebKit browsers */
+  &::-webkit-scrollbar-thumb:hover {
+    @apply bg-[#C5CCE6]; /* Darker shade on hover */
+  }
+
+  /* Fallback for browsers that don't support custom scrollbars (e.g., IE) */
+  overflow: auto; /* Ensure scrollbars appear when needed */
+}
+
+/* Firefox-specific styles using @supports */
+@supports (-moz-appearance: none) {
+  .custom-scrollbar,
+  .scroll-box {
+    scrollbar-width: thin; /* Thin scrollbar for Firefox */
+    scrollbar-color: #dee3f3 transparent; /* Thumb: #DEE3F3, Track: transparent */
+    overflow-x: scroll;
+  }
+}
+
+.touch-none {
+  touch-action: none;
+}
+@media (max-width: 1620px) {
+  .scroll-box {
+    @apply pb-[10px];
+  }
+}
+@media (max-width: 1560px) {
+  .scroll-parent-box,
+  .scroll-box {
+    @apply -mr-6;
+  }
+  .scroll-parent-box > div,
+  .scroll-box > div {
+    @apply pr-6;
+  }
+}
+@media (max-width: 768px) {
+  .scroll-parent-box,
+  .scroll-box {
+    @apply -mr-4;
+  }
+  .scroll-parent-box > div,
+  .scroll-box > div {
+    @apply pr-4;
+  }
+}
+
+/* custom card style */
+.card {
+  @apply md:rounded-2xl rounded-[12px] border bg-white border-gray-200;
+}
+.card-header {
+  @apply border-b border-border-light sm:py-5 md:px-[24px] sm:p-5 p-4;
+}
+
+.card-title {
+  @apply text-lg md:text-xl font-semibold text-black;
+}
+
+.card-content {
+  @apply md:p-6 sm:p-5 p-4;
 }
