@@ -21,7 +21,7 @@ body {
 }
 
 .menu-item {
-  @apply flex items-center gap-3 px-3 py-3 rounded-lg transition-all duration-200 relative w-full text-left;
+  @apply flex items-center gap-3 px-3 py-2 rounded-lg transition-all duration-200 relative w-full text-left;
 }
 
 .menu-item-active {
@@ -291,7 +291,7 @@ input {
     @apply md:text-sm text-xs text-blue;
   }
   .label {
-    
+
   }
 }
 .flatpickr-wrapper {
