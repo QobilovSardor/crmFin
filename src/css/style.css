@@ -131,7 +131,7 @@ input {
   }
 
   .btn {
-    @apply inline-flex whitespace-nowrap items-center gap-2 rounded-lg transition px-4 py-3 md:text-sm text-xs;
+    @apply h-11 inline-flex whitespace-nowrap items-center gap-2 rounded-lg transition px-4 py-3 md:text-sm text-xs;
   }
 
   .btn-primary {
@@ -293,6 +293,68 @@ input {
 }
 .flatpickr-wrapper {
   width: 100% !important;
+}
+.flatpickr-calendar {
+  @apply !bg-white !p-3;
+}
+.flatpickr-calendar.open,
+.flatpickr-calendar.inline {
+  opacity: 1;
+  max-height: 640px;
+  visibility: visible;
+}
+.flatpickr-calendar {
+  background: transparent;
+  opacity: 0;
+  display: none;
+  text-align: center;
+  visibility: hidden;
+  padding: 0;
+  -webkit-animation: none;
+  animation: none;
+  direction: ltr;
+  border: 0;
+  font-size: 14px;
+  line-height: 24px;
+  border-radius: 5px;
+  position: absolute;
+  width: 350px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  background: #fff;
+  -webkit-box-shadow: 1px 0 0 #e6e6e6, -1px 0 0 #e6e6e6, 0 1px 0 #e6e6e6,
+    0 -1px 0 #e6e6e6, 0 3px 13px rgba(0, 0, 0, 0.08);
+  box-shadow: 1px 0 0 #e6e6e6, -1px 0 0 #e6e6e6, 0 1px 0 #e6e6e6,
+    0 -1px 0 #e6e6e6, 0 3px 13px rgba(0, 0, 0, 0.08);
+}.flatpickr-current-month {
+  padding-top: 6px;
+  position: unset;
+  height: unset;
+}
+.flatpickr-months {
+  position: relative;
+  margin-bottom: 10px;
+  height: unset;
+}
+.flatpickr-months .flatpickr-month {
+  height: unset;
+}
+.flatpickr-months .flatpickr-prev-month, .flatpickr-months .flatpickr-next-month {
+  position: unset;
+}
+.flatpickr-calendar {
+  margin-top: .25rem * 2;
+  border-radius: .75rem !important;
+  border-style: solid !important;
+  border-width: 1px !important;
+  border-color: #e4e7ec !important;
+  background-color: white !important;
+  padding: 20px !important;
+  color: #667085 !important;
+}.flatpickr-calendar.arrowTop:before, .flatpickr-calendar.arrowTop:after {
+  display: none;
 }
 
 .checkbox-input {
@@ -463,4 +525,56 @@ input {
 }
 .badge-end-icon {
   @apply ml-1;
+}
+
+/* custom range slider */
+
+/* Universal Range Slider Styles */
+.range-slider-container {
+  @apply relative;
+}
+.range-slider-container .form-control {
+  @apply focus:shadow-none focus:border-border-light pointer-events-none text-gray-base;
+}
+.range-slider {
+  @apply absolute bottom-0 h-[1px] left-4;
+  width: calc(100% - 40px);
+}
+
+.range-slider__track {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background-color: #e2e8f0;
+  border-radius: 2px;
+  transform: translateY(-50%);
+}
+
+.range-slider__range {
+  position: absolute;
+  top: 50%;
+  height: 100%;
+  border-radius: 2px;
+  transform: translateY(-50%);
+  background: #407bff;
+}
+
+.range-slider__handle {
+  @apply absolute top-1/2 -translate-y-1/2 w-[11px] h-[11px] bg-blue rounded-full;
+}
+
+.range-slider__handle:active,
+.range-slider__handle.dragging {
+  cursor: grabbing;
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+.range-slider__handle--min {
+  z-index: 3;
+}
+
+.range-slider__handle--max {
+  z-index: 3;
 }
