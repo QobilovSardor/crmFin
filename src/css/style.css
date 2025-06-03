@@ -290,9 +290,6 @@ input {
   .checkbox-link {
     @apply md:text-sm text-xs text-blue;
   }
-  .label {
-
-  }
 }
 .flatpickr-wrapper {
   width: 100% !important;

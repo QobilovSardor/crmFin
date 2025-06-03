@@ -970,9 +970,6 @@ video {
   }
 }
 
-.label {
-}
-
 .sr-only {
   position: absolute;
   width: 1px;
@@ -1170,6 +1167,11 @@ video {
 
 .clear-none {
   clear: none;
+}
+
+.mx-0 {
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 .mx-auto {
@@ -2621,9 +2623,19 @@ video {
   border-style: none;
 }
 
+.border-\[\#407BFF\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(64 123 255 / var(--tw-border-opacity));
+}
+
 .border-\[\#DEE3F3\] {
   --tw-border-opacity: 1;
   border-color: rgb(222 227 243 / var(--tw-border-opacity));
+}
+
+.border-\[\#F79009\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(247 144 9 / var(--tw-border-opacity));
 }
 
 .border-border-light {
@@ -2669,6 +2681,11 @@ video {
 .bg-\[\#F9FBFF\] {
   --tw-bg-opacity: 1;
   background-color: rgb(249 251 255 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#FFFAEB\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 250 235 / var(--tw-bg-opacity));
 }
 
 .bg-\[rgb\(255\2c 0\2c 0\)\] {
@@ -2844,6 +2861,11 @@ video {
   padding: 1rem;
 }
 
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -2857,6 +2879,11 @@ video {
 .px-5 {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
+}
+
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 
 .py-2 {
@@ -3129,6 +3156,10 @@ video {
   line-height: 1.5rem;
 }
 
+.leading-\[18px\] {
+  line-height: 18px;
+}
+
 .leading-\[20px\] {
   line-height: 20px;
 }
@@ -3195,6 +3226,10 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-\[\#\#407BFF\] {
+  color: ##407BFF;
 }
 
 .underline {
@@ -4093,6 +4128,10 @@ input {
   text-align: center;
 }
 
+.disabled\:opacity-50:disabled {
+  opacity: 0.5;
+}
+
 @media (min-width: 640px) {
   .sm\:bottom-10 {
     bottom: 2.5rem;
@@ -4184,6 +4223,10 @@ input {
     gap: 1rem;
   }
 
+  .sm\:gap-5 {
+    gap: 1.25rem;
+  }
+
   .sm\:gap-6 {
     gap: 1.5rem;
   }
@@ -4248,6 +4291,10 @@ input {
     height: 1.25rem;
   }
 
+  .md\:w-1\/2 {
+    width: 50%;
+  }
+
   .md\:w-2 {
     width: 0.5rem;
   }
@@ -4263,6 +4310,10 @@ input {
 
   .md\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .md\:flex-row {
+    flex-direction: row;
   }
 
   .md\:items-center {
@@ -4338,6 +4389,10 @@ input {
   .md\:text-xs {
     font-size: 0.75rem;
     line-height: 1rem;
+  }
+
+  .md\:leading-5 {
+    line-height: 1.25rem;
   }
 }
 
