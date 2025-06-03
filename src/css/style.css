@@ -403,3 +403,64 @@ input {
 .card-content {
   @apply md:p-6 sm:p-5 p-4;
 }
+
+/* Base badge styles */
+/* Base badge styles */
+.badge {
+  @apply inline-flex items-center justify-center gap-1 rounded-full font-normal w-fit text-[10px] sm:text-xs py-[2px] px-2;
+}
+
+/* Light variant styles */
+.badge-light.badge-light {
+  @apply bg-gray-100 text-gray-600;
+}
+.badge-light.badge-primary {
+  @apply bg-blue;
+}
+.badge-light.badge-success {
+  @apply bg-teal-400;
+}
+.badge-light.badge-error {
+  @apply bg-red-50 text-red-600;
+}
+.badge-light.badge-warning {
+  @apply bg-[#FFFAEB] text-[#DC6803];
+}
+.badge-light.badge-info {
+  @apply bg-blue-light text-blue-light;
+}
+
+.badge-light.badge-dark {
+  @apply bg-gray-500 text-white;
+}
+
+/* Solid variant styles */
+.badge-solid.badge-primary {
+  @apply bg-blue text-white;
+}
+.badge-solid.badge-success {
+  @apply text-white;
+}
+.badge-solid.badge-error {
+  @apply bg-red-500 text-white;
+}
+.badge-solid.badge-warning {
+  @apply bg-yellow-500 text-white;
+}
+.badge-solid.badge-info {
+  @apply bg-blue-light text-white;
+}
+.badge-solid.badge-light {
+  @apply bg-gray-400 text-white;
+}
+.badge-solid.badge-dark {
+  @apply bg-gray-700 text-white;
+}
+
+/* Icon styles */
+.badge-start-icon {
+  @apply mr-1;
+}
+.badge-end-icon {
+  @apply ml-1;
+}
