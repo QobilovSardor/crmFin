@@ -6,7 +6,9 @@
 html {
   scroll-behavior: smooth;
 }
-
+label {
+  @apply block;
+}
 body {
   @apply font-Montserrat text-sm font-normal bg-bg-avatar text-black;
 }
@@ -122,7 +124,22 @@ body {
 input {
   @apply !outline-none;
 }
+header {
+  z-index: 7777;
+}
 @layer components {
+
+  .modal {
+    @apply fixed inset-0  sm:items-center justify-center overflow-y-auto z-[999999] hidden bg-black/60;
+  }
+  .overlay.show,
+  .modal.show {
+    @apply !flex;
+  }
+  .modal-content {
+    @apply sm:max-h-[90vh] sm:h-fit h-full overflow-y-auto no-scrollbar relative overflow-hidden bg-white sm:rounded-xl rounded-none;
+  }
+  /* modal */
   #overlay {
     @apply lg:hidden hidden;
   }
@@ -473,7 +490,7 @@ input {
 /* Base badge styles */
 /* Base badge styles */
 .badge {
-  @apply inline-flex items-center justify-center gap-1 rounded-full font-normal w-fit text-[10px] sm:text-xs py-[2px] px-2;
+  @apply inline-flex items-center justify-center gap-1 rounded-full font-normal w-fit sm:h-fit h-5 text-[10px] sm:text-xs py-[2px] px-2;
 }
 
 /* Light variant styles */
@@ -600,7 +617,6 @@ input {
   }
 }
 
-
 @media (max-width: 650px) {
   .full-tab,
   .full-tab > div,
@@ -608,3 +624,12 @@ input {
     width: 100%;
   }
 }
+
+.blue-icon {
+  @apply stroke-blue;
+}
+.tab .tab-list.active {
+  @apply bg-[#F4F8FF] text-[#407BFF];
+}
+
+/* modal*/

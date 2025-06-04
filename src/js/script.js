@@ -1,3 +1,35 @@
+document.addEventListener("DOMContentLoaded", () => {
+  // Modal ochish
+  document.querySelectorAll('[data-modal-target]').forEach(btn => {
+    btn.addEventListener("click", () => {
+      const modal = document.querySelector(btn.dataset.modalTarget);
+      if (modal) {
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+      }
+    });
+  });
+
+  // Modal yopish tugmalari
+  document.querySelectorAll(".modal-close").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const modal = btn.closest(".modal");
+      if (modal) modal.classList.add("hidden");
+    });
+  });
+
+  // Modal tashqi qismiga (foniga) bosilganda yopish
+  document.querySelectorAll(".modal").forEach(modal => {
+    modal.addEventListener("click", (e) => {
+      // Faqat modal kontentidan tashqariga bosilganda yopilsin
+      if (e.target === modal) {
+        modal.classList.add("hidden");
+      }
+    });
+  });
+});
+
+
 class ApplicationState {
   constructor() {
     this.sidebar = {
@@ -486,12 +518,10 @@ class ApplicationState {
 
     if (this.header.isNotificationOpen) {
       notificationDropdown?.classList.add('show');
-      notificationIcon?.classList.remove('stroke-neutral-muted');
-      notificationIcon?.classList.add('stroke-blue-500');
+      notificationIcon?.classList.add('blue-icon');
     } else {
       notificationDropdown?.classList.remove('show');
-      notificationIcon?.classList.remove('stroke-blue-500');
-      notificationIcon?.classList.add('stroke-neutral-muted');
+      notificationIcon?.classList.remove('blue-icon');
     }
     this.header.notifying = false;
   }
@@ -514,8 +544,7 @@ class ApplicationState {
     if (this.header.isNotificationOpen) {
       const { notificationDropdown, notificationIcon } = this.elements;
       notificationDropdown?.classList.remove('show');
-      notificationIcon?.classList.remove('stroke-blue-500');
-      notificationIcon?.classList.add('stroke-neutral-muted');
+      notificationIcon?.classList.remove('blue-icon');
       this.header.isNotificationOpen = false;
     }
 
@@ -661,10 +690,15 @@ class ApplicationTableState {
 
   bindEvents() {
     // Select all checkbox
-    this.elements.selectAll.addEventListener("change", () => this.handleSelectAll())
+
+    if (this.elements.selectAll) {
+      this.elements.selectAll.addEventListener("change", () => this.handleSelectAll())
+    }
 
     // Clear selection button
-    this.elements.clearSelection.addEventListener("click", () => this.clearSelection())
+    if (this.elements.clearSelection) {
+      this.elements.clearSelection.addEventListener("click", () => this.clearSelection())
+    }
 
     // Sortable headers
     this.elements.sortableHeaders.forEach((header) => {
@@ -855,16 +889,18 @@ class ApplicationTableState {
   }
 
   updateSortIndicators() {
-    this.elements.sortableHeaders.forEach((header) => {
-      const key = header.dataset.sort
-      const arrow = header.querySelector("svg")
+    if (this.elements.sortableHeaders) {
+      this.elements.sortableHeaders.forEach((header) => {
+        const key = header.dataset.sort
+        const arrow = header.querySelector("svg")
 
-      if (this.sortConfig.key === key) {
-        arrow.classList.toggle("rotate-180", this.sortConfig.direction === "asc")
-      } else {
-        arrow.classList.remove("rotate-180")
-      }
-    })
+        if (this.sortConfig.key === key) {
+          arrow.classList.toggle("rotate-180", this.sortConfig.direction === "asc")
+        } else {
+          arrow.classList.remove("rotate-180")
+        }
+      })
+    }
   }
 
   updateFixedBar() {
@@ -1072,3 +1108,18 @@ const columns = [
 document.addEventListener("DOMContentLoaded", () => {
   window.appTable = new ApplicationTableState()
 })
+
+
+const tabs = document.querySelectorAll('.tab-list');
+
+if (tabs) {
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      // Avval hamma tugmalardan 'active' class-ni olib tashlaymiz
+      tabs.forEach(t => t.classList.remove('active'));
+
+      // Faol tugmaga 'active' class qo‘shamiz
+      tab.classList.add('active');
+    });
+  });
+}

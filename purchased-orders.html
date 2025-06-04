@@ -394,45 +394,45 @@
 
         <!-- PageBreadcrumb component (pageTitle="Заявки", breadcrumb=false) -->
         <div class="flex justify-between md:mb-6 sm:mb-5 mb-4 flex-wrap gap-5 md:flex-wrap md:flex-row flex-col">
-          <div className='sm:min-w-auto overflow-x-auto md:hidden block scroll-box mb-4 pr-0 no-scrollbar'>
-            <div className='sm:min-w-[708px] min-w-[525px] no-scrollbar'>
-              <ul class="tab flex items-center rounded-lg bg-white p-0.5 whitespace-nowrap md:w-fit w-fit">
-                <li
-                  class="tab-list active px-3 py-2 font-medium sm:w-full w-fit rounded-md md:text-sm text-xs flex justify-center items-center gap-2 cursor-pointer bg-[#F4F8FF] text-[#407BFF]">
+          <div class='sm:min-w-auto overflow-x-auto md:hidden block scroll-box mb-4 pr-0 no-scrollbar'>
+            <div class='sm:min-w-[708px] min-w-[525px] no-scrollbar'>
+              <div class="tab flex items-center rounded-lg bg-white p-0.5 whitespace-nowrap md:w-fit w-fit">
+                <button
+                  class="tab-list active px-3 py-2 font-medium sm:w-full w-fit rounded-md md:text-sm text-xs flex justify-center items-center gap-2 cursor-pointer active">
                   <span>Все</span>
                   <div
                     class="tab-count rounded-full px-2 py-[2px] text-center align-middle text-xs bg-white text-[#407BFF]">
                     12</div>
-                </li>
-                <li
+                </button>
+                <button
                   class="tab-list px-3 py-2 font-medium sm:w-full w-fit rounded-md md:text-sm text-xs flex justify-center items-center gap-2 cursor-pointer">
                   <span>Новая</span>
                   <div
                     class="tab-count rounded-full px-2 py-[2px] text-center font-normal align-middle text-xs bg-blue-light text-blue">
                     4</div>
-                </li>
-                <li
+                </button>
+                <button
                   class="tab-list px-3 py-2 font-medium sm:w-full w-fit rounded-md md:text-sm text-xs flex justify-center items-center gap-2 cursor-pointer">
                   <span>В обработке</span>
                   <div
                     class="tab-count rounded-full px-2 py-[2px] text-center font-normal align-middle text-xs bg-blue-light text-blue">
                     4</div>
-                </li>
-                <li
+                </button>
+                <button
                   class="tab-list px-3 py-2 font-medium sm:w-full w-fit rounded-md md:text-sm text-xs flex justify-center items-center gap-2 cursor-pointer">
                   <span>Договор</span>
                   <div
                     class="tab-count rounded-full px-2 py-[2px] text-center font-normal align-middle text-xs bg-blue-light text-blue">
                     4</div>
-                </li>
-                <li
+                </button>
+                <button
                   class="tab-list px-3 py-2 font-medium sm:w-full w-fit rounded-md md:text-sm text-xs flex justify-center items-center gap-2 cursor-pointer">
                   <span>Архив</span>
                   <div
                     class="tab-count rounded-full px-2 py-[2px] text-center font-normal align-middle text-xs bg-blue-light text-blue">
                     4</div>
-                </li>
-              </ul>
+                </button>
+              </div>
             </div>
           </div>
           <div class="flex gap-3 sm:w-fit w-full sm:justify-start justify-between">
@@ -598,7 +598,7 @@
                               </div>
                             </th>
                             <th class="p-3 h-11 text-[#707D89] text-start md:text-xs text-[10px] font-normal">
-                              <div class="flex items-center gap-2 cursor-pointer select-none" data-sort="createdAt">
+                              <div class="flex items-center gap-2 cursor-pointer select-none">
                                 Дата создания
                               </div>
                             </th>
@@ -652,8 +652,9 @@
                               <input type="checkbox" class="checkbox checkbox-input">
                             </td>
                             <td class=" px-3 py-2 h-11  text-start w-[42px] max-w-[42px]  false"><button
-                                class="w-full h-full flex items-center justify-center"><svg width="15px" height="12px"
-                                  viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                class="w-full h-full flex items-center justify-center"
+                                data-modal-target="#anketa-modal"><svg width="15px" height="12px" viewBox="0 0 18 12"
+                                  fill="none" xmlns="http://www.w3.org/2000/svg">
                                   <path
                                     d="M1.81509 6.53488C1.71295 6.37315 1.66188 6.29229 1.63329 6.16756C1.61182 6.07387 1.61182 5.92613 1.63329 5.83244C1.66188 5.70771 1.71295 5.62685 1.81509 5.46512C2.65915 4.12863 5.17155 0.75 9.0003 0.75C12.8291 0.75 15.3415 4.12863 16.1855 5.46512C16.2877 5.62685 16.3387 5.70771 16.3673 5.83244C16.3888 5.92613 16.3888 6.07387 16.3673 6.16756C16.3387 6.29229 16.2877 6.37315 16.1855 6.53488C15.3415 7.87137 12.8291 11.25 9.0003 11.25C5.17155 11.25 2.65915 7.87137 1.81509 6.53488Z"
                                     stroke="#707D89" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -694,8 +695,9 @@
                             <td class=" px-3 text-start w-14 pl-6 false"><input type="checkbox" id="select-all"
                                 class="checkbox checkbox-input"></td>
                             <td class=" px-3 py-2 h-11  text-start w-[42px] max-w-[42px]  false"><button
-                                class="w-full h-full flex items-center justify-center"><svg width="15px" height="12px"
-                                  viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                class="w-full h-full flex items-center justify-center"
+                                data-modal-target="#anketa-modal"><svg width="15px" height="12px" viewBox="0 0 18 12"
+                                  fill="none" xmlns="http://www.w3.org/2000/svg">
                                   <path
                                     d="M1.81509 6.53488C1.71295 6.37315 1.66188 6.29229 1.63329 6.16756C1.61182 6.07387 1.61182 5.92613 1.63329 5.83244C1.66188 5.70771 1.71295 5.62685 1.81509 5.46512C2.65915 4.12863 5.17155 0.75 9.0003 0.75C12.8291 0.75 15.3415 4.12863 16.1855 5.46512C16.2877 5.62685 16.3387 5.70771 16.3673 5.83244C16.3888 5.92613 16.3888 6.07387 16.3673 6.16756C16.3387 6.29229 16.2877 6.37315 16.1855 6.53488C15.3415 7.87137 12.8291 11.25 9.0003 11.25C5.17155 11.25 2.65915 7.87137 1.81509 6.53488Z"
                                     stroke="#707D89" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -735,8 +737,9 @@
                             <td class=" px-3 text-start w-14 pl-6 false"><input type="checkbox" id="select-all"
                                 class="checkbox checkbox-input"></td>
                             <td class=" px-3 py-2 h-11  text-start w-[42px] max-w-[42px]  false"><button
-                                class="w-full h-full flex items-center justify-center"><svg width="15px" height="12px"
-                                  viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                class="w-full h-full flex items-center justify-center"
+                                data-modal-target="#anketa-modal"><svg width="15px" height="12px" viewBox="0 0 18 12"
+                                  fill="none" xmlns="http://www.w3.org/2000/svg">
                                   <path
                                     d="M1.81509 6.53488C1.71295 6.37315 1.66188 6.29229 1.63329 6.16756C1.61182 6.07387 1.61182 5.92613 1.63329 5.83244C1.66188 5.70771 1.71295 5.62685 1.81509 5.46512C2.65915 4.12863 5.17155 0.75 9.0003 0.75C12.8291 0.75 15.3415 4.12863 16.1855 5.46512C16.2877 5.62685 16.3387 5.70771 16.3673 5.83244C16.3888 5.92613 16.3888 6.07387 16.3673 6.16756C16.3387 6.29229 16.2877 6.37315 16.1855 6.53488C15.3415 7.87137 12.8291 11.25 9.0003 11.25C5.17155 11.25 2.65915 7.87137 1.81509 6.53488Z"
                                     stroke="#707D89" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -777,8 +780,9 @@
                             <td class=" px-3 text-start w-14 pl-6 false"><input type="checkbox" id="select-all"
                                 class="checkbox checkbox-input"></td>
                             <td class=" px-3 py-2 h-11  text-start w-[42px] max-w-[42px]  false"><button
-                                class="w-full h-full flex items-center justify-center"><svg width="15px" height="12px"
-                                  viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                class="w-full h-full flex items-center justify-center"
+                                data-modal-target="#anketa-modal"><svg width="15px" height="12px" viewBox="0 0 18 12"
+                                  fill="none" xmlns="http://www.w3.org/2000/svg">
                                   <path
                                     d="M1.81509 6.53488C1.71295 6.37315 1.66188 6.29229 1.63329 6.16756C1.61182 6.07387 1.61182 5.92613 1.63329 5.83244C1.66188 5.70771 1.71295 5.62685 1.81509 5.46512C2.65915 4.12863 5.17155 0.75 9.0003 0.75C12.8291 0.75 15.3415 4.12863 16.1855 5.46512C16.2877 5.62685 16.3387 5.70771 16.3673 5.83244C16.3888 5.92613 16.3888 6.07387 16.3673 6.16756C16.3387 6.29229 16.2877 6.37315 16.1855 6.53488C15.3415 7.87137 12.8291 11.25 9.0003 11.25C5.17155 11.25 2.65915 7.87137 1.81509 6.53488Z"
                                     stroke="#707D89" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -841,7 +845,7 @@
                   </button>
                 </div>
                 <div class='flex gap-4 items-start sm:ml-0 ml-auto'>
-                  <span class='md:text-sm text-xs text-[#707D89] mt-[10px]'>Показывать по</span>
+                  <span class='md:text-sm text-xs text-[#707D89] mt-3'>Показывать по</span>
                   <div class="w-[75px] slect-container">
                     <div class="select">
                       <div class="select-toggle">
@@ -892,6 +896,165 @@
       </div>
     </div>
   </main>
+
+  <!-- modal -->
+  <div class="modal" id="anketa-modal">
+    <div class="modal-body md:w-[620px] sm:w-[580px] w-full">
+      <div class="modal-content w-full">
+        <div class="flex items-center justify-between sm:py-5 sm:px-6 p-4 border-b border-[#DEE3F3]">
+          <h3 class="md:text-base text-sm text-black font-semibold">Анкета: 2537473</h3>
+          <div class="flex gap-3 items-center">
+            <span class="md:text-sm text-xs text-[#707D89]">14.02.2024 20:15</span>
+            <button class="modal-close">
+              <svg class="md:size-6 size-5" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M6.04289 16.5418C5.65237 16.9323 5.65237 17.5655 6.04289 17.956C6.43342 18.3465 7.06658 18.3465 7.45711 17.956L11.9987 13.4144L16.5408 17.9565C16.9313 18.347 17.5645 18.347 17.955 17.9565C18.3455 17.566 18.3455 16.9328 17.955 16.5423L13.4129 12.0002L17.955 7.45808C18.3455 7.06756 18.3455 6.43439 17.955 6.04387C17.5645 5.65335 16.9313 5.65335 16.5408 6.04387L11.9987 10.586L7.45711 6.04439C7.06658 5.65386 6.43342 5.65386 6.04289 6.04439C5.65237 6.43491 5.65237 7.06808 6.04289 7.4586L10.5845 12.0002L6.04289 16.5418Z"
+                  fill="#707D89"></path>
+              </svg></button>
+          </div>
+        </div>
+        <div class='sm:p-6 p-4 space-y-4'>
+          <div>
+            <label class='text-[#707D89] mb-[6px] sm:text-xs text-[10px]'>Статус</label>
+            <div class="select-container">
+              <div class="select" role="combobox" aria-expanded="false" aria-controls="select-options-1" tabindex="0">
+                <div class="select-toggle">
+                  <span class="select-display font-normal text-black sm:text-md text-xs">В обработке</span>
+                  <svg class="select-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 6L8 10L12 6" stroke="#407BFF" stroke-width="1.5" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <ul class="select-options hidden" role="listbox">
+                  <li class="select-option" data-value="В обработке" role="option" aria-selected="false">В обработке
+                  </li>
+                  <li class="select-option" data-value="Москва2" role="option" aria-selected="false">Москва2</li>
+                  <li class="select-option" data-value="Москва3" role="option" aria-selected="false">Москва3</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class='p-6 rounded-[12px] border border-[#DEE3F3] whitespace-nowrap space-y-6'>
+            <div class='space-y-3'>
+              <div class='flex justify-between gap-2'>
+                <span class='text-xs text-[#707D89]'>Фамилия</span>
+                <span class='border-dotted border-b w-full border-[#DEE3F3] block mb-1'></span>
+                <span class='text-sm font-semibold'>Заморина</span>
+              </div>
+              <div class='flex justify-between gap-2'>
+                <span class='text-xs text-[#707D89]'>Имя</span>
+                <span class='border-dotted border-b w-full border-[#DEE3F3] block mb-1'></span>
+                <span class='text-sm font-semibold'>Татьяна</span>
+              </div>
+              <div class='flex justify-between gap-2'>
+                <span class='text-xs text-[#707D89]'>Отчество</span>
+                <span class='border-dotted border-b w-full border-[#DEE3F3] block mb-1'></span>
+                <span class='text-sm font-semibold'>Викторовна</span>
+              </div>
+            </div>
+            <div class='space-y-3'>
+              <div class='flex justify-between gap-2'>
+                <span class='text-xs text-[#707D89]'>Дата рождения</span>
+                <span class='border-dotted border-b w-full border-[#DEE3F3] block mb-1'></span>
+                <span class='text-sm font-semibold'>19.11.1961</span>
+              </div>
+              <div class='flex justify-between gap-2'>
+                <span class='text-xs text-[#707D89]'>Регион</span>
+                <span class='border-dotted border-b w-full border-[#DEE3F3] block mb-1'></span>
+                <span class='text-sm font-semibold'>Тульская область</span>
+              </div>
+              <div class='flex justify-between gap-2'>
+                <span class='text-xs text-[#707D89]'>Город</span>
+                <span class='border-dotted border-b w-full border-[#DEE3F3] block mb-1'></span>
+                <span class='text-sm font-semibold'>Тула</span>
+              </div>
+            </div>
+            <div class='space-y-3'>
+              <div class='flex justify-between gap-2'>
+                <span class='text-xs text-[#707D89]'>Фамилия</span>
+                <span class='border-dotted border-b w-full border-[#DEE3F3] block mb-1'></span>
+                <span class='text-sm font-semibold'>Заморина</span>
+              </div>
+              <div class='flex justify-between gap-2'>
+                <span class='text-xs text-[#707D89]'>Имя</span>
+                <span class='border-dotted border-b w-full border-[#DEE3F3] block mb-1'></span>
+                <span class='text-sm font-semibold'>Татьяна</span>
+              </div>
+              <div class='flex justify-between gap-2'>
+                <span class='text-xs text-[#707D89]'>Отчество</span>
+                <span class='border-dotted border-b w-full border-[#DEE3F3] block mb-1'></span>
+                <span class='text-sm font-semibold'>Викторовна</span>
+              </div>
+            </div>
+            <div class='space-y-3'>
+              <div class='flex justify-between gap-2'>
+                <span class='text-xs text-[#707D89]'>Дата рождения</span>
+                <span class='border-dotted border-b w-full border-[#DEE3F3] block mb-1'></span>
+                <span class='text-sm font-semibold'>19.11.1961</span>
+              </div>
+              <div class='flex justify-between gap-2'>
+                <span class='text-xs text-[#707D89]'>Регион</span>
+                <span class='border-dotted border-b w-full border-[#DEE3F3] block mb-1'></span>
+                <span class='text-sm font-semibold'>Тульская область</span>
+              </div>
+              <div class='flex justify-between gap-2'>
+                <span class='text-xs text-[#707D89]'>Город</span>
+                <span class='border-dotted border-b w-full border-[#DEE3F3] block mb-1'></span>
+                <span class='text-sm font-semibold'>Тула</span>
+              </div>
+            </div>
+          </div>
+          <div class='p-6 rounded-[12px] border border-[#DEE3F3] whitespace-nowrap space-y-6'>
+            <div class='space-y-3'>
+              <div class='flex justify-between gap-2'>
+                <span class='text-xs text-[#707D89]'>Фамилия</span>
+                <span class='border-dotted border-b w-full border-[#DEE3F3] block mb-1'></span>
+                <span class='text-sm font-semibold'>Заморина</span>
+              </div>
+              <div class='flex justify-between gap-2'>
+                <span class='text-xs text-[#707D89]'>Имя</span>
+                <span class='border-dotted border-b w-full border-[#DEE3F3] block mb-1'></span>
+                <span class='text-sm font-semibold'>Татьяна</span>
+              </div>
+            </div>
+          </div>
+          <div class='p-6 rounded-[12px] border border-[#DEE3F3] whitespace-nowrap space-y-6'>
+            <div class='space-y-3'>
+              <div class='flex justify-between gap-2'>
+                <span class='text-xs text-[#707D89]'>Фамилия</span>
+                <span class='border-dotted border-b w-full border-[#DEE3F3] block mb-1'></span>
+                <span class='text-sm font-semibold'>Заморина</span>
+              </div>
+              <div class='flex justify-between gap-2'>
+                <span class='text-xs text-[#707D89]'>Имя</span>
+                <span class='border-dotted border-b w-full border-[#DEE3F3] block mb-1'></span>
+                <span class='text-sm font-semibold'>Татьяна</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class='sm:p-6 p-3 border-t  border-[#DEE3F3] flex gap-3 sticky bottom-0 bg-white z-[999999] justify-between'>
+          <div class='flex gap-3'>
+            <button class='justify-center btn btn-outline w-11 p-0'>
+              <img src="src/images/icons/chevron-left.svg" alt="">
+            </button>
+            <button class='justify-center btn btn-outline w-11 p-0'>
+              <img src="src/images/icons/chevron-left.svg" class="rotate-180" alt="">
+            </button>
+          </div>
+          <div class='flex gap-3'>
+            <button class="btn btn-primary" disabled>Сохранить</button>
+            <button class="btn btn-outline modal-close">
+              Закрыть
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- range slider -->
   <script src="./src/js/range-slider.js"></script>
