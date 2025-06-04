@@ -1149,6 +1149,14 @@ video {
   top: 1rem;
 }
 
+.top-full {
+  top: 100%;
+}
+
+.top-auto {
+  top: auto;
+}
+
 .isolate {
   isolation: isolate;
 }
@@ -1167,6 +1175,10 @@ video {
 
 .z-\[10000\] {
   z-index: 10000;
+}
+
+.z-\[1000\] {
+  z-index: 1000;
 }
 
 .z-\[100\] {
@@ -1439,14 +1451,14 @@ video {
   display: none;
 }
 
-.size-6 {
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
 .size-5 {
   width: 1.25rem;
   height: 1.25rem;
+}
+
+.size-6 {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .h-1 {
@@ -1528,6 +1540,10 @@ video {
 
 .h-screen {
   height: 100vh;
+}
+
+.min-h-1 {
+  min-height: 0.25rem;
 }
 
 .min-h-\[calc\(100\%_-_77px\)\] {
@@ -2877,6 +2893,11 @@ video {
   background-color: rgb(32 49 72 / var(--tw-bg-opacity));
 }
 
+.bg-\[\#407BFF\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(64 123 255 / var(--tw-bg-opacity));
+}
+
 .bg-\[\#F4F8FF\] {
   --tw-bg-opacity: 1;
   background-color: rgb(244 248 255 / var(--tw-bg-opacity));
@@ -3159,6 +3180,10 @@ video {
   padding-left: 0.5rem;
 }
 
+.pl-3 {
+  padding-left: 0.75rem;
+}
+
 .pl-5 {
   padding-left: 1.25rem;
 }
@@ -3205,6 +3230,10 @@ video {
 
 .pt-\[80px\] {
   padding-top: 80px;
+}
+
+.pb-\[70px\] {
+  padding-bottom: 70px;
 }
 
 .text-left {
@@ -4719,12 +4748,32 @@ header {
 }
 
 @media (min-width: 640px) {
+  .sm\:relative {
+    position: relative;
+  }
+
+  .sm\:sticky {
+    position: sticky;
+  }
+
   .sm\:bottom-10 {
     bottom: 2.5rem;
   }
 
   .sm\:left-\[unset\] {
     left: unset;
+  }
+
+  .sm\:right-0 {
+    right: 0px;
+  }
+
+  .sm\:top-full {
+    top: 100%;
+  }
+
+  .sm\:m-4 {
+    margin: 1rem;
   }
 
   .sm\:my-5 {
@@ -4804,6 +4853,10 @@ header {
     width: 386px;
   }
 
+  .sm\:w-\[400px\] {
+    width: 400px;
+  }
+
   .sm\:w-\[580px\] {
     width: 580px;
   }
@@ -4832,6 +4885,10 @@ header {
 
   .sm\:max-w-\[365px\] {
     max-width: 365px;
+  }
+
+  .sm\:max-w-\[580px\] {
+    max-width: 580px;
   }
 
   .sm\:grid-cols-2 {
@@ -4884,6 +4941,10 @@ header {
     overflow: clip;
   }
 
+  .sm\:rounded-\[12px\] {
+    border-radius: 12px;
+  }
+
   .sm\:p-3 {
     padding: 0.75rem;
   }
@@ -4917,6 +4978,10 @@ header {
 
   .sm\:pr-3 {
     padding-right: 0.75rem;
+  }
+
+  .sm\:pb-0 {
+    padding-bottom: 0px;
   }
 
   .sm\:text-sm {
@@ -5012,6 +5077,10 @@ header {
 
   .md\:min-w-\[361px\] {
     min-width: 361px;
+  }
+
+  .md\:max-w-\[620px\] {
+    max-width: 620px;
   }
 
   .md\:grid-cols-3 {

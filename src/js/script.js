@@ -29,6 +29,13 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+const modalTooltip = document.getElementById('modal-tooltip');
+if(modalTooltip) {
+  const toltipContent = document.querySelector('.tooltip-content')
+  modalTooltip.addEventListener('click', () => {
+    toltipContent.classList.toggle('hidden')
+  })
+}
 
 class ApplicationState {
   constructor() {
