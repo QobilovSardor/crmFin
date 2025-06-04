@@ -1,4 +1,3 @@
-
 class ApplicationState {
   constructor() {
     this.sidebar = {
@@ -204,14 +203,14 @@ class ApplicationState {
                     <path d="M4 7H16M1 1H19M7 13H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>`,
         name: 'Купленные заявки',
-        path: 'purchased-orders.html'
+        path: '/purchased-orders.html'
       },
       {
         icon: `<svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M19 9H1M14 1V5M6 1V5M7 15L9 17L13.5 12.5M5.8 21H14.2C15.8802 21 16.7202 21 17.362 20.673C17.9265 20.3854 18.3854 19.9265 18.673 19.362C19 18.7202 19 17.8802 19 16.2V7.8C19 6.11984 19 5.27976 18.673 4.63803C18.3854 4.07354 17.9265 3.6146 17.362 3.32698C16.7202 3 15.8802 3 14.2 3H5.8C4.11984 3 3.27976 3 2.63803 3.32698C2.07354 3.6146 1.6146 4.07354 1.32698 4.63803C1 5.27976 1 6.11984 1 7.8V16.2C1 17.8802 1 18.7202 1.32698 19.362C1.6146 19.9265 2.07354 20.3854 2.63803 20.673C3.27976 21 4.11984 21 5.8 21Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>`,
         name: 'Планировщик',
-        path: '/scheduler',
+        path: '/scheduler.html',
         notification: '2'
       },
       {
@@ -219,7 +218,7 @@ class ApplicationState {
                     <path d="M1 9L1 19M13 9L13 19M7 1L7 19M19 1V19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>`,
         name: 'Статистика',
-        path: '/statistics'
+        path: '/statistics.html'
       },
       {
         icon: `<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -246,7 +245,7 @@ class ApplicationState {
                     <path d="M6 8.5L8 10.5L12.5 6M17 19V5.8C17 4.11984 17 3.27976 16.673 2.63803C16.3854 2.07354 15.9265 1.6146 15.362 1.32698C14.7202 1 13.8802 1 12.2 1H5.8C4.11984 1 3.27976 1 2.63803 1.32698C2.07354 1.6146 1.6146 2.07354 1.32698 2.63803C1 3.27976 1 4.11984 1 5.8V19L3.75 17L6.25 19L9 17L11.75 19L14.25 17L17 19Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>`,
         name: 'Архив платежей',
-        path: '/payments-archive'
+        path: '/payments-archive.html'
       }
     ];
   }
@@ -258,7 +257,7 @@ class ApplicationState {
                     <path d="M5.5 10H5.51M10 10H10.01M14.5 10H14.51M10 19C14.9706 19 19 14.9706 19 10C19 5.02944 14.9706 1 10 1C5.02944 1 1 5.02944 1 10C1 11.1971 1.23374 12.3397 1.65806 13.3845C1.73927 13.5845 1.77988 13.6845 1.798 13.7653C1.81572 13.8443 1.8222 13.9028 1.82221 13.9839C1.82222 14.0667 1.80718 14.1569 1.77711 14.3374L1.18413 17.8952C1.12203 18.2678 1.09098 18.4541 1.14876 18.5888C1.19933 18.7067 1.29328 18.8007 1.41118 18.8512C1.54589 18.909 1.73218 18.878 2.10476 18.8159L5.66265 18.2229C5.84309 18.1928 5.9333 18.1778 6.01613 18.1778C6.09715 18.1778 6.15566 18.1843 6.23472 18.202C6.31554 18.2201 6.41552 18.2607 6.61549 18.3419C7.6603 18.7663 8.80286 19 10 19ZM6 10C6 10.2761 5.77614 10.5 5.5 10.5C5.22386 10.5 5 10.2761 5 10C5 9.72386 5.22386 9.5 5.5 9.5C5.77614 9.5 6 9.72386 6 10ZM10.5 10C10.5 10.2761 10.2761 10.5 10 10.5C9.72386 10.5 9.5 10.2761 9.5 10C9.5 9.72386 9.72386 9.5 10 9.5C10.2761 9.5 10.5 9.72386 10.5 10ZM15 10C15 10.2761 14.7761 10.5 14.5 10.5C14.2239 10.5 14 10.2761 14 10C14 9.72386 14.2239 9.5 14.5 9.5C14.7761 9.5 15 9.72386 15 10Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>`,
         name: 'Контакты',
-        path: '/account-details-individual'
+        path: '/account-details-individual.html'
       }
     ];
   }
@@ -319,7 +318,7 @@ class ApplicationState {
       const updatedIcon = item.icon.replace(/stroke="[^"]*"/g, `stroke="${iconColor}"`);
 
       button.innerHTML = `
-        <span class="menu-item-icon-size ${this.openSubmenu?.type === menuType && this.openSubmenu?.index === index
+        <span class="menu-item-icon-size flex items-center ${this.openSubmenu?.type === menuType && this.openSubmenu?.index === index
           ? 'menu-item-icon-active'
           : 'menu-item-icon-inactive'
         }">
@@ -353,7 +352,7 @@ class ApplicationState {
       const updatedIcon = item.icon.replace(/stroke="[^"]*"/g, `stroke="${iconColor}"`);
 
       link.innerHTML = `
-        <span class="menu-item-icon-size ${itemIsActive ? 'menu-item-icon-active' : 'menu-item-icon-inactive'
+        <span class="menu-item-icon-size flex items-center ${itemIsActive ? 'menu-item-icon-active' : 'menu-item-icon-inactive'
         }">
           ${updatedIcon}
         </span>
@@ -460,149 +459,6 @@ class ApplicationState {
     }
   }
 
-  // Table functions
-  renderTable() {
-    const { tableBody } = this.elements;
-    if (!tableBody) return;
-
-    tableBody.innerHTML = '';
-
-    this.table.data.forEach((row) => {
-      const tr = document.createElement('tr');
-      tr.innerHTML = `
-                <td class="pl-6 w-14">
-                    <input
-                        type="checkbox"
-                        class="checkbox checkbox-input"
-                        data-row-id="${row.id}"
-                        ${this.table.selectedRows.includes(row.id) ? 'checked' : ''}
-                    />
-                </td>
-                <td class="px-3 h-11 py-2 text-start">
-                    <div class="flex items-center gap-2">
-                        <span class="md:text-sm text-xs">${row.id}</span>
-                        <div class="w-[6px] h-[6px] rounded-full bg-green-600 opacity-20"></div>
-                    </div>
-                </td>
-                <td class="px-3 h-11 py-2 text-start">
-                    <span class="md:text-sm text-xs">${row.createdAt}</span>
-                </td>
-                <td class="px-3 h-11 py-2 text-start">
-                    <span class="md:text-sm text-xs">${row.region}</span>
-                </td>
-                <td class="px-3 h-11 py-2 text-start">
-                    <span class="md:text-sm text-xs">${row.city}</span>
-                </td>
-                <td class="px-3 h-11 py-2 text-start">
-                    <span class="md:text-sm text-xs">${row.name}</span>
-                </td>
-                <td class="px-3 h-11 py-2 text-start">
-                    <span class="md:text-sm text-xs">${row.phone}</span>
-                </td>
-                <td class="px-3 h-11 py-2 text-start">
-                    <span class="md:text-sm text-xs">${row.birthDate}</span>
-                </td>
-                <td class="px-3 h-11 py-2 text-start">
-                    <span class="md:text-sm text-xs">${row.loanAmount}</span>
-                </td>
-                <td class="px-3 h-11 py-2 text-start">
-                    <span class="md:text-sm text-xs">${row.loanType}</span>
-                </td>
-                <td class="px-3 h-11 py-2 text-start w-[88px]">
-                    <span class="md:text-sm text-xs">${row.price}</span>
-                </td>
-            `;
-      tableBody.appendChild(tr);
-    });
-    this.updateFixedBar();
-  }
-  renderTable2() {
-    const { purchaseTableBody } = this.elements;
-    if (!purchaseTableBody) return;
-
-    purchaseTableBody.innerHTML = '';
-
-    this.table.data.forEach((row) => {
-      const tr = document.createElement('tr');
-      tr.innerHTML = `
-                <td class="pl-6 w-14">
-                    <input
-                        type="checkbox"
-                        class="checkbox checkbox-input"
-                        data-row-id="${row.id}"
-                        ${this.table.selectedRows.includes(row.id) ? 'checked' : ''}
-                    />
-                </td>
-                <td class="px-3 h-11 py-2 text-start">
-                    <div class="flex items-center gap-2">
-                        <span class="md:text-sm text-xs">${row.id}</span>
-                      s
-                    </div>
-                </td>
-                <td class="px-3 h-11 py-2 text-start">
-                    <span class="md:text-sm text-xs">${row.createdAt}</span>
-                </td>
-                <td class="px-3 h-11 py-2 text-start">
-                    <span class="md:text-sm text-xs">${row.region}</span>
-                </td>
-                <td class="px-3 h-11 py-2 text-start">
-                    <span class="md:text-sm text-xs">${row.city}</span>
-                </td>
-                <td class="px-3 h-11 py-2 text-start">
-                    <span class="md:text-sm text-xs">${row.name}</span>
-                </td>
-                <td class="px-3 h-11 py-2 text-start">
-                    <span class="md:text-sm text-xs">${row.phone}</span>
-                </td>
-                <td class="px-3 h-11 py-2 text-start">
-                    <span class="md:text-sm text-xs">${row.birthDate}</span>
-                </td>
-                <td class="px-3 h-11 py-2 text-start">
-                    <span class="md:text-sm text-xs">${row.loanAmount}</span>
-                </td>
-                <td class="px-3 h-11 py-2 text-start">
-                    <span class="md:text-sm text-xs">${row.loanType}</span>
-                </td>
-                <td class="px-3 h-11 py-2 text-start w-[88px]">
-                    <span class="md:text-sm text-xs">${row.price}</span>
-                </td>
-            `;
-      purchaseTableBody.appendChild(tr);
-    });
-
-    this.updateFixedBar();
-  }
-
-  handleRowSelection(rowId) {
-    if (this.table.selectedRows.includes(rowId)) {
-      this.table.selectedRows = this.table.selectedRows.filter(id => id !== rowId);
-    } else {
-      this.table.selectedRows.push(rowId);
-    }
-    this.updateSelectAllCheckbox();
-    this.updateFixedBar();
-  }
-
-  handleSelectAll() {
-    const { selectAll } = this.elements;
-    if (this.table.selectedRows.length === this.table.data.length) {
-      this.table.selectedRows = [];
-      selectAll.checked = false;
-    } else {
-      this.table.selectedRows = this.table.data.map(row => row.id);
-      selectAll.checked = true;
-    }
-    this.renderTable();
-    this.updateFixedBar();
-  }
-
-  updateSelectAllCheckbox() {
-    const { selectAll } = this.elements;
-    if (selectAll) {
-      selectAll.checked = this.table.selectedRows.length === this.table.data.length && this.table.data.length > 0;
-    }
-  }
-
   updateFixedBar() {
     const { fixedBar, selectedCount, totalPrice } = this.elements;
 
@@ -622,7 +478,6 @@ class ApplicationState {
 
   clearSelection() {
     this.table.selectedRows = [];
-    this.renderTable();
     this.updateFixedBar();
   }
   toggleNotificationDropdown() {
@@ -779,7 +634,6 @@ class ApplicationState {
 
     this.updateSidebarState();
     this.updateFixedBarWidth();
-    this.renderTable();
   }
 
 }
@@ -792,12 +646,10 @@ class ApplicationTableState {
     this.sortConfig = { key: "id", direction: "asc" };
     this.initElements();
     this.bindEvents();
-    this.renderTable();
   }
   initElements() {
     this.elements = {
       tableBody: document.getElementById("table-body"),
-      purchaseTableBody: document.getElementById("purchase-table-body"),
       selectAll: document.getElementById("select-all"),
       fixedBar: document.getElementById("fixed-bar"),
       selectedCount: document.getElementById("selected-count"),
