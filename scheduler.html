@@ -373,7 +373,7 @@
         class="px-4 md:px-6 pb-4 md:pb-6 relative min-h-[calc(100%_-_77px)] lg:pt-6 pt-[80px] sm:overflow-clip overflow-hidden">
         <div class="flex flex-wrap items-center justify-between gap-3 md:mb-6 sm:mb-5 mb-4">
           <h2 class="md:text-2xl text-xl font-semibold text-black">
-            Купленные заявки
+            Планировщик
           </h2>
           <nav class="sm:block hidden">
             <ol class="flex items-center gap-1.5">
@@ -388,9 +388,24 @@
                 </a>
               </li>
               <li class="text-xs text-400">/</li>
-              <li class="text-blackLight text-xs">Купленные заявки</li>
+              <li class="text-blackLight text-xs">Планировщик</li>
             </ol>
           </nav>
+        </div>
+
+        <div class="mb-4 flex items-start gap-3 rounded-lg border border-[#407BFF] bg-[#F4F8FF] p-4 sm:mb-5 md:mb-6">
+          <img src="src/images/icons/blue-info.svg" alt="">
+          <div>
+            <h3 class="mb-1 text-xs font-semibold md:text-sm">Планировщик</h3>
+            <span id="infoText" class="text-xs font-normal leading-[18px] md:text-sm md:leading-5 block">
+              Это откроет полный доступ ко всем возможностям нашей платформы, позволит удобно управлять финансовыми
+              операциями и...
+            </span>
+            <button id="toggleText"
+              class="mt-2 block border-b border-[#407BFF] text-xs font-medium text-[#407BFF] sm:hidden">
+              Раскрыть
+            </button>
+          </div>
         </div>
 
         <!-- PageBreadcrumb component (pageTitle="Заявки", breadcrumb=false) -->
