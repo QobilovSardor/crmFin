@@ -328,7 +328,8 @@ input {
     0 -1px 0 #e6e6e6, 0 3px 13px rgba(0, 0, 0, 0.08);
   box-shadow: 1px 0 0 #e6e6e6, -1px 0 0 #e6e6e6, 0 1px 0 #e6e6e6,
     0 -1px 0 #e6e6e6, 0 3px 13px rgba(0, 0, 0, 0.08);
-}.flatpickr-current-month {
+}
+.flatpickr-current-month {
   padding-top: 6px;
   position: unset;
   height: unset;
@@ -341,19 +342,22 @@ input {
 .flatpickr-months .flatpickr-month {
   height: unset;
 }
-.flatpickr-months .flatpickr-prev-month, .flatpickr-months .flatpickr-next-month {
+.flatpickr-months .flatpickr-prev-month,
+.flatpickr-months .flatpickr-next-month {
   position: unset;
 }
 .flatpickr-calendar {
-  margin-top: .25rem * 2;
-  border-radius: .75rem !important;
+  margin-top: 0.25rem * 2;
+  border-radius: 0.75rem !important;
   border-style: solid !important;
   border-width: 1px !important;
   border-color: #e4e7ec !important;
   background-color: white !important;
   padding: 20px !important;
   color: #667085 !important;
-}.flatpickr-calendar.arrowTop:before, .flatpickr-calendar.arrowTop:after {
+}
+.flatpickr-calendar.arrowTop:before,
+.flatpickr-calendar.arrowTop:after {
   display: none;
 }
 
@@ -477,10 +481,10 @@ input {
   @apply bg-gray-100 text-gray-600;
 }
 .badge-light.badge-primary {
-  @apply bg-blue;
+  @apply bg-[#ECF3FF] text-[#465FFF];
 }
 .badge-light.badge-success {
-  @apply bg-teal-400;
+  @apply bg-[#ECFDF3] text-[#039855];
 }
 .badge-light.badge-error {
   @apply bg-red-50 text-red-600;
@@ -489,7 +493,7 @@ input {
   @apply bg-[#FFFAEB] text-[#DC6803];
 }
 .badge-light.badge-info {
-  @apply bg-blue-light text-blue-light;
+  @apply bg-[#F2F4F7] text-[#707D89];
 }
 
 .badge-light.badge-dark {
@@ -577,4 +581,21 @@ input {
 
 .range-slider__handle--max {
   z-index: 3;
+}
+
+.table-body tr td {
+  @apply border-b border-border-light;
+}
+.table-body tr:last-child td {
+  @apply border-none;
+}
+
+@media (max-width: 490px) {
+  table th,
+  table td {
+    height: 42px !important;
+  }
+  table th {
+    @apply !py-1;
+  }
 }

@@ -204,7 +204,7 @@ class ApplicationState {
                     <path d="M4 7H16M1 1H19M7 13H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>`,
         name: 'Купленные заявки',
-        path: '/purchased-orders'
+        path: '/purchased-orders.html'
       },
       {
         icon: `<svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -319,7 +319,7 @@ class ApplicationState {
       const updatedIcon = item.icon.replace(/stroke="[^"]*"/g, `stroke="${iconColor}"`);
 
       button.innerHTML = `
-        <span class="menu-item-icon-size ${this.openSubmenu?.type === menuType && this.openSubmenu?.index === index
+        <span class="menu-item-icon-size flex items-center ${this.openSubmenu?.type === menuType && this.openSubmenu?.index === index
           ? 'menu-item-icon-active'
           : 'menu-item-icon-inactive'
         }">
@@ -353,7 +353,7 @@ class ApplicationState {
       const updatedIcon = item.icon.replace(/stroke="[^"]*"/g, `stroke="${iconColor}"`);
 
       link.innerHTML = `
-        <span class="menu-item-icon-size ${itemIsActive ? 'menu-item-icon-active' : 'menu-item-icon-inactive'
+        <span class="menu-item-icon-size flex items-center ${itemIsActive ? 'menu-item-icon-active' : 'menu-item-icon-inactive'
         }">
           ${updatedIcon}
         </span>
@@ -460,150 +460,6 @@ class ApplicationState {
     }
   }
 
-  // Table functions
-  renderTable() {
-    const { tableBody } = this.elements;
-    if (!tableBody) return;
-
-    tableBody.innerHTML = '';
-
-    this.table.data.forEach((row) => {
-      const tr = document.createElement('tr');
-      tr.innerHTML = `
-                <td class="pl-6 w-14">
-                    <input
-                        type="checkbox"
-                        class="checkbox checkbox-input"
-                        data-row-id="${row.id}"
-                        ${this.table.selectedRows.includes(row.id) ? 'checked' : ''}
-                    />
-                </td>
-                <td class="px-3 h-11 py-2 text-start">
-                    <div class="flex items-center gap-2">
-                        <span class="md:text-sm text-xs">${row.id}</span>
-                        <div class="w-[6px] h-[6px] rounded-full bg-green-600 opacity-20"></div>
-                    </div>
-                </td>
-                <td class="px-3 h-11 py-2 text-start">
-                    <span class="md:text-sm text-xs">${row.createdAt}</span>
-                </td>
-                <td class="px-3 h-11 py-2 text-start">
-                    <span class="md:text-sm text-xs">${row.region}</span>
-                </td>
-                <td class="px-3 h-11 py-2 text-start">
-                    <span class="md:text-sm text-xs">${row.city}</span>
-                </td>
-                <td class="px-3 h-11 py-2 text-start">
-                    <span class="md:text-sm text-xs">${row.name}</span>
-                </td>
-                <td class="px-3 h-11 py-2 text-start">
-                    <span class="md:text-sm text-xs">${row.phone}</span>
-                </td>
-                <td class="px-3 h-11 py-2 text-start">
-                    <span class="md:text-sm text-xs">${row.birthDate}</span>
-                </td>
-                <td class="px-3 h-11 py-2 text-start">
-                    <span class="md:text-sm text-xs">${row.loanAmount}</span>
-                </td>
-                <td class="px-3 h-11 py-2 text-start">
-                    <span class="md:text-sm text-xs">${row.loanType}</span>
-                </td>
-                <td class="px-3 h-11 py-2 text-start w-[88px]">
-                    <span class="md:text-sm text-xs">${row.price}</span>
-                </td>
-            `;
-      tableBody.appendChild(tr);
-    });
-
-    this.updateFixedBar();
-  }
-  renderTable2() {
-    const { purchaseTableBody } = this.elements;
-    if (!purchaseTableBody) return;
-
-    purchaseTableBody.innerHTML = '';
-
-    this.table.data.forEach((row) => {
-      const tr = document.createElement('tr');
-      tr.innerHTML = `
-                <td class="pl-6 w-14">
-                    <input
-                        type="checkbox"
-                        class="checkbox checkbox-input"
-                        data-row-id="${row.id}"
-                        ${this.table.selectedRows.includes(row.id) ? 'checked' : ''}
-                    />
-                </td>
-                <td class="px-3 h-11 py-2 text-start">
-                    <div class="flex items-center gap-2">
-                        <span class="md:text-sm text-xs">${row.id}</span>
-                      s
-                    </div>
-                </td>
-                <td class="px-3 h-11 py-2 text-start">
-                    <span class="md:text-sm text-xs">${row.createdAt}</span>
-                </td>
-                <td class="px-3 h-11 py-2 text-start">
-                    <span class="md:text-sm text-xs">${row.region}</span>
-                </td>
-                <td class="px-3 h-11 py-2 text-start">
-                    <span class="md:text-sm text-xs">${row.city}</span>
-                </td>
-                <td class="px-3 h-11 py-2 text-start">
-                    <span class="md:text-sm text-xs">${row.name}</span>
-                </td>
-                <td class="px-3 h-11 py-2 text-start">
-                    <span class="md:text-sm text-xs">${row.phone}</span>
-                </td>
-                <td class="px-3 h-11 py-2 text-start">
-                    <span class="md:text-sm text-xs">${row.birthDate}</span>
-                </td>
-                <td class="px-3 h-11 py-2 text-start">
-                    <span class="md:text-sm text-xs">${row.loanAmount}</span>
-                </td>
-                <td class="px-3 h-11 py-2 text-start">
-                    <span class="md:text-sm text-xs">${row.loanType}</span>
-                </td>
-                <td class="px-3 h-11 py-2 text-start w-[88px]">
-                    <span class="md:text-sm text-xs">${row.price}</span>
-                </td>
-            `;
-      purchaseTableBody.appendChild(tr);
-    });
-
-    this.updateFixedBar();
-  }
-
-  handleRowSelection(rowId) {
-    if (this.table.selectedRows.includes(rowId)) {
-      this.table.selectedRows = this.table.selectedRows.filter(id => id !== rowId);
-    } else {
-      this.table.selectedRows.push(rowId);
-    }
-    this.updateSelectAllCheckbox();
-    this.updateFixedBar();
-  }
-
-  handleSelectAll() {
-    const { selectAll } = this.elements;
-    if (this.table.selectedRows.length === this.table.data.length) {
-      this.table.selectedRows = [];
-      selectAll.checked = false;
-    } else {
-      this.table.selectedRows = this.table.data.map(row => row.id);
-      selectAll.checked = true;
-    }
-    this.renderTable();
-    this.updateFixedBar();
-  }
-
-  updateSelectAllCheckbox() {
-    const { selectAll } = this.elements;
-    if (selectAll) {
-      selectAll.checked = this.table.selectedRows.length === this.table.data.length && this.table.data.length > 0;
-    }
-  }
-
   updateFixedBar() {
     const { fixedBar, selectedCount, totalPrice } = this.elements;
 
@@ -623,7 +479,6 @@ class ApplicationState {
 
   clearSelection() {
     this.table.selectedRows = [];
-    this.renderTable();
     this.updateFixedBar();
   }
   toggleNotificationDropdown() {
@@ -780,7 +635,6 @@ class ApplicationState {
 
     this.updateSidebarState();
     this.updateFixedBarWidth();
-    this.renderTable();
   }
 
 }
@@ -793,12 +647,10 @@ class ApplicationTableState {
     this.sortConfig = { key: "id", direction: "asc" };
     this.initElements();
     this.bindEvents();
-    this.renderTable();
   }
   initElements() {
     this.elements = {
       tableBody: document.getElementById("table-body"),
-      purchaseTableBody: document.getElementById("purchase-table-body"),
       selectAll: document.getElementById("select-all"),
       fixedBar: document.getElementById("fixed-bar"),
       selectedCount: document.getElementById("selected-count"),
