@@ -599,3 +599,12 @@ input {
     @apply !py-1;
   }
 }
+
+
+@media (max-width: 650px) {
+  .full-tab,
+  .full-tab > div,
+  .full-tab > div > button {
+    width: 100%;
+  }
+}
