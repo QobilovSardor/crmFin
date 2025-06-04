@@ -57,6 +57,7 @@ class ApplicationState {
     this.initializeElements();
     this.bindEvents();
     this.initialize();
+
   }
 
   updateSidebarState() {
@@ -69,15 +70,15 @@ class ApplicationState {
       sidebar?.classList.add('sm:w-[292px]', 'w-[284px]');
       mainContent?.classList.remove('lg:ml-[90px]');
       mainContent?.classList.add('lg:ml-[292px]');
-      fixedBar?.classList.remove('lg:w-[calc(100%_-_234px)]');
-      fixedBar?.classList.add('lg:w-[calc(100%_-_120px_-_292px)]');
+      // fixedBar?.classList.remove('lg:w-[calc(100%_-_234px)]');
+      // fixedBar?.classList.add('lg:w-[calc(100%_-_120px_-_292px)]');
     } else {
       sidebar?.classList.remove('sm:w-[292px]', 'w-[284px]');
       sidebar?.classList.add('w-[90px]');
       mainContent?.classList.remove('lg:ml-[292px]');
       mainContent?.classList.add('lg:ml-[90px]');
-      fixedBar?.classList.remove('lg:w-[calc(100%_-_120px_-_292px)]');
-      fixedBar?.classList.add('lg:w-[calc(100%_-_234px)]');
+      // fixedBar?.classList.remove('lg:w-[calc(100%_-_120px_-_292px)]');
+      // fixedBar?.classList.add('lg:w-[calc(100%_-_234px)]');
     }
 
     // Update mobile visibility
@@ -104,12 +105,36 @@ class ApplicationState {
 
     this.updateMenuTitles(shouldShowExpanded);
     this.renderMenuItems();
+
+    // Notify table state of sidebar change
+    if (this.tableState) {
+      this.tableState.updateFixedBarWidth();
+    }
+  }
+
+  updateFixedBarWidth() {
+    const { fixedBar } = this.elements;
+
+    // Only update if fixedBar exists
+    if (!fixedBar) return;
+
+    const shouldShowExpanded = this.sidebar.isExpanded || this.sidebar.isMobileOpen || this.sidebar.isHovered;
+
+
+    if (shouldShowExpanded) {
+      fixedBar.classList.remove("lg:w-[calc(100%_-_234px)]");
+      fixedBar.classList.add("lg:w-[calc(100%_-_120px_-_292px)]");
+    } else {
+      fixedBar.classList.remove("lg:w-[calc(100%_-_120px_-_292px)]");
+      fixedBar.classList.add("lg:w-[calc(100%_-_234px)]");
+    }
   }
 
   initializeElements() {
     this.elements = {
       // Sidebar elements
       sidebar: document.getElementById('sidebar'),
+      fixedBar: document.getElementById('fixed-bar'),
       logoSection: document.getElementById('logo-section'),
       logoImg: document.getElementById('logo-img'),
       mainMenuTitle: document.getElementById('main-menu-title'),
@@ -119,6 +144,7 @@ class ApplicationState {
       financeMenu: document.getElementById('finance-menu'),
       supportMenu: document.getElementById('support-menu'),
       mainContent: document.querySelector('main'),
+
 
       // Header elements
       sidebarToggle: document.getElementById('sidebar-toggle'),
@@ -144,6 +170,7 @@ class ApplicationState {
       // Table elements
       selectAll: document.getElementById('select-all'),
       tableBody: document.getElementById('table-body'),
+      purchaseTableBody: document.getElementById('purchase-table-body'),
       fixedBar: document.getElementById('fixed-bar'),
       selectedCount: document.getElementById('selected-count'),
       totalPrice: document.getElementById('total-price'),
@@ -159,6 +186,7 @@ class ApplicationState {
       dot2: document.getElementById('dot-2'),
       dot3: document.getElementById('dot-3')
     };
+
   }
 
   // Navigation data
@@ -244,49 +272,7 @@ class ApplicationState {
     return value.toLocaleString('ru-RU');
   }
 
-  // Sidebar functions
-  updateSidebarState() {
-    const shouldShowExpanded = this.sidebar.isExpanded || this.sidebar.isMobileOpen || this.sidebar.isHovered;
-    const { sidebar, logoSection, logoImg, mainContent } = this.elements;
 
-    // Update sidebar width and position
-    if (shouldShowExpanded) {
-      sidebar?.classList.remove('w-[90px]');
-      sidebar?.classList.add('sm:w-[292px]', 'w-[284px]');
-      mainContent?.classList.remove('lg:ml-[90px]');
-      mainContent?.classList.add('lg:ml-[292px]');
-    } else {
-      sidebar?.classList.remove('sm:w-[292px]', 'w-[284px]');
-      sidebar?.classList.add('w-[90px]');
-      mainContent?.classList.remove('lg:ml-[292px]');
-      mainContent?.classList.add('lg:ml-[90px]');
-    }
-
-    // Update mobile visibility
-    if (this.sidebar.isMobileOpen) {
-      sidebar?.classList.remove('-translate-x-full');
-      sidebar?.classList.add('translate-x-0');
-    } else {
-      sidebar?.classList.remove('translate-x-0');
-      sidebar?.classList.add('-translate-x-full');
-    }
-
-    // Update logo
-    if (shouldShowExpanded && logoImg) {
-      logoImg.width = 114;
-      logoImg.height = 32;
-      logoSection?.classList.remove('lg:justify-center');
-      logoSection?.classList.add('justify-start');
-    } else if (logoImg) {
-      logoImg.width = 32;
-      logoImg.height = 32;
-      logoSection?.classList.remove('justify-start');
-      logoSection?.classList.add('lg:justify-center');
-    }
-
-    this.updateMenuTitles(shouldShowExpanded);
-    this.renderMenuItems();
-  }
 
   updateMenuTitles(shouldShowExpanded) {
     const titles = [
@@ -414,6 +400,7 @@ class ApplicationState {
       // Desktop sidebar toggle
       this.sidebar.isExpanded = !this.sidebar.isExpanded;
       this.updateSidebarState();
+      this.updateFixedBarWidth();
     } else {
       // Mobile sidebar toggle
       this.header.isMobileOpen = !this.header.isMobileOpen;
@@ -432,6 +419,7 @@ class ApplicationState {
         crossIcon?.classList.add('hidden');
       }
       this.updateSidebarState();
+      this.updateFixedBarWidth();
     }
   }
 
@@ -525,6 +513,62 @@ class ApplicationState {
                 </td>
             `;
       tableBody.appendChild(tr);
+    });
+
+    this.updateFixedBar();
+  }
+  renderTable2() {
+    const { purchaseTableBody } = this.elements;
+    if (!purchaseTableBody) return;
+
+    purchaseTableBody.innerHTML = '';
+
+    this.table.data.forEach((row) => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+                <td class="pl-6 w-14">
+                    <input
+                        type="checkbox"
+                        class="checkbox checkbox-input"
+                        data-row-id="${row.id}"
+                        ${this.table.selectedRows.includes(row.id) ? 'checked' : ''}
+                    />
+                </td>
+                <td class="px-3 h-11 py-2 text-start">
+                    <div class="flex items-center gap-2">
+                        <span class="md:text-sm text-xs">${row.id}</span>
+                      s
+                    </div>
+                </td>
+                <td class="px-3 h-11 py-2 text-start">
+                    <span class="md:text-sm text-xs">${row.createdAt}</span>
+                </td>
+                <td class="px-3 h-11 py-2 text-start">
+                    <span class="md:text-sm text-xs">${row.region}</span>
+                </td>
+                <td class="px-3 h-11 py-2 text-start">
+                    <span class="md:text-sm text-xs">${row.city}</span>
+                </td>
+                <td class="px-3 h-11 py-2 text-start">
+                    <span class="md:text-sm text-xs">${row.name}</span>
+                </td>
+                <td class="px-3 h-11 py-2 text-start">
+                    <span class="md:text-sm text-xs">${row.phone}</span>
+                </td>
+                <td class="px-3 h-11 py-2 text-start">
+                    <span class="md:text-sm text-xs">${row.birthDate}</span>
+                </td>
+                <td class="px-3 h-11 py-2 text-start">
+                    <span class="md:text-sm text-xs">${row.loanAmount}</span>
+                </td>
+                <td class="px-3 h-11 py-2 text-start">
+                    <span class="md:text-sm text-xs">${row.loanType}</span>
+                </td>
+                <td class="px-3 h-11 py-2 text-start w-[88px]">
+                    <span class="md:text-sm text-xs">${row.price}</span>
+                </td>
+            `;
+      purchaseTableBody.appendChild(tr);
     });
 
     this.updateFixedBar();
@@ -641,12 +685,14 @@ class ApplicationState {
       if (!this.sidebar.isExpanded) {
         this.sidebar.isHovered = true;
         this.updateSidebarState();
+        this.updateFixedBarWidth();
       }
     });
 
     sidebar?.addEventListener('mouseleave', () => {
       this.sidebar.isHovered = false;
       this.updateSidebarState();
+      this.updateFixedBarWidth();
     });
 
     // Header events
@@ -688,6 +734,7 @@ class ApplicationState {
         hamburgerIcon?.classList.remove('hidden');
         crossIcon?.classList.add('hidden');
         this.updateSidebarState();
+        this.updateFixedBarWidth();
       } else if (!this.header.isApplicationMenuOpen) {
         this.elements.applicationMenu?.classList.remove('flex');
         this.elements.applicationMenu?.classList.add('hidden');
@@ -698,6 +745,7 @@ class ApplicationState {
     window.addEventListener('popstate', () => {
       this.currentPath = window.location.pathname;
       this.updateSidebarState();
+      this.updateFixedBarWidth();
     });
 
     // Keyboard shortcuts
@@ -731,7 +779,263 @@ class ApplicationState {
     }
 
     this.updateSidebarState();
+    this.updateFixedBarWidth();
     this.renderTable();
+  }
+
+}
+// Application state
+class ApplicationTableState {
+
+  constructor(sidebarState) {
+    this.sidebarState = sidebarState || { isExpanded: false, isHovered: false }; // Fallback to default state
+    this.selectedRows = [];
+    this.sortConfig = { key: "id", direction: "asc" };
+    this.initElements();
+    this.bindEvents();
+    this.renderTable();
+  }
+  initElements() {
+    this.elements = {
+      tableBody: document.getElementById("table-body"),
+      purchaseTableBody: document.getElementById("purchase-table-body"),
+      selectAll: document.getElementById("select-all"),
+      fixedBar: document.getElementById("fixed-bar"),
+      selectedCount: document.getElementById("selected-count"),
+      totalPrice: document.getElementById("total-price"),
+      clearSelection: document.getElementById("clear-selection"),
+      sortableHeaders: document.querySelectorAll("[data-sort]"),
+    };
+  }
+
+  bindEvents() {
+    // Select all checkbox
+    this.elements.selectAll.addEventListener("change", () => this.handleSelectAll())
+
+    // Clear selection button
+    this.elements.clearSelection.addEventListener("click", () => this.clearSelection())
+
+    // Sortable headers
+    this.elements.sortableHeaders.forEach((header) => {
+      header.addEventListener("click", () => {
+        const key = header.dataset.sort
+        this.handleSort(key)
+      })
+    })
+
+    // Row selection (delegated event)
+    if (this.elements.tableBody) {
+      this.elements.tableBody.addEventListener("change", (e) => {
+        if (e.target.type === "checkbox" && e.target.dataset.rowId) {
+          this.handleRowSelection(e.target.dataset.rowId)
+        }
+      })
+    }
+    if (this.elements.purchaseTableBody) {
+      this.elements.purchaseTableBody.addEventListener("change", (e) => {
+        if (e.target.type === "checkbox" && e.target.dataset.rowId) {
+          this.handleRowSelection(e.target.dataset.rowId)
+        }
+      })
+    }
+
+    // Update fixed bar position on window resize
+    // window.addEventListener("resize", () => this.updateFixedBarWidth())
+  }
+
+  handleSort(key) {
+    this.sortConfig = {
+      key,
+      direction: this.sortConfig.key === key && this.sortConfig.direction === "asc" ? "desc" : "asc",
+    }
+
+    this.renderTable()
+  }
+
+  handleSelectAll() {
+    if (this.selectedRows.length === tableData.length) {
+      this.selectedRows = []
+    } else {
+      this.selectedRows = tableData.map((row) => row.id)
+    }
+
+    this.renderTable()
+    this.updateFixedBar()
+  }
+
+  handleRowSelection(rowId) {
+    if (this.selectedRows.includes(rowId)) {
+      this.selectedRows = this.selectedRows.filter((id) => id !== rowId)
+    } else {
+      this.selectedRows.push(rowId)
+    }
+
+    this.updateSelectAllCheckbox()
+    this.updateFixedBar()
+  }
+
+  updateSelectAllCheckbox() {
+    this.elements.selectAll.checked = this.selectedRows.length === tableData.length && tableData.length > 0
+  }
+
+  clearSelection() {
+    this.selectedRows = []
+    this.renderTable()
+    this.updateFixedBar()
+  }
+
+  getSortedData() {
+    return [...tableData].sort((a, b) => {
+      const aValue = a[this.sortConfig.key]
+      const bValue = b[this.sortConfig.key]
+
+      if (aValue < bValue) return this.sortConfig.direction === "asc" ? -1 : 1
+      if (aValue > bValue) return this.sortConfig.direction === "asc" ? 1 : -1
+      return 0
+    })
+  }
+
+  renderTable() {
+    const sortedData = this.getSortedData()
+    const tableBody = this.elements.tableBody
+
+    // Clear existing rows
+    if (tableBody) tableBody.innerHTML = ""
+
+    // Create new rows
+    sortedData.forEach((row) => {
+      const tr = document.createElement("tr")
+
+      // Checkbox cell
+      const checkboxCell = document.createElement("td")
+      checkboxCell.className = "pl-6 w-14"
+
+      const checkbox = document.createElement("input")
+      checkbox.type = "checkbox"
+      checkbox.className = "checkbox checkbox-input"
+      checkbox.dataset.rowId = row.id
+      checkbox.checked = this.selectedRows.includes(row.id)
+
+      checkboxCell.appendChild(checkbox)
+      tr.appendChild(checkboxCell)
+
+      // Data cells
+      columns.forEach((column, index) => {
+        const td = document.createElement("td")
+        td.className = `px-3 h-11 py-2 text-start ${index === columns.length - 1 ? "w-[88px]" : ""} `
+
+        if (column.key === "id") {
+          // Special case for ID column with status indicator
+          td.innerHTML = `
+            <div class="flex items-center gap-2" >
+              <span class="md:text-sm text-xs">${row[column.key]}</span>
+              <div class="w-[6px] h-[6px] rounded-full bg-[#039855] opacity-20"></div>
+            </div>
+      `
+        } else {
+          td.innerHTML = `<span class="md:text-sm text-xs" > ${row[column.key]}</span> `
+        }
+
+        tr.appendChild(td)
+      })
+
+      if (tableBody) tableBody.appendChild(tr)
+    })
+
+    // Update sort indicators
+    this.updateSortIndicators()
+
+    // Update select all checkbox
+    this.updateSelectAllCheckbox()
+  }
+
+  renderTable2() {
+    const sortedData = this.getSortedData()
+    const tableBody = this.elements.tableBody;
+
+    // Clear existing rows
+    if (tableBody) tableBody.innerHTML = ""
+
+    // Create new rows
+    sortedData.forEach((row) => {
+      const tr = document.createElement("tr")
+
+      // Checkbox cell
+      const checkboxCell = document.createElement("td")
+      checkboxCell.className = "pl-6 w-14"
+
+      const checkbox = document.createElement("input")
+      checkbox.type = "checkbox"
+      checkbox.className = "checkbox checkbox-input"
+      checkbox.dataset.rowId = row.id
+      checkbox.checked = this.selectedRows.includes(row.id)
+
+      checkboxCell.appendChild(checkbox)
+      tr.appendChild(checkboxCell)
+
+      // Data cells
+      columns.forEach((column, index) => {
+        const td = document.createElement("td")
+        td.className = `px-3 h-11 py-2 text-start ${index === columns.length - 1 ? "w-[88px]" : ""} `
+
+        if (column.key === "id") {
+          // Special case for ID column with status indicator
+          td.innerHTML = `
+            <div class="flex items-center gap-2" >
+              <span class="md:text-sm text-xs">${row[column.key]}</span>
+              <div class="w-[6px] h-[6px] rounded-full bg-[#039855] opacity-20"></div>
+            </div>
+      `
+        } else {
+          td.innerHTML = `<span class="md:text-sm text-xs" > ${row[column.key]}</span> `
+        }
+
+        tr.appendChild(td)
+      })
+
+      if (tableBody) tableBody.appendChild(tr)
+    })
+
+    // Update sort indicators
+    this.updateSortIndicators()
+
+    // Update select all checkbox
+    this.updateSelectAllCheckbox()
+  }
+
+  updateSortIndicators() {
+    this.elements.sortableHeaders.forEach((header) => {
+      const key = header.dataset.sort
+      const arrow = header.querySelector("svg")
+
+      if (this.sortConfig.key === key) {
+        arrow.classList.toggle("rotate-180", this.sortConfig.direction === "asc")
+      } else {
+        arrow.classList.remove("rotate-180")
+      }
+    })
+  }
+
+  updateFixedBar() {
+    const { fixedBar, selectedCount, totalPrice } = this.elements;
+
+    if (this.selectedRows.length > 0 && fixedBar && selectedCount && totalPrice) {
+      // Calculate total price
+      const total = this.selectedRows.reduce((sum, rowId) => {
+        const row = tableData.find((r) => r.id === rowId);
+        return row ? sum + Number.parseFloat(row.price) : sum;
+      }, 0);
+
+      // Update UI
+      selectedCount.textContent = this.selectedRows.length;
+      totalPrice.textContent = `${total.toFixed(2)} ₽`;
+      fixedBar.classList.remove("hidden");
+
+      // Update width based on sidebar state
+      // this.updateFixedBarWidth();
+    } else {
+      fixedBar?.classList.add("hidden");
+    }
   }
 }
 // Initialize the application when DOM is loaded
@@ -912,221 +1216,6 @@ const columns = [
   { key: "price", label: "Цена" },
 ]
 
-// Application state
-class ApplicationTableState {
-  constructor() {
-    this.selectedRows = []
-    this.sortConfig = { key: "id", direction: "asc" }
-    this.sidebarState = {
-      isExpanded: false,
-      isHovered: false,
-    }
-
-    this.initElements()
-    this.bindEvents()
-    this.renderTable()
-  }
-
-  initElements() {
-    this.elements = {
-      tableBody: document.getElementById("table-body"),
-      selectAll: document.getElementById("select-all"),
-      fixedBar: document.getElementById("fixed-bar"),
-      selectedCount: document.getElementById("selected-count"),
-      totalPrice: document.getElementById("total-price"),
-      clearSelection: document.getElementById("clear-selection"),
-      sortableHeaders: document.querySelectorAll("[data-sort]"),
-    }
-  }
-
-  bindEvents() {
-    // Select all checkbox
-    this.elements.selectAll.addEventListener("change", () => this.handleSelectAll())
-
-    // Clear selection button
-    this.elements.clearSelection.addEventListener("click", () => this.clearSelection())
-
-    // Sortable headers
-    this.elements.sortableHeaders.forEach((header) => {
-      header.addEventListener("click", () => {
-        const key = header.dataset.sort
-        this.handleSort(key)
-      })
-    })
-
-    // Row selection (delegated event)
-    this.elements.tableBody.addEventListener("change", (e) => {
-      if (e.target.type === "checkbox" && e.target.dataset.rowId) {
-        this.handleRowSelection(e.target.dataset.rowId)
-      }
-    })
-
-    // Update fixed bar position on window resize
-    window.addEventListener("resize", () => this.updateFixedBarWidth())
-  }
-
-  handleSort(key) {
-    this.sortConfig = {
-      key,
-      direction: this.sortConfig.key === key && this.sortConfig.direction === "asc" ? "desc" : "asc",
-    }
-
-    this.renderTable()
-  }
-
-  handleSelectAll() {
-    if (this.selectedRows.length === tableData.length) {
-      this.selectedRows = []
-    } else {
-      this.selectedRows = tableData.map((row) => row.id)
-    }
-
-    this.renderTable()
-    this.updateFixedBar()
-  }
-
-  handleRowSelection(rowId) {
-    if (this.selectedRows.includes(rowId)) {
-      this.selectedRows = this.selectedRows.filter((id) => id !== rowId)
-    } else {
-      this.selectedRows.push(rowId)
-    }
-
-    this.updateSelectAllCheckbox()
-    this.updateFixedBar()
-  }
-
-  updateSelectAllCheckbox() {
-    this.elements.selectAll.checked = this.selectedRows.length === tableData.length && tableData.length > 0
-  }
-
-  clearSelection() {
-    this.selectedRows = []
-    this.renderTable()
-    this.updateFixedBar()
-  }
-
-  getSortedData() {
-    return [...tableData].sort((a, b) => {
-      const aValue = a[this.sortConfig.key]
-      const bValue = b[this.sortConfig.key]
-
-      if (aValue < bValue) return this.sortConfig.direction === "asc" ? -1 : 1
-      if (aValue > bValue) return this.sortConfig.direction === "asc" ? 1 : -1
-      return 0
-    })
-  }
-
-  renderTable() {
-    const sortedData = this.getSortedData()
-    const tableBody = this.elements.tableBody
-
-    // Clear existing rows
-    tableBody.innerHTML = ""
-
-    // Create new rows
-    sortedData.forEach((row) => {
-      const tr = document.createElement("tr")
-
-      // Checkbox cell
-      const checkboxCell = document.createElement("td")
-      checkboxCell.className = "pl-6 w-14"
-
-      const checkbox = document.createElement("input")
-      checkbox.type = "checkbox"
-      checkbox.className = "checkbox checkbox-input"
-      checkbox.dataset.rowId = row.id
-      checkbox.checked = this.selectedRows.includes(row.id)
-
-      checkboxCell.appendChild(checkbox)
-      tr.appendChild(checkboxCell)
-
-      // Data cells
-      columns.forEach((column, index) => {
-        const td = document.createElement("td")
-        td.className = `px-3 h-11 py-2 text-start ${index === columns.length - 1 ? "w-[88px]" : ""} `
-
-        if (column.key === "id") {
-          // Special case for ID column with status indicator
-          td.innerHTML = `
-            <div class="flex items-center gap-2" >
-              <span class="md:text-sm text-xs">${row[column.key]}</span>
-              <div class="w-[6px] h-[6px] rounded-full bg-[#039855] opacity-20"></div>
-            </div>
-      `
-        } else {
-          td.innerHTML = `<span class="md:text-sm text-xs" > ${row[column.key]}</span> `
-        }
-
-        tr.appendChild(td)
-      })
-
-      tableBody.appendChild(tr)
-    })
-
-    // Update sort indicators
-    this.updateSortIndicators()
-
-    // Update select all checkbox
-    this.updateSelectAllCheckbox()
-  }
-
-  updateSortIndicators() {
-    this.elements.sortableHeaders.forEach((header) => {
-      const key = header.dataset.sort
-      const arrow = header.querySelector("svg")
-
-      if (this.sortConfig.key === key) {
-        arrow.classList.toggle("rotate-180", this.sortConfig.direction === "asc")
-      } else {
-        arrow.classList.remove("rotate-180")
-      }
-    })
-  }
-
-  updateFixedBar() {
-    const { fixedBar, selectedCount, totalPrice } = this.elements
-
-    if (this.selectedRows.length > 0) {
-      // Calculate total price
-      const total = this.selectedRows.reduce((sum, rowId) => {
-        const row = tableData.find((r) => r.id === rowId)
-        return row ? sum + Number.parseFloat(row.price) : sum
-      }, 0)
-
-      // Update UI
-      selectedCount.textContent = this.selectedRows.length
-      totalPrice.textContent = `${total.toFixed(2)} ₽`
-      fixedBar.classList.remove("hidden")
-
-      // Update width based on sidebar state
-      this.updateFixedBarWidth()
-    } else {
-      fixedBar.classList.add("hidden")
-    }
-  }
-
-  updateFixedBarWidth() {
-    const { fixedBar } = this.elements
-
-    // Determine width based on sidebar state
-    if (this.sidebarState.isExpanded || this.sidebarState.isHovered) {
-      fixedBar.classList.remove("lg:w-[calc(100%_-_234px)]")
-      fixedBar.classList.add("lg:w-[calc(100%_-_120px_-_292px)]")
-    } else {
-      fixedBar.classList.remove("lg:w-[calc(100%_-_120px_-_292px)]")
-      fixedBar.classList.add("lg:w-[calc(100%_-_234px)]")
-    }
-  }
-
-  // Method to update sidebar state from outside
-  updateSidebarState(isExpanded, isHovered) {
-    this.sidebarState = { isExpanded, isHovered }
-    if (this.selectedRows.length > 0) {
-      this.updateFixedBarWidth()
-    }
-  }
-}
 
 // Initialize the application when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
