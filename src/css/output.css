@@ -1121,6 +1121,10 @@ video {
   bottom: 1rem;
 }
 
+.bottom-full {
+  bottom: 100%;
+}
+
 .end-1 {
   inset-inline-end: 0.25rem;
 }
@@ -1169,10 +1173,6 @@ video {
   top: auto;
 }
 
-.bottom-full {
-  bottom: 100%;
-}
-
 .isolate {
   isolation: isolate;
 }
@@ -1183,6 +1183,10 @@ video {
 
 .z-10 {
   z-index: 10;
+}
+
+.z-50 {
+  z-index: 50;
 }
 
 .z-99999 {
@@ -1211,10 +1215,6 @@ video {
 
 .z-\[9999\] {
   z-index: 9999;
-}
-
-.z-50 {
-  z-index: 50;
 }
 
 .float-start {
@@ -1532,6 +1532,10 @@ video {
   height: 42px;
 }
 
+.h-\[48px\] {
+  height: 48px;
+}
+
 .h-\[6px\] {
   height: 6px;
 }
@@ -1567,10 +1571,6 @@ video {
 
 .h-screen {
   height: 100vh;
-}
-
-.h-\[48px\] {
-  height: 48px;
 }
 
 .max-h-\[72px\] {
@@ -1669,6 +1669,10 @@ video {
   width: 42px;
 }
 
+.w-\[48px\] {
+  width: 48px;
+}
+
 .w-\[53px\] {
   width: 53px;
 }
@@ -1724,10 +1728,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.w-\[48px\] {
-  width: 48px;
 }
 
 .min-w-1 {
@@ -2926,10 +2926,6 @@ video {
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
 }
 
-.border-white\/30 {
-  border-color: rgb(255 255 255 / 0.3);
-}
-
 .bg-\[\#039855\] {
   --tw-bg-opacity: 1;
   background-color: rgb(3 152 85 / var(--tw-bg-opacity));
@@ -3125,6 +3121,10 @@ video {
   padding: 0.125rem;
 }
 
+.p-1 {
+  padding: 0.25rem;
+}
+
 .p-2 {
   padding: 0.5rem;
 }
@@ -3139,10 +3139,6 @@ video {
 
 .p-6 {
   padding: 1.5rem;
-}
-
-.p-1 {
-  padding: 0.25rem;
 }
 
 .px-2 {
@@ -4730,6 +4726,10 @@ header {
     width: 40px;
     height: 40px;
   }
+
+  .flatpickr-calendar {
+    width: 100% !important;
+  }
 }
 
 .blue-icon {
@@ -4771,6 +4771,39 @@ header {
 
 .form-control + .absolute path {
   stroke-width: 1.5;
+}
+
+.flatpickr-day.inRange,
+.flatpickr-day.prevMonthDay.inRange,
+.flatpickr-day.nextMonthDay.inRange,
+.flatpickr-day.today.inRange,
+.flatpickr-day.prevMonthDay.today.inRange,
+.flatpickr-day.nextMonthDay.today.inRange,
+.flatpickr-day:hover,
+.flatpickr-day.prevMonthDay:hover,
+.flatpickr-day.nextMonthDay:hover,
+.flatpickr-day:focus,
+.flatpickr-day.prevMonthDay:focus,
+.flatpickr-day.nextMonthDay:focus,
+.flatpickr-day.inRange {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 251 255 / var(--tw-bg-opacity));
+}
+
+/* Katta hitbox zonasi */
+
+.range-slider__handle::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+  /* Ko‘rinmaydi */
+  cursor: pointer;
+  z-index: 1;
 }
 
 @media (min-width: 640px) {
@@ -4817,10 +4850,6 @@ header {
 .hover\:bg-gray-100:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
-}
-
-.hover\:bg-white\/10:hover {
-  background-color: rgb(255 255 255 / 0.1);
 }
 
 .hover\:font-bold:hover {

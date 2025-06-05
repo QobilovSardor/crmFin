@@ -39,7 +39,8 @@ class SimpleRangeSlider {
     this.sliderElement.innerHTML = `
       <div class="range-slider__track"></div>
       <div class="range-slider__range"></div>
-      <div class="range-slider__handle range-slider__handle--min"></div>
+      <div class="range-slider__handle range-slider__handle--min">
+      </div>
       <div class="range-slider__handle range-slider__handle--max"></div>
     `;
   }
