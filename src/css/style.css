@@ -23,7 +23,7 @@ body {
 }
 
 .menu-item {
-  @apply flex items-center gap-3 px-3 py-2 rounded-lg transition-all duration-200 relative w-full text-left;
+  @apply flex items-center gap-3 px-3 py-2 h-10 rounded-lg transition-all duration-200 relative w-full text-left;
 }
 
 .menu-item-active {
@@ -35,7 +35,7 @@ body {
 }
 
 .menu-item-icon-size {
-  @apply w-6 h-6 flex-shrink-0;
+  @apply w-5 h-5 flex-shrink-0;
 }
 
 .menu-item-icon-active {
@@ -623,6 +623,12 @@ header {
   .full-tab > div > button {
     width: 100%;
   }
+  .date-picker-icon {
+    @apply right-[17px]
+  }
+  .date-picker-icon svg {
+    @apply w-[15px] h-[15px]
+  }
 }
 
 .blue-icon {
@@ -633,3 +639,7 @@ header {
 }
 
 /* modal*/
+
+.select-arrow {
+  @apply w-5 h-5
+}

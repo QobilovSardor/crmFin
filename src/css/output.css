@@ -1149,10 +1149,6 @@ video {
   top: 1rem;
 }
 
-.top-full {
-  top: 100%;
-}
-
 .top-auto {
   top: auto;
 }
@@ -1360,6 +1356,20 @@ video {
   box-sizing: content-box;
 }
 
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
 .line-clamp-none {
   overflow: visible;
   display: block;
@@ -1525,6 +1535,10 @@ video {
   height: 80px;
 }
 
+.h-\[calc\(100\%-122px\)\] {
+  height: calc(100% - 122px);
+}
+
 .h-auto {
   height: auto;
 }
@@ -1542,20 +1556,24 @@ video {
   height: 100vh;
 }
 
-.h-\[calc\(100\%-122px\)\] {
-  height: calc(100% - 122px);
+.max-h-\[40px\] {
+  max-height: 40px;
+}
+
+.max-h-\[72px\] {
+  max-height: 72px;
 }
 
 .min-h-1 {
   min-height: 0.25rem;
 }
 
-.min-h-\[calc\(100\%_-_77px\)\] {
-  min-height: calc(100% - 77px);
-}
-
 .min-h-\[300px\] {
   min-height: 300px;
+}
+
+.min-h-\[calc\(100\%_-_77px\)\] {
+  min-height: calc(100% - 77px);
 }
 
 .w-1 {
@@ -1691,6 +1709,18 @@ video {
   width: 100%;
 }
 
+.w-\[53px\] {
+  width: 53px;
+}
+
+.w-\[\] {
+  width: ;
+}
+
+.w-\[50px\] {
+  width: 50px;
+}
+
 .min-w-1 {
   min-width: 0.25rem;
 }
@@ -1725,6 +1755,18 @@ video {
 
 .min-w-full {
   min-width: 100%;
+}
+
+.min-w-\[\] {
+  min-width: ;
+}
+
+.min-w-\[600px\] {
+  min-width: 600px;
+}
+
+.min-w-\[708px\] {
+  min-width: 708px;
 }
 
 .max-w-1 {
@@ -2960,6 +3002,16 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-red-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 113 113 / var(--tw-bg-opacity));
+}
+
+.bg-teal-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(94 234 212 / var(--tw-bg-opacity));
+}
+
 .decoration-slice {
   -webkit-box-decoration-break: slice;
           box-decoration-break: slice;
@@ -3152,6 +3204,14 @@ video {
   padding-bottom: 2px;
 }
 
+.\!pb-0 {
+  padding-bottom: 0px !important;
+}
+
+.\!pb-\[150px\] {
+  padding-bottom: 150px !important;
+}
+
 .pb-3 {
   padding-bottom: 0.75rem;
 }
@@ -3172,12 +3232,12 @@ video {
   padding-bottom: 100px;
 }
 
-.pb-\[10px\] {
-  padding-bottom: 10px;
-}
-
 .pb-\[150px\] {
   padding-bottom: 150px;
+}
+
+.pb-\[70px\] {
+  padding-bottom: 70px;
 }
 
 .pl-0 {
@@ -3240,28 +3300,8 @@ video {
   padding-top: 80px;
 }
 
-.pb-\[70px\] {
-  padding-bottom: 70px;
-}
-
 .pb-0 {
   padding-bottom: 0px;
-}
-
-.\!pb-0 {
-  padding-bottom: 0px !important;
-}
-
-.pb-\[200\] {
-  padding-bottom: 200;
-}
-
-.\!pb-\[100px\] {
-  padding-bottom: 100px !important;
-}
-
-.\!pb-\[150px\] {
-  padding-bottom: 150px !important;
 }
 
 .text-left {
@@ -3962,6 +4002,7 @@ body {
 .menu-item {
   position: relative;
   display: flex;
+  height: 2.5rem;
   width: 100%;
   align-items: center;
   gap: 0.75rem;
@@ -3996,8 +4037,8 @@ body {
 }
 
 .menu-item-icon-size {
-  height: 1.5rem;
-  width: 1.5rem;
+  height: 1.25rem;
+  width: 1.25rem;
   flex-shrink: 0;
 }
 
@@ -4677,6 +4718,15 @@ header {
   .full-tab > div > button {
     width: 100%;
   }
+
+  .date-picker-icon {
+    right: 17px;
+  }
+
+  .date-picker-icon svg {
+    height: 15px;
+    width: 15px;
+  }
 }
 
 .blue-icon {
@@ -4691,6 +4741,11 @@ header {
 }
 
 /* modal*/
+
+.select-arrow {
+  height: 1.25rem;
+  width: 1.25rem;
+}
 
 @media (min-width: 640px) {
   .sm\:container {
@@ -4915,12 +4970,12 @@ header {
     max-width: 365px;
   }
 
-  .sm\:max-w-\[580px\] {
-    max-width: 580px;
-  }
-
   .sm\:max-w-\[480px\] {
     max-width: 480px;
+  }
+
+  .sm\:max-w-\[580px\] {
+    max-width: 580px;
   }
 
   .sm\:grid-cols-2 {
@@ -5000,6 +5055,10 @@ header {
     padding-bottom: 10px;
   }
 
+  .sm\:pb-0 {
+    padding-bottom: 0px;
+  }
+
   .sm\:pl-3 {
     padding-left: 0.75rem;
   }
@@ -5012,8 +5071,8 @@ header {
     padding-right: 0.75rem;
   }
 
-  .sm\:pb-0 {
-    padding-bottom: 0px;
+  .sm\:pr-0 {
+    padding-right: 0px;
   }
 
   .sm\:text-sm {
@@ -5080,6 +5139,15 @@ header {
 
   .md\:h-5 {
     height: 1.25rem;
+  }
+
+  .md\:max-h-\[40px\] {
+    max-height: 40px;
+  }
+
+  .md\:max-h-fit {
+    max-height: -moz-fit-content;
+    max-height: fit-content;
   }
 
   .md\:w-1\/2 {
@@ -5337,6 +5405,12 @@ header {
     --tw-shadow: 0 0 #0000;
     --tw-shadow-colored: 0 0 #0000;
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:pr-0 {
+    padding-right: 0px;
   }
 }
 

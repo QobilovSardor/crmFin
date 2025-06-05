@@ -141,13 +141,13 @@ function renderTable() {
     actionsCell.innerHTML = `
       <div class="flex items-center gap-2 h-[18px]">
         <button class="flex h-fit w-[42px] items-center justify-center text-[#707D89] hover:text-blue-600 action-toggle">
-          ${isWorking ? '<img src="src/images/icons/pause.svg" />' : '<img src="src/images/icons/play.svg" />'}
+          ${isWorking ? '<img width="15px" height="15px" src="src/images/icons/pause.svg" />' : '<img width="15px" height="15px" src="src/images/icons/play.svg" />'}
         </button >
         <button class="flex h-[42px] w-[42px] items-center justify-center text-[#707D89] hover:text-gray-600 action-edit">
-          <img src="src/images/icons/pen.svg" />
+          <img width="15px" height="15px" src="src/images/icons/pen.svg" />
         </button>
-        <button class="flex h-[42px] items-center justify-center pr-6 pl-[14px] text-[#707D89] hover:text-red-600 action-delete" data-id="${row.id}">
-            <img src="src/images/icons/trash.svg" />
+        <button class="flex h-[42px] w-[53px] items-center justify-center pr-6 pl-[14px] text-[#707D89] hover:text-red-600 action-delete" data-id="${row.id}">
+            <img width="15px" height="15px" src="src/images/icons/trash.svg" />
         </button>
       </div >
     `;
