@@ -450,12 +450,12 @@
           </div>
         </div>
         <!-- ApplicationTable component -->
-        <div class="relative pb-[100px] md:mr-0 -mr-4">
-          <div class="overflow-x-auto scroll-box sm:pr-0 pr-4">
-            <div class="min-w-[1280px] bg-[#F9FBFF] relative">
-              <div class="rounded-xl border border-gray-200 bg-white overflow-hidden">
+        <div class="relative md:pb-[100px] pb-[150px]">
+          <div class="overflow-x-auto scroll-box">
+            <div class="min-w-[1290px] bg-[#F9FBFF] relative pr-4">
+              <div class="rounded-xl border border-gray-200 overflow-hidden bg-white">
                 <div class="w-full">
-                  <table class="w-full bg-white">
+                  <table class="min-w-full bg-white">
                     <!-- Table Header -->
                     <thead class="border-b border-gray-100 bg-[#F4F8FF]">
                       <tr>
@@ -483,8 +483,7 @@
               </div>
             </div>
           </div>
-
-          <!-- Fixed Bar (initially hidden) -->
+ <!-- Fixed Bar (initially hidden) -->
           <div id="fixed-bar"
             class="mt-4 rounded-lg bg-[#203148] md:px-6 md:py-4 py-3 px-4 text-white mx-auto fixed lg:right-[60px] right-[14px] z-[100] sm:bottom-10 bottom-4 transition-all duration-300 ease-in-out lg:w-[calc(100%_-_234px)] w-[calc(100%_-_28px)] hidden">
             <div class='flex sm:items-center justify-between gap-3 sm:flex-row flex-col'>
@@ -679,25 +678,25 @@
     </div>
   </div>
 
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const toggleBtn = document.getElementById("toggleText");
-    const infoText = document.getElementById("infoText");
-    let isExpanded = false;
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggleBtn = document.getElementById("toggleText");
+      const infoText = document.getElementById("infoText");
+      let isExpanded = false;
 
-    toggleBtn.addEventListener("click", () => {
-      isExpanded = !isExpanded;
+      toggleBtn.addEventListener("click", () => {
+        isExpanded = !isExpanded;
 
-      if (isExpanded) {
-        infoText.classList.remove("max-h-[72px]");
-        toggleBtn.textContent = "Скрыть";
-      } else {
-        infoText.classList.add("max-h-[72px]");
-        toggleBtn.textContent = "Раскрыть";
-      }
+        if (isExpanded) {
+          infoText.classList.remove("max-h-[72px]");
+          toggleBtn.textContent = "Скрыть";
+        } else {
+          infoText.classList.add("max-h-[72px]");
+          toggleBtn.textContent = "Раскрыть";
+        }
+      });
     });
-  });
-</script>
+  </script>
 
 
   <!-- range slider -->

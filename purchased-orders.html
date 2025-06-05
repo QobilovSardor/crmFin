@@ -395,8 +395,8 @@
         <!-- PageBreadcrumb component (pageTitle="Заявки", breadcrumb=false) -->
 
         <div class="flex justify-between md:mb-6 sm:mb-5 mb-4 flex-wrap gap-5 md:flex-wrap md:flex-row">
-          <div class="overflow-x-auto scroll-box no-scrollbar !pb-0 pr-4">
-            <div class="sm:min-w-[708px] min-w-[525px] no-scrollbar">
+          <div class='overflow-x-auto scroll-box !pb-0 no-scrollbar'>
+            <div class='min-w-[540px] bg-[#F9FBFF] relative pr-4'>
               <div class="tab flex items-center rounded-lg bg-white p-0.5 whitespace-nowrap md:w-fit w-fit">
                 <button
                   class="tab-list active px-3 py-2 font-medium sm:w-full w-fit rounded-md md:text-sm text-xs flex justify-center items-center gap-2 cursor-pointer active">
@@ -565,7 +565,7 @@
           <div class="mx-auto">
             <div class="relative md:pb-[100px] pb-[150px]">
               <div class="overflow-x-auto scroll-box">
-                <div class="min-w-[1290px] bg-[#F9FBFF] relative">
+                <div class="min-w-[1290px] bg-[#F9FBFF] relative pr-4">
                   <div class="rounded-xl border border-gray-200 overflow-hidden bg-white">
                     <div class="w-full">
                       <table class="min-w-full bg-white" id="purchased">
@@ -852,24 +852,58 @@
               <!-- Fixed Bar (initially hidden) -->
               <div id="fixed-bar"
                 class="mt-4 rounded-lg bg-[#203148] md:px-6 md:py-4 py-3 px-4 text-white mx-auto fixed lg:right-[60px] right-[14px] z-[100] sm:bottom-10 bottom-4 transition-all duration-300 ease-in-out lg:w-[calc(100%_-_234px)] w-[calc(100%_-_28px)] hidden">
+
                 <div class="flex sm:items-center justify-between gap-3 sm:flex-row flex-col">
-                  <div class="flex gap-3">
-                    <div class="flex items-center gap-2 md:text-sm text-xs">
-                      <span class="opacity-60">Выбрано:</span>
-                      <span id="selected-count" class="font-medium">0</span>
-                    </div>
-                    <div class="flex items-center gap-2 md:text-sm text-xs">
-                      <span class="opacity-60">На сумму:</span>
-                      <span id="total-price" class="font-medium">0 ₽</span>
-                    </div>
+                  <div class="flex items-center gap-2 md:text-sm text-xs">
+                    <span class="opacity-60">Выбрано:</span>
+                    <span id="selected-count" class="font-medium">0</span>
                   </div>
-                  <div class="flex gap-3 sm:w-fit w-full">
-                    <button class="btn btn-primary sm:w-fit w-full justify-center">
-                      Купить заявки
+                  <span id="total-price" class="font-medium hidden">0 ₽</span>
+
+                  <div class="flex gap-3 sm:w-fit w-full relative">
+                    <button class="btn btn-primary sm:w-fit w-full justify-center ">
+                      Скачать .xlsx
                     </button>
-                    <button id="clear-selection" class="btn btn-full-outline text-white sm:w-fit w-full justify-center">
-                      Очистить выбор
+                    <div class="sm:block hidden">
+                      <button class="btn btn-primary sm:w-fit w-full justify-center">
+                        Отправить в архив
+                      </button>
+                    </div>
+                    <div class="sm:block hidden">
+                      <button id="clear-selection" class="btn btn-full-outline text-white">
+                        Очистить выбор
+                      </button>
+                    </div>
+                    <button id="toggle-dropdown" class="w-[48px] h-[48px] flex items-center justify-center sm:hidden">
+                      <svg id="dots-icon" width="4" height="16" viewBox="0 0 4 16" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M2.00002 8.83301C2.46026 8.83301 2.83335 8.45991 2.83335 7.99967C2.83335 7.53944 2.46026 7.16634 2.00002 7.16634C1.53978 7.16634 1.16669 7.53944 1.16669 7.99967C1.16669 8.45991 1.53978 8.83301 2.00002 8.83301Z"
+                          stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                          d="M2.00002 2.99967C2.46026 2.99967 2.83335 2.62658 2.83335 2.16634C2.83335 1.7061 2.46026 1.33301 2.00002 1.33301C1.53978 1.33301 1.16669 1.7061 1.16669 2.16634C1.16669 2.62658 1.53978 2.99967 2.00002 2.99967Z"
+                          stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                          d="M2.00002 14.6663C2.46026 14.6663 2.83335 14.2932 2.83335 13.833C2.83335 13.3728 2.46026 12.9997 2.00002 12.9997C1.53978 12.9997 1.16669 13.3728 1.16669 13.833C1.16669 14.2932 1.53978 14.6663 2.00002 14.6663Z"
+                          stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                      <svg id="close-icon" class="size-6 hidden" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M6.04289 16.5418C5.65237 16.9323 5.65237 17.5655 6.04289 17.956C6.43342 18.3465 7.06658 18.3465 7.45711 17.956L11.9987 13.4144L16.5408 17.9565C16.9313 18.347 17.5645 18.347 17.955 17.9565C18.3455 17.566 18.3455 16.9328 17.955 16.5423L13.4129 12.0002L17.955 7.45808C18.3455 7.06756 18.3455 6.43439 17.955 6.04387C17.5645 5.65335 16.9313 5.65335 16.5408 6.04387L11.9987 10.586L7.45711 6.04439C7.06658 5.65386 6.43342 5.65386 6.04289 6.04439C5.65237 6.43491 5.65237 7.06808 6.04289 7.4586L10.5845 12.0002L6.04289 16.5418Z"
+                          fill="#407BFF" />
+                      </svg>
                     </button>
+                    <div id="mobile-dropdown"
+                      class="bg-white z-50 absolute mb-2 bottom-full p-1 rounded-lg right-0 shadow-md text-black hidden">
+                      <button class="py-[10px] block px-3 text-sm w-full text-left hover:bg-gray-100">
+                        Отправить в архив
+                      </button>
+                      <button id="clear-selection"
+                        class="py-[10px] block px-3 text-sm w-full text-left hover:bg-gray-100">
+                        Очистить выбор
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1039,6 +1073,119 @@
     </div>
   </div>
 
+
+  <script>
+    // State management
+    let selectedRows = []; // Array to store selected row IDs
+    let bottomAccOpen = false; // State for mobile dropdown
+
+    // DOM elements
+    const fixedBar = document.getElementById('fixed-bar');
+    const selectedCountElement = document.getElementById('selected-count');
+    const toggleDropdownButton = document.getElementById('toggle-dropdown');
+    const mobileDropdown = document.getElementById('mobile-dropdown');
+    const dotsIcon = document.getElementById('dots-icon');
+    const closeIcon = document.getElementById('close-icon');
+    const clearSelectionDesktop = document.getElementById('clear-selection-desktop');
+    const clearSelectionMobile = document.getElementById('clear-selection-mobile');
+
+    // Initialize the fixed bar
+    function initializeFixedBar() {
+      setupEventListeners();
+      updateFixedBar();
+    }
+
+    // Set up event listeners
+    function setupEventListeners() {
+      // Toggle dropdown button
+      toggleDropdownButton.addEventListener('click', handleToggleDropdown);
+
+      // Clear selection buttons
+      clearSelectionDesktop.addEventListener('click', handleClearSelection);
+      clearSelectionMobile.addEventListener('click', handleClearSelectionMobile);
+
+      // Close dropdown when clicking outside
+      document.addEventListener('click', function (event) {
+        if (bottomAccOpen && !mobileDropdown.contains(event.target) && !toggleDropdownButton.contains(event.target)) {
+          closeDropdown();
+        }
+      });
+    }
+
+    // Toggle mobile dropdown
+    function handleToggleDropdown() {
+      if (bottomAccOpen) {
+        closeDropdown();
+      } else {
+        openDropdown();
+      }
+    }
+
+    // Open mobile dropdown
+    function openDropdown() {
+      mobileDropdown.classList.remove('hidden');
+      dotsIcon.classList.add('hidden');
+      closeIcon.classList.remove('hidden');
+      bottomAccOpen = true;
+    }
+
+    // Close mobile dropdown
+    function closeDropdown() {
+      mobileDropdown.classList.add('hidden');
+      dotsIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
+      bottomAccOpen = false;
+    }
+
+    // Handle clear selection from desktop button
+    function handleClearSelection() {
+      selectedRows = [];
+      updateFixedBar();
+
+      // If you have checkboxes in your table, uncheck them
+      const checkboxes = document.querySelectorAll('.row-checkbox:checked');
+      checkboxes.forEach(checkbox => {
+        checkbox.checked = false;
+      });
+
+      // Additional logic to update your table if needed
+      if (typeof updateTable === 'function') {
+        updateTable();
+      }
+    }
+
+    // Handle clear selection from mobile dropdown
+    function handleClearSelectionMobile() {
+      handleClearSelection();
+      closeDropdown();
+    }
+
+    // Update fixed bar visibility and content
+    function updateFixedBar() {
+      if (selectedRows.length > 0) {
+        fixedBar.classList.remove('hidden');
+        selectedCountElement.textContent = selectedRows.length;
+      } else {
+        fixedBar.classList.add('hidden');
+      }
+    }
+
+    // Function to update selected rows (call this from your table code)
+    function updateSelectedRows(rows) {
+      selectedRows = rows;
+      updateFixedBar();
+    }
+
+    // Initialize when the DOM is fully loaded
+    document.addEventListener('DOMContentLoaded', initializeFixedBar);
+
+    // Export functionality for external use
+    window.fixedBar = {
+      updateSelectedRows,
+      getSelectedRows: () => selectedRows,
+      clearSelection: handleClearSelection
+    };
+  </script>
   <!-- range slider -->
   <script src="./src/js/range-slider.js"></script>
   <!-- Datepicker js -->

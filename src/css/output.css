@@ -797,6 +797,10 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.form-control + .select-options path {
+  stroke-width: 1.5;
+}
+
 .select-option {
   cursor: pointer;
   border-radius: 6px;
@@ -936,6 +940,10 @@ video {
   color: rgb(112 125 137 / var(--tw-text-opacity));
 }
 
+.form-control + .date-picker-icon path {
+  stroke-width: 1.5;
+}
+
 .flatpickr-calendar.static.open {
   left: 0px !important;
   z-index: 99999 !important;
@@ -998,6 +1006,10 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.form-control + .checkbox-check path {
+  stroke-width: 1.5;
+}
+
 .checkbox-disabled {
   pointer-events: none;
   position: absolute;
@@ -1006,6 +1018,10 @@ video {
   --tw-translate-x: -50%;
   --tw-translate-y: -50%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.form-control + .checkbox-disabled path {
+  stroke-width: 1.5;
 }
 
 .checkbox-label {
@@ -1153,6 +1169,10 @@ video {
   top: auto;
 }
 
+.bottom-full {
+  bottom: 100%;
+}
+
 .isolate {
   isolation: isolate;
 }
@@ -1191,6 +1211,10 @@ video {
 
 .z-\[9999\] {
   z-index: 9999;
+}
+
+.z-50 {
+  z-index: 50;
 }
 
 .float-start {
@@ -1250,10 +1274,6 @@ video {
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
-}
-
-.-mr-4 {
-  margin-right: -1rem;
 }
 
 .mb-1 {
@@ -1549,6 +1569,10 @@ video {
   height: 100vh;
 }
 
+.h-\[48px\] {
+  height: 48px;
+}
+
 .max-h-\[72px\] {
   max-height: 72px;
 }
@@ -1702,16 +1726,16 @@ video {
   width: 100%;
 }
 
+.w-\[48px\] {
+  width: 48px;
+}
+
 .min-w-1 {
   min-width: 0.25rem;
 }
 
 .min-w-\[1080px\] {
   min-width: 1080px;
-}
-
-.min-w-\[1280px\] {
-  min-width: 1280px;
 }
 
 .min-w-\[1290px\] {
@@ -1730,8 +1754,8 @@ video {
   min-width: 361px;
 }
 
-.min-w-\[525px\] {
-  min-width: 525px;
+.min-w-\[540px\] {
+  min-width: 540px;
 }
 
 .min-w-full {
@@ -2902,6 +2926,10 @@ video {
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
 }
 
+.border-white\/30 {
+  border-color: rgb(255 255 255 / 0.3);
+}
+
 .bg-\[\#039855\] {
   --tw-bg-opacity: 1;
   background-color: rgb(3 152 85 / var(--tw-bg-opacity));
@@ -3113,6 +3141,10 @@ video {
   padding: 1.5rem;
 }
 
+.p-1 {
+  padding: 0.25rem;
+}
+
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -3185,10 +3217,6 @@ video {
 
 .pb-6 {
   padding-bottom: 1.5rem;
-}
-
-.pb-\[100px\] {
-  padding-bottom: 100px;
 }
 
 .pb-\[150px\] {
@@ -4039,6 +4067,10 @@ body {
   color: rgb(64 123 255 / var(--tw-text-opacity));
 }
 
+.form-control + .menu-notification-badge path {
+  stroke-width: 1.5;
+}
+
 .menu-dropdown-item {
   display: flex;
   align-items: center;
@@ -4596,6 +4628,13 @@ header {
   bottom: 0px;
   left: 1rem;
   height: 1px;
+}
+
+.form-control + .range-slider path {
+  stroke-width: 1.5;
+}
+
+.range-slider {
   width: calc(100% - 40px);
 }
 
@@ -4629,6 +4668,10 @@ header {
   border-radius: 9999px;
   --tw-bg-opacity: 1;
   background-color: rgb(64 123 255 / var(--tw-bg-opacity));
+}
+
+.form-control + .range-slider__handle path {
+  stroke-width: 1.5;
 }
 
 .range-slider__handle:active,
@@ -4679,7 +4722,7 @@ header {
   }
 
   .date-picker-icon svg {
-    height: 15px;
+    height: 16px;
     width: 15px;
   }
 
@@ -4726,6 +4769,10 @@ header {
   stroke-width: 2px;
 }
 
+.form-control + .absolute path {
+  stroke-width: 1.5;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
@@ -4770,6 +4817,10 @@ header {
 .hover\:bg-gray-100:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-white\/10:hover {
+  background-color: rgb(255 255 255 / 0.1);
 }
 
 .hover\:font-bold:hover {
@@ -4932,10 +4983,6 @@ header {
     width: 100%;
   }
 
-  .sm\:min-w-\[708px\] {
-    min-width: 708px;
-  }
-
   .sm\:min-w-fit {
     min-width: -moz-fit-content;
     min-width: fit-content;
@@ -5046,10 +5093,6 @@ header {
     padding-left: 1.25rem;
   }
 
-  .sm\:pr-0 {
-    padding-right: 0px;
-  }
-
   .sm\:pr-3 {
     padding-right: 0.75rem;
   }
@@ -5089,10 +5132,6 @@ header {
 
   .md\:mb-6 {
     margin-bottom: 1.5rem;
-  }
-
-  .md\:mr-0 {
-    margin-right: 0px;
   }
 
   .md\:mt-6 {
@@ -5404,4 +5443,3 @@ header {
     }
   }
 }
-

@@ -626,7 +626,7 @@ header {
     @apply right-[17px];
   }
   .date-picker-icon svg {
-    @apply w-[15px] h-[15px];
+    @apply w-[15px] h-[16px];
   }
   .table-pagination .btn {
     width: 40px;
@@ -641,7 +641,7 @@ header {
   @apply bg-[#F4F8FF] text-[#407BFF];
 }
 .tab .tab-list .tab-count {
-@apply text-blue bg-[#F4F8FF] font-normal
+  @apply text-blue bg-[#F4F8FF] font-normal;
 }
 .tab .tab-list.active .tab-count {
   @apply bg-white text-[#407BFF];
@@ -656,3 +656,6 @@ header {
   stroke-width: 2px;
 }
 
+.form-control + .absolute path {
+  stroke-width: 1.5;
+}
