@@ -4682,6 +4682,11 @@ header {
     height: 15px;
     width: 15px;
   }
+
+  .table-pagination .btn {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 .blue-icon {
@@ -5399,3 +5404,4 @@ header {
     }
   }
 }
+

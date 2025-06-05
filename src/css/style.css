@@ -628,6 +628,10 @@ header {
   .date-picker-icon svg {
     @apply w-[15px] h-[15px];
   }
+  .table-pagination .btn {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 .blue-icon {
@@ -651,3 +655,4 @@ header {
 .table-pagination .btn svg path {
   stroke-width: 2px;
 }
+
