@@ -1356,13 +1356,6 @@ video {
   box-sizing: content-box;
 }
 
-.line-clamp-3 {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-}
-
 .line-clamp-1 {
   overflow: hidden;
   display: -webkit-box;
@@ -1556,10 +1549,6 @@ video {
   height: 100vh;
 }
 
-.max-h-\[40px\] {
-  max-height: 40px;
-}
-
 .max-h-\[72px\] {
   max-height: 72px;
 }
@@ -1656,6 +1645,10 @@ video {
   width: 42px;
 }
 
+.w-\[53px\] {
+  width: 53px;
+}
+
 .w-\[54px\] {
   width: 54px;
 }
@@ -1709,18 +1702,6 @@ video {
   width: 100%;
 }
 
-.w-\[53px\] {
-  width: 53px;
-}
-
-.w-\[\] {
-  width: ;
-}
-
-.w-\[50px\] {
-  width: 50px;
-}
-
 .min-w-1 {
   min-width: 0.25rem;
 }
@@ -1755,18 +1736,6 @@ video {
 
 .min-w-full {
   min-width: 100%;
-}
-
-.min-w-\[\] {
-  min-width: ;
-}
-
-.min-w-\[600px\] {
-  min-width: 600px;
-}
-
-.min-w-\[708px\] {
-  min-width: 708px;
 }
 
 .max-w-1 {
@@ -3002,16 +2971,6 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-red-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(248 113 113 / var(--tw-bg-opacity));
-}
-
-.bg-teal-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(94 234 212 / var(--tw-bg-opacity));
-}
-
 .decoration-slice {
   -webkit-box-decoration-break: slice;
           box-decoration-break: slice;
@@ -3298,10 +3257,6 @@ video {
 
 .pt-\[80px\] {
   padding-top: 80px;
-}
-
-.pb-0 {
-  padding-bottom: 0px;
 }
 
 .text-left {
@@ -5067,12 +5022,12 @@ header {
     padding-left: 1.25rem;
   }
 
-  .sm\:pr-3 {
-    padding-right: 0.75rem;
-  }
-
   .sm\:pr-0 {
     padding-right: 0px;
+  }
+
+  .sm\:pr-3 {
+    padding-right: 0.75rem;
   }
 
   .sm\:text-sm {
@@ -5128,10 +5083,6 @@ header {
     display: block;
   }
 
-  .md\:hidden {
-    display: none;
-  }
-
   .md\:size-6 {
     width: 1.5rem;
     height: 1.5rem;
@@ -5139,10 +5090,6 @@ header {
 
   .md\:h-5 {
     height: 1.25rem;
-  }
-
-  .md\:max-h-\[40px\] {
-    max-height: 40px;
   }
 
   .md\:max-h-fit {
@@ -5405,12 +5352,6 @@ header {
     --tw-shadow: 0 0 #0000;
     --tw-shadow-colored: 0 0 #0000;
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-  }
-}
-
-@media (min-width: 1280px) {
-  .xl\:pr-0 {
-    padding-right: 0px;
   }
 }
 

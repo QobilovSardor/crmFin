@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
 /* core style */
 html {
   scroll-behavior: smooth;
@@ -128,7 +128,6 @@ header {
   z-index: 7777;
 }
 @layer components {
-
   .modal {
     @apply fixed inset-0  sm:items-center justify-center overflow-y-auto z-[999999] hidden bg-black/60;
   }
@@ -624,10 +623,10 @@ header {
     width: 100%;
   }
   .date-picker-icon {
-    @apply right-[17px]
+    @apply right-[17px];
   }
   .date-picker-icon svg {
-    @apply w-[15px] h-[15px]
+    @apply w-[15px] h-[15px];
   }
 }
 
@@ -641,5 +640,5 @@ header {
 /* modal*/
 
 .select-arrow {
-  @apply w-5 h-5
+  @apply w-5 h-5;
 }
