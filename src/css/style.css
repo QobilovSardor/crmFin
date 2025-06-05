@@ -636,9 +636,18 @@ header {
 .tab .tab-list.active {
   @apply bg-[#F4F8FF] text-[#407BFF];
 }
-
+.tab .tab-list .tab-count {
+@apply text-blue bg-[#F4F8FF] font-normal
+}
+.tab .tab-list.active .tab-count {
+  @apply bg-white text-[#407BFF];
+}
 /* modal*/
 
 .select-arrow {
   @apply w-5 h-5;
+}
+
+.table-pagination .btn svg path {
+  stroke-width: 2px;
 }

@@ -4695,11 +4695,30 @@ header {
   color: rgb(64 123 255 / var(--tw-text-opacity));
 }
 
+.tab .tab-list .tab-count {
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 248 255 / var(--tw-bg-opacity));
+  font-weight: 400;
+  --tw-text-opacity: 1;
+  color: rgb(64 123 255 / var(--tw-text-opacity));
+}
+
+.tab .tab-list.active .tab-count {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(64 123 255 / var(--tw-text-opacity));
+}
+
 /* modal*/
 
 .select-arrow {
   height: 1.25rem;
   width: 1.25rem;
+}
+
+.table-pagination .btn svg path {
+  stroke-width: 2px;
 }
 
 @media (min-width: 640px) {

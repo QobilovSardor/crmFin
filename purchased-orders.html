@@ -438,15 +438,14 @@
           </div>
           <div class="flex gap-3 sm:w-fit w-full sm:justify-start justify-between">
             <button id="filter-toggle" class="btn btn-primary btn-sm sm:w-fit w-full justify-center">
-              <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg"
-                class="md:w-5 w-[15px]">
-                <path d="M4 7H16M1 1H19M7 13H13" stroke="#fff" strokeWidth="1.5" strokeLinecap="round"
-                  strokeLinejoin="round" />
+              <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 7H16M1 1H19M7 13H13" stroke="#fff" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round"></path>
               </svg>
               <span>Фильтр</span>
             </button>
 
-            <button class="btn btn-outline sm:w-fit w-full justify-center">Сбросить фильтр</button>
+            <button class="btn btn-full-outline sm:w-fit w-full justify-center">Сбросить фильтр</button>
           </div>
         </div>
         <div id="filter-section" class="md:my-6 sm:my-5 my-4 space-y-4 filter-section sm:mb-5 mb-4 hidden">
@@ -559,23 +558,6 @@
               <button class="sm:w-fit h-11 w-full justify-center btn btn-primary">Применить</button>
               <button class="sm:w-fit w-full h-11 justify-center btn btn-outline">Сбросить</button>
             </div>
-          </div>
-        </div>
-        <div class="select-container sm:hidden sm:mb-0 mb-4">
-          <div class="select " role="combobox" aria-expanded="false" aria-controls="select-options-1" tabindex="0">
-            <div class="select-toggle">
-              <span class="select-display font-medium text-black sm:text-md text-xs">Москва</span>
-              <svg class="select-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path d="M4 6L8 10L12 6" stroke="#407BFF" stroke-width="1.5" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </div>
-            <ul class="select-options hidden" role="listbox">
-              <li class="select-option" data-value="Москва1" role="option" aria-selected="false">Москва1</li>
-              <li class="select-option" data-value="Москва2" role="option" aria-selected="false">Москва2</li>
-              <li class="select-option" data-value="Москва3" role="option" aria-selected="false">Москва3</li>
-            </ul>
           </div>
         </div>
         <!-- ApplicationTable component -->
@@ -822,7 +804,7 @@
               </div>
 
               <!-- Pagination -->
-              <div class="flex justify-between md:mt-6 sm:mt-5 mt-4 sm:flex-row flex-col gap-4">
+              <div class="table-pagination flex justify-between md:mt-6 sm:mt-5 mt-4 sm:flex-row flex-col gap-4">
                 <div class="flex gap-2 sm:justify-start justify-between">
                   <button class="btn btn-outline h-11 w-11 justify-center p-0">
                     <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'>
