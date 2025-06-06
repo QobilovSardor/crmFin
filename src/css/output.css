@@ -1575,6 +1575,22 @@ video {
   height: 100vh;
 }
 
+.h-\[calc\(100\%-57px\)\]{
+  height: calc(100% - 57px);
+}
+
+.h-\[calc\(100vh-57px\)\]{
+  height: calc(100vh - 57px);
+}
+
+.h-\[calc\(100vh-57px-\)\]{
+  height: calc(100vh - 57px - );
+}
+
+.h-\[calc\(100vh-57px-69px\)\]{
+  height: calc(100vh - 57px - 69px);
+}
+
 .max-h-\[72px\]{
   max-height: 72px;
 }
@@ -1778,6 +1794,10 @@ video {
 
 .max-w-\[580px\]{
   max-width: 580px;
+}
+
+.max-w-\[inherit\]{
+  max-width: inherit;
 }
 
 .flex-1{
@@ -3283,6 +3303,18 @@ video {
 
 .pt-\[80px\]{
   padding-top: 80px;
+}
+
+.pb-\[65px\]{
+  padding-bottom: 65px;
+}
+
+.pb-\[68px\]{
+  padding-bottom: 68px;
+}
+
+.pb-\[100px\]{
+  padding-bottom: 100px;
 }
 
 .text-left{
@@ -5095,8 +5127,20 @@ header {
     margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));
   }
 
+  .sm\:overflow-auto{
+    overflow: auto;
+  }
+
   .sm\:overflow-clip{
     overflow: clip;
+  }
+
+  .sm\:overflow-x-auto{
+    overflow-x: auto;
+  }
+
+  .sm\:overflow-y-auto{
+    overflow-y: auto;
   }
 
   .sm\:rounded-\[12px\]{

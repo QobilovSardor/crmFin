@@ -1,3 +1,33 @@
+// document.addEventListener("DOMContentLoaded", () => {
+//   // Modal ochish
+//   document.querySelectorAll('[data-modal-target]').forEach(btn => {
+//     btn.addEventListener("click", () => {
+//       const modal = document.querySelector(btn.dataset.modalTarget);
+//       if (modal) {
+//         modal.classList.remove("hidden");
+//         modal.classList.add("flex");
+//       }
+//     });
+//   });
+
+//   // Modal yopish tugmalari
+//   document.querySelectorAll(".modal-close").forEach(btn => {
+//     btn.addEventListener("click", () => {
+//       const modal = btn.closest(".modal");
+//       if (modal) modal.classList.add("hidden");
+//     });
+//   });
+
+//   // Modal tashqi qismiga (foniga) bosilganda yopish
+//   document.querySelectorAll(".modal").forEach(modal => {
+//     modal.addEventListener("click", (e) => {
+//       // Faqat modal kontentidan tashqariga bosilganda yopilsin
+//       if (e.target === modal) {
+//         modal.classList.add("hidden");
+//       }
+//     });
+//   });
+// });
 document.addEventListener("DOMContentLoaded", () => {
   // Modal ochish
   document.querySelectorAll('[data-modal-target]').forEach(btn => {
@@ -6,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (modal) {
         modal.classList.remove("hidden");
         modal.classList.add("flex");
+        document.body.classList.add("overflow-hidden"); // body scrollni bloklash
       }
     });
   });
@@ -14,7 +45,10 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".modal-close").forEach(btn => {
     btn.addEventListener("click", () => {
       const modal = btn.closest(".modal");
-      if (modal) modal.classList.add("hidden");
+      if (modal) {
+        modal.classList.add("hidden");
+        document.body.classList.remove("overflow-hidden"); // body scrollni tiklash
+      }
     });
   });
 
@@ -24,10 +58,12 @@ document.addEventListener("DOMContentLoaded", () => {
       // Faqat modal kontentidan tashqariga bosilganda yopilsin
       if (e.target === modal) {
         modal.classList.add("hidden");
+        document.body.classList.remove("overflow-hidden"); // body scrollni tiklash
       }
     });
   });
 });
+
 
 const modalTooltip = document.getElementById('modal-tooltip');
 if (modalTooltip) {

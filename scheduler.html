@@ -508,9 +508,10 @@
 
   <!-- modal -->
   <div class="modal" id="filter-modal">
-    <div class="modal-body md:max-w-[620px] sm:max-w-[580px] w-full sm:m-4 sm:rounded-[12px] rounded-0">
-      <div class="modal-content w-full sm:pb-0 pb-[70px]">
-        <div class="flex items-center justify-between sm:py-5 sm:px-6 p-4 border-b border-[#DEE3F3]">
+    <div
+      class="modal-body md:max-w-[620px] sm:overflow-y-auto overflow-y-hidden sm:max-w-[580px] w-full sm:m-4 sm:rounded-[12px] rounded-0 sm:pb-0 pb-[68px]">
+      <div class="modal-content w-full sm:pb-0 overflow-hidden pb-[100px] sm:overflow-y-auto overflow-y-hidden">
+        <div class="flex items-center justify-between sm:py-5 sm:px-6 p-4 border-b border-[#DEE3F3] sm:overflow-y-auto overflow-y-hidden">
           <h3 class="md:text-base text-sm text-black font-semibold">Новый фильтр</h3>
           <div class='flex gap-6 items-center'>
             <div class='sm:relative'>
@@ -593,7 +594,7 @@
             </button>
           </div>
         </div>
-        <div class='sm:p-6 p-4 space-y-4'>
+        <div class='sm:p-6 p-4 space-y-4 sm:h-auto h-[calc(100vh-57px-69px)] overflow-y-auto'>
           <div>
             <label class="sm:text-xs text-[10px] text-[#707D89] mb-[6px]">Название</label>
             <input class="form-control" type="text" value="Новый фильтр по сам. обл.">
@@ -667,8 +668,9 @@
             </div>
           </div>
         </div>
-        <div
-          class="sm:p-6 p-3 border-t border-[#DEE3F3] flex gap-3 justify-end sm:sticky fixed bottom-0 w-full sm:top-full bg-white z-[999999] modal-bottom">
+        <!-- class="sm:p-6 p-3 border-t border-[#DEE3F3] flex gap-3 justify-end sm:sticky fixed bottom-0 w-full sm:top-full bg-white z-[999999] modal-bottom"> -->
+        <!-- bottom bar -->
+        <div class="sm:p-6 p-3 border-t  border-[#DEE3F3] flex gap-3 sm:sticky fixed w-full bottom-0 bg-white z-[999999] justify-end">
           <button class="btn btn-primary">Сохранить</button>
           <button class="btn btn-outline modal-close">
             Закрыть
