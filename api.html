@@ -407,159 +407,76 @@
           <!-- Card 2: API Setup -->
           <div class="card">
             <div class="card-header p-4">
-              <h3 class="card-title">Настройка API</h3>
+              <h3 class="card-title">Инструкция по API</h3>
             </div>
             <div class="card-content p-4">
               <h4 class="md:text-base text-sm leading-6 font-semibold">Описание токена</h4>
               <p class="pt-4 pb-5 md:text-sm text-xs leading-5">
-                TOKEN — уникальный идентификатор, используемый для авторизации
-                доступа к API сервиса. Без правильного значения токена доступ к
-                данным невозможен.
+                TOKEN — уникальный идентификатор, используемый для авторизации доступа к API сервиса. Без правильного
+                значения токена доступ к данным невозможен.
               </p>
-              <div class="space-y-4">
-                <h4 class="md:text-base text-sm leading-6 font-semibold">
-                  API поддерживает три основных формата передачи данных:
-                </h4>
-                <div class="space-y-2">
-                  <!-- Label -->
-                  <span class="md:text-sm text-xs mb-2 text-black">CSV</span>
-                  <div class="flex items-center justify-between gap-3 bg-[#F4F8FF] py-3 px-4 rounded-lg">
-                    <div class="flex gap-3">
-                      <span class="md:text-sm text-xs leading-5 text-[#707D89] pr-3 border-r border-[#DEE3F3]">
-                        1
-                      </span>
-                      <span class="md:text-sm text-xs leading-5 text-[#407BFF]">
-                        da87sf87sdg98esgg332adf
-                      </span>
-                    </div>
-                    <button>
-                      <img src="src/images/icons/copy.svg" alt="">
-                    </button>
-                  </div>
-                </div>
-                <div class="space-y-2">
-                  <!-- Label -->
-                  <span class="md:text-sm text-xs mb-2 text-black">XML</span>
-                  <div class="flex items-center justify-between gap-3 bg-[#F4F8FF] py-3 px-4 rounded-lg">
-                    <div class="flex gap-3">
-                      <span class="md:text-sm text-xs leading-5 text-[#707D89] pr-3 border-r border-[#DEE3F3]">
-                        1
-                      </span>
-                      <span class="md:text-sm text-xs leading-5 text-[#407BFF]">
-                        da87sf87sdg98esgg332adf
-                      </span>
-                    </div>
-                    <button>
-                      <img src="src/images/icons/copy.svg" alt="">
-                    </button>
-                  </div>
-                </div>
-                <div class="space-y-2">
-                  <!-- Label -->
-                  <span class="md:text-sm text-xs mb-2 text-black">JSON</span>
-                  <div class="flex items-center justify-between gap-3 bg-[#F4F8FF] py-3 px-4 rounded-lg">
-                    <div class="flex gap-3">
-                      <span class="md:text-sm text-xs leading-5 text-[#707D89] pr-3 border-r border-[#DEE3F3]">
-                        1
-                      </span>
-                      <span class="md:text-sm text-xs leading-5 text-[#407BFF]">
-                        da87sf87sdg98esgg332adf
-                      </span>
-                    </div>
-                    <button>
-                      <img src="src/images/icons/copy.svg" alt="">
-                    </button>
-                  </div>
-                </div>
-                <p class="md:text-sm text-xs leading-5">
-                  Где TOKEN заменяется вашим уникальным значением токена. Получение
-                  списка всех заявок По умолчанию, указанные выше запросы возвращают
-                  полный список всех приобретённых вами заявок.
-                </p>
-                <p class="md:text-sm text-xs leading-5">
-                  Где TOKEN заменяется вашим уникальным значением токена. Получение
-                  списка всех заявок По умолчанию, указанные выше запросы возвращают
-                  полный список всех приобретённых вами заявок.
-                </p>
-              </div>
-            </div>
-          </div>
+              <div class="flex items-center justify-between gap-3 bg-[#F4F8FF] py-3 px-4 rounded-lg relative">
+                <span id="token" class="md:text-sm text-xs leading-5 w-[96%]">
+                  $all=array(
 
-          <!-- Card 3: Additional Parameters -->
-          <div class="card">
-            <div class="card-header p-4">
-              <h3 class="card-title">Дополнительные параметры (только для XML и JSON):</h3>
-            </div>
-            <div class="card-content p-4">
-              <h4 class="md:text-base text-sm leading-6 font-semibold">
-                Дополнительные параметры позволяют гибко управлять процессом
-                выгрузки данных:
-              </h4>
-              <p class="py-4 md:text-sm text-xs leading-5">
-                <b>&only=new:</b> Позволяет экспортировать новые заявки, количество
-                ограничено максимум 50 тысячами записей, при этом данные получают
-                отметку «выгружено».
-              </p>
-              <p class="md:text-sm text-xs leading-5">
-                <b>&only=old:</b> Экспортирует ранее отмеченные («выгруженные»)
-                заявки.
-              </p>
-              <div class="space-y-4 mt-5">
-                <h4 class="md:text-base text-sm leading-6 font-semibold">
-                  Примеры запросов с параметрами:
-                </h4>
-                <div class="space-y-2">
-                  <!-- Label -->
-                  <span class="md:text-sm text-xs mb-2 text-black"># Получить только новые заявки</span>
-                  <div class="flex items-center justify-between gap-3 bg-[#F4F8FF] py-3 px-4 rounded-lg">
-                    <div class="flex gap-3">
-                      <span class="md:text-sm text-xs leading-5 text-[#707D89] pr-3 border-r border-[#DEE3F3]">
-                        1
-                      </span>
-                      <span class="md:text-sm text-xs leading-5 text-[#407BFF]">
-                        da87sf87sdg98esgg332adf
-                      </span>
-                    </div>
-                    <button>
-                      <img src="src/images/icons/copy.svg" alt="">
-                    </button>
-                  </div>
-                </div>
-                <div class="space-y-2">
-                  <!-- Label -->
-                  <span class="md:text-sm text-xs mb-2 text-black"># Получить только старые заявки</span>
-                  <div class="flex items-center justify-between gap-3 bg-[#F4F8FF] py-3 px-4 rounded-lg">
-                    <div class="flex gap-3">
-                      <span class="md:text-sm text-xs leading-5 text-[#707D89] pr-3 border-r border-[#DEE3F3]">
-                        1
-                      </span>
-                      <span class="md:text-sm text-xs leading-5 text-[#407BFF]">
-                        da87sf87sdg98esgg332adf
-                      </span>
-                    </div>
-                    <button>
-                      <img src="src/images/icons/copy.svg" alt="">
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+                  short
 
-          <!-- Card 4: Summary -->
-          <div class="card">
-            <div class="card-header p-4">
-              <h3 class="card-title">Итоги</h3>
-            </div>
-            <div class="card-content p-4">
-              <p class="pb-4 md:text-sm text-xs leading-5">
-                Используя приведённые инструкции, вы сможете настроить подключение к
-                API CRMFin и получать необходимые вам данные удобным способом.
-              </p>
-              <p class="md:text-sm text-xs leading-5">
-                Убедитесь, что ваш токен защищён от несанкционированного доступа
-                третьими лицами.
-              </p>
+                  'last_name' - фамилия
+                  'first_name' - имя
+                  'middle_name' - отчество
+
+                  'birthday' - дата рождения, ДД-ММ-ГГГГ
+
+                  'residential_region' - регион проживания
+                  'residential_city' - город проживания
+
+                  'phone' - мобильный телефон
+                  'email' – электронная почта
+
+                  'amount' - сумма кредита
+                  'period' - срок кредита, недели (переводим в месяца и года)
+
+                  long
+
+                  'passport_series' - серия паспорта
+                  'passport_number' - номер паспорта
+                  'passport_date_of_issue' - дата выдачи паспорта, ДД-ММ-ГГГГ
+                  'passport_code' – код подразделения, например: 123-456
+                  'passport_org' – кем выдан паспорт
+
+                  'work_name' - название места работы
+                  'work_inn' - ИНН организации
+                  'work_experience' - опыт работы, количество месяцев
+                  'work_incoming' - доход, рубли
+                  'work_phone' – рабочий телефон
+
+                  'residential_street' - улица проживания
+                  'residential_house' - номер дома
+                  'residential_apartment' - квартира
+
+                  'loantype' - тип кредита (потребительский, займ, банкротство, ипотека)
+                  'datetime' => Дата добавления в формате 'd.m.Y H:i:s',
+                  );
+
+                  TOKEN - уникальный код для доступа к API.
+
+                  function SendTo_BROKER($params) {
+                  $ch = curl_init();
+
+                  curl_setopt($ch, CURLOPT_URL, "http://crmfin.ru/api/import/d5252235435DSGVCE43565436f9f9668/");
+                  curl_setopt($ch, CURLOPT_HEADER, 0);
+                  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                  curl_setopt($ch, CURLOPT_TIMEOUT, 20);
+                  curl_setopt($ch, CURLOPT_POST, 1);
+                  curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+                  $data = curl_exec($ch);
+
+                  }
+                </span>
+                <button id="copyToken" class="w-5 h-5 absolute top-3 right-4">
+                  <img src="src/images/icons/copy.svg" alt="">
+                </button>
+              </div>
             </div>
           </div>
         </div>

@@ -373,7 +373,7 @@
         class="p-4 md:p-6 relative min-h-[calc(100%_-_77px)] lg:pt-6 pt-[80px] sm:overflow-clip overflow-hidden !pb-[150px]">
         <div class="flex flex-wrap items-center justify-between gap-3 md:mb-6 sm:mb-5 mb-4">
           <h2 class="md:text-2xl text-xl font-semibold text-black">
-            Архив платежей
+            Статистика
           </h2>
           <nav class="sm:block hidden">
             <ol class="flex items-center gap-1.5">
@@ -388,7 +388,7 @@
                 </a>
               </li>
               <li class="text-xs text-400">/</li>
-              <li class="text-blackLight text-xs">Архив платежей</li>
+              <li class="text-blackLight text-xs">Статистика</li>
             </ol>
           </nav>
         </div>
@@ -399,24 +399,12 @@
             <ul class="tab flex items-center rounded-lg bg-white p-0.5 whitespace-nowrap md:w-fit w-full">
               <li
                 class="tab-list active px-3 py-2 font-medium w-full sm:w-fit rounded-md md:text-sm text-xs flex justify-center items-center gap-2 cursor-pointer active">
-                <span>Все</span>
-                <div
-                  class="tab-count rounded-full px-2 py-[2px] text-center align-middle text-xs bg-white text-[#407BFF]">
-                  12</div>
+                <span>Общая</span>
               </li>
               <li
                 class="tab-list px-3 py-2 font-medium w-full sm:w-fit rounded-md md:text-sm text-xs flex justify-center items-center gap-2 cursor-pointer">
-                <span>Работает</span>
-                <div
-                  class="tab-count rounded-full px-2 py-[2px] text-center font-normal align-middle text-xs bg-blue-light text-blue">
-                  4</div>
-              </li>
-              <li
-                class="tab-list px-3 py-2 font-medium w-full sm:w-fit rounded-md md:text-sm text-xs flex justify-center items-center gap-2 cursor-pointer">
-                <span>Не работает</span>
-                <div
-                  class="tab-count rounded-full px-2 py-[2px] text-center font-normal align-middle text-xs bg-blue-light text-blue">
-                  4</div>
+                <span>По ГЕО</span>
+
               </li>
             </ul>
           </div>
@@ -443,106 +431,122 @@
         <div>
           <div class="mx-auto">
             <div class="relative">
-              <div class="overflow-x-auto scroll-box">
-                <div class="min-w-[1080px] bg-[#F9FBFF] overflow-x-auto">
-                  <div class="rounded-xl border border-gray-200 overflow-hidden bg-white">
-                    <div class="w-full">
-                      <table class="min-w-full bg-white">
-                        <thead class="border-b border-[#DEE3F3] bg-[#F4F8FF]">
-                          <tr>
-                            <th
-                              class="p-3 sm:h-11 h-[42px] pl-6 text-[#707D89] text-start md:text-xs w-[200px] text-[10px] font-normal">
-                              Номер</th>
-                            <th
-                              class="p-3 sm:h-11 h-[42px] text-[#707D89] text-start md:text-xs w-[200px] text-[10px] font-normal">
-                              ID</th>
-                            <th
-                              class="p-3 sm:h-11 h-[42px] text-[#707D89] text-start md:text-xs w-[200px] text-[10px] font-normal">
-                              Дата</th>
-                            <th
-                              class="p-3 sm:h-11 h-[42px] text-[#707D89] text-start md:text-xs w-[200px] text-[10px] font-normal">
-                              Сумма</th>
-                            <th
-                              class="p-3 sm:h-11 h-[42px] text-[#707D89] text-start md:text-xs w-[200px] text-[10px] font-normal">
-                              Тип оплаты
-                            </th>
-                            <th
-                              class="p-3 sm:h-11 h-[42px] text-[#707D89] text-start md:text-xs w-[200px] text-[10px] font-normal">
-                              Статус
-                            </th>
-                            <th
-                              class="p-3 sm:h-11 h-[42px] text-[#707D89] text-start md:text-xs w-[200px] text-[10px] font-normal">
-                            </th>
-                          </tr>
-                        </thead>
-                        <tbody class="divide-y divide-gray-100 whitespace-nowrap table-body">
-                          <tr>
-                            <td
-                              class="px-3 sm:min-w-fit min-w-[150px]  max-w-[200px] pl-6 py-2 sm:h-11 h-[42px] text-start">
-                              <span class="md:text-sm text-xs">R0250</span>
-                            </td>
-                            <td class="px-3 sm:min-w-fit min-w-[150px]  max-w-[200px] py-2 sm:h-11 h-[42px] text-start">
-                              <span class="md:text-sm text-xs">2295336</span>
-                            </td>
-                            <td class="px-3 sm:min-w-fit min-w-[150px]  max-w-[200px] py-2 sm:h-11 h-[42px] text-start">
-                              <span class="md:text-sm text-xs">18.02.2024</span>
-                            </td>
-                            <td class="px-3 sm:min-w-fit min-w-[150px]  max-w-[200px] py-2 sm:h-11 h-[42px] text-start">
-                              <span class="md:text-sm text-xs">2 500 ₽</span>
-                            </td>
-                            <td class="px-3 sm:min-w-fit min-w-[150px]  max-w-[200px] py-2 sm:h-11 h-[42px] text-start">
-                              <span class="md:text-sm text-xs">Картой</span>
-                            </td>
-                            <td class="px-3 sm:min-w-fit min-w-[150px]  max-w-[200px] py-2 sm:h-11 h-[42px] text-start">
-                              <span class="badge badge-light badge-success">Оплачен</span>
-                            </td>
-                            <td class="px-3 sm:min-w-fit min-w-[150px]  max-w-[200px] py-2 sm:h-11 h-[42px] text-start">
-                              <span class="md:text-sm text-xs text-blue cursor-pointer"
-                                data-modal-target="#check-modal">Открыть счет</span>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td
-                              class="px-3 sm:min-w-fit min-w-[150px]  max-w-[200px] pl-6 py-2 sm:h-11 h-[42px] text-start">
-                              <span class="md:text-sm text-xs">R0250</span>
-                            </td>
-                            <td class="px-3 sm:min-w-fit min-w-[150px]  max-w-[200px] py-2 sm:h-11 h-[42px] text-start">
-                              <span class="md:text-sm text-xs">2295336</span>
-                            </td>
-                            <td class="px-3 sm:min-w-fit min-w-[150px]  max-w-[200px] py-2 sm:h-11 h-[42px] text-start">
-                              <span class="md:text-sm text-xs">18.02.2024</span>
-                            </td>
-                            <td class="px-3 sm:min-w-fit min-w-[150px]  max-w-[200px] py-2 sm:h-11 h-[42px] text-start">
-                              <span class="md:text-sm text-xs">2 500 ₽</span>
-                            </td>
-                            <td class="px-3 sm:min-w-fit min-w-[150px]  max-w-[200px] py-2 sm:h-11 h-[42px] text-start">
-                              <span class="md:text-sm text-xs">Картой</span>
-                            </td>
-                            <td class="px-3 sm:min-w-fit min-w-[150px]  max-w-[200px] py-2 sm:h-11 h-[42px] text-start">
-                              <span class="badge badge-light badge-error">Отменен</span>
-                            </td>
-                            <td class="px-3 sm:min-w-fit min-w-[150px]  max-w-[200px] py-2 sm:h-11 h-[42px] text-start">
-                              <span class="md:text-sm text-xs text-blue cursor-pointer"
-                                data-modal-target="#check-modal">Открыть счет</span>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+              <div class="tab-content" id="tab-general">
+                <div class="overflow-x-auto scroll-box">
+                  <div class="min-w-[1080px] bg-[#F9FBFF] overflow-x-auto">
+                    <div class="rounded-xl border border-gray-200 overflow-hidden bg-white">
+                      <div class="w-full">
+                        <table class="min-w-full bg-white">
+                          <thead class="border-b border-[#DEE3F3] bg-[#F4F8FF]">
+                            <tr>
+                              <th
+                                class="p-3 sm:h-11 h-[42px] pl-6 text-[#707D89] text-start md:text-xs w-[200px] text-[10px] font-normal">
+                                Дата</th>
+                              <th
+                                class="p-3 sm:h-11 h-[42px] text-[#707D89] text-start md:text-xs w-[200px] text-[10px] font-normal">
+                                Количество</th>
+                              <th
+                                class="p-3 sm:h-11 h-[42px] text-[#707D89] text-start md:text-xs w-[200px] text-[10px] font-normal">
+                                Сумма</th>
+                            </tr>
+                          </thead>
+                          <tbody class="divide-y divide-gray-100 whitespace-nowrap table-body">
+                            <tr>
+                              <td
+                                class="px-3 sm:min-w-fit min-w-[150px]  max-w-[200px] pl-6 py-2 sm:h-11 h-[42px] text-start">
+                                <span class="md:text-sm text-xs">15.03.2025</span>
+                              </td>
+                              <td
+                                class="px-3 sm:min-w-fit min-w-[150px]  max-w-[200px] py-2 sm:h-11 h-[42px] text-start">
+                                <span class="md:text-sm text-xs">250 шт.</span>
+                              </td>
+                              <td
+                                class="px-3 sm:min-w-fit min-w-[150px]  max-w-[200px] py-2 sm:h-11 h-[42px] text-start">
+                                <span class="md:text-sm text-xs">7 500 ₽</span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                class="px-3 sm:min-w-fit min-w-[150px]  max-w-[200px] pl-6 py-2 sm:h-11 h-[42px] text-start">
+                                <span class="md:text-sm text-xs">15.03.2025</span>
+                              </td>
+                              <td
+                                class="px-3 sm:min-w-fit min-w-[150px]  max-w-[200px] py-2 sm:h-11 h-[42px] text-start">
+                                <span class="md:text-sm text-xs">250 шт.</span>
+                              </td>
+                              <td
+                                class="px-3 sm:min-w-fit min-w-[150px]  max-w-[200px] py-2 sm:h-11 h-[42px] text-start">
+                                <span class="md:text-sm text-xs">7 500 ₽</span>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
+                    <table class="bg-[#F9FBFF] mt-[10px]">
+                      <tr>
+                        <td class="py-2 px-3 pl-6 md:text-sm text-xs sm:w-[526px] w-[200px] text-start text-[#707D89]">
+                          Итого</td>
+                        <td
+                          class="py-2 px-3 md:text-sm text-xs sm:w-[526px] w-[200px] text-start text-[#707D89] sm:pl-[14px] pl-5">
+                          3 750 шт.</td>
+                        <td
+                          class="py-2 px-3 md:text-sm text-xs sm:w-[526px] w-[200px] text-start text-[#707D89] sm:pl-[14px] pl-5">
+                          112 500 ₽
+                        </td>
+                      </tr>
+                    </table>
                   </div>
-                  <table class="bg-[#F9FBFF] mt-[10px]">
-                    <tr>
-                      <td class="py-2 px-3 pl-6 md:text-sm text-xs sm:w-[225px] w-[150px] text-start text-[#707D89]">
-                        Итого</td>
-                      <td class="py-2 px-3 md:text-sm text-xs sm:w-[225px] w-[150px] text-start text-[#707D89]"></td>
-                      <td class="py-2 px-3 md:text-sm text-xs sm:w-[225px] w-[150px] text-start text-[#707D89]"></td>
-                      <td class="py-2 px-3 md:text-sm text-xs sm:w-[225px] w-[150px] text-start text-[#707D89] sm:pl-0 pl-5">122 500
-                        ₽</td>
-                      <td class="py-2 px-3 md:text-sm text-xs sm:w-[225px] w-[150px] text-start text-[#707D89] sm:pl-0 pl-5">8 шт
-                      </td>
-                      <td class="py-2 px-3 md:text-sm text-xs sm:w-[225px] w-[150px] text-start text-[#707D89]"></td>
-                    </tr>
-                  </table>
+                </div>
+              </div>
+
+              <div class="tab-content" id="tab-geo" hidden>
+                <!-- table -->
+                <div class="overflow-x-auto scroll-box">
+                  <div class="min-w-[1380px] bg-[#F9FBFF] overflow-x-auto">
+                    <div class="overflow-x-auto rounded-xl border border-gray-200 bg-white">
+                      <div class="w-full">
+                        <table class="w-full bg-white">
+                          <!-- Table Header -->
+                          <thead class="border-b border-gray-100 bg-[#F4F8FF]">
+                            <tr>
+                              <th
+                                class="px-3 py-2 text-start h-11 text-xs font-normal text-[#707D89] w-[42px] sm:pl-5 sm:pr-3 pr-0">
+                              </th>
+                              <th class="px-3 py-2 text-start h-11 text-xs font-normal text-[#707D89]">Дата</th>
+                              <th class="px-3 py-2 text-start h-11 text-xs font-normal text-[#707D89]">Регионы</th>
+                              <th class="px-3 py-2 text-start h-11 text-xs font-normal text-[#707D89]">Количество</th>
+                              <th class="px-3 py-2 text-start h-11 text-xs font-normal text-[#707D89]">Сумма</th>
+                            </tr>
+                          </thead>
+
+                          <!-- Table Body -->
+                          <tbody class="divide-y divide-gray-100 whitespace-nowrap" id="statistics-table-body">
+                            <!-- Table rows will be inserted by JavaScript -->
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <table class="bg-[#F9FBFF] mt-[10px]">
+                      <tr>
+                        <td class="py-2 px-3 pl-6 md:text-sm text-xs sm:w-[54px] w-[54px] text-start text-[#707D89]">
+                        </td>
+                        <td class="py-2 px-3 pl-4 md:text-sm text-xs sm:w-[405px] w-[200px] text-start text-[#707D89]">
+                          Итого</td>
+                        <td
+                          class="py-2 md:text-sm text-xs sm:w-[405px] w-[200px] text-start text-[#707D89] sm:pl-10 pl-5">
+                          40</td>
+                        <td
+                          class="py-2 md:text-sm text-xs sm:w-[405px] w-[200px] text-start text-[#707D89] sm:pl-[10px] pl-5">
+                          3 750 шт.
+                        </td>
+                        <td
+                          class="py-2 md:text-sm text-xs sm:w-[405px] w-[200px] text-start text-[#707D89] sm:pl-[55px] pl-5">
+                          112 500 ₽
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
                 </div>
               </div>
 
@@ -638,6 +642,7 @@
   <!-- js -->
   <script src="src/js/script.js"></script>
 
+  <script src="./src/js/statistics-table.js"></script>
 </body>
 
 </html>

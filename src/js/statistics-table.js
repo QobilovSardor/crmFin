@@ -1,101 +1,44 @@
-// Data structure for the transaction table
+// Data structure for the transaction table (static and editable)
 const statisticsTableData = [
   {
     id: '1',
-    transactionId: '1199975',
-    date: '15.03.2025 13:05:09',
-    type: 'Покупка',
-    quantity: '1 шт.',
-    cost: '30 ₽',
-    total: '210 ₽',
+    transactionId: '15.03.2025',
+    date: '5',
+    type: '250 шт.',
+    quantity: '7 500 ₽',
     isExpandable: true,
   },
   {
     id: '2',
-    transactionId: '1199975',
-    date: '15.03.2025 13:05:09',
-    type: 'Автопокупка',
-    quantity: '1 шт.',
-    cost: '30 ₽',
-    total: '240 ₽',
+    transactionId: '15.03.2025',
+    date: '5',
+    type: '250 шт.',
+    quantity: '7 500 ₽',
     isExpandable: true,
     isExpanded: true,
-    details: {
-      plannerId: '2224',
-      region: 'Самарская область',
-      city: '-',
-      age: '20 — 50',
-      amount: '10 000 — 3 000 000',
-    },
+    details: [
+      { plannerId: 'Самарская область', region: '-', city: '50 шт.', age: '1 500 ₽' },
+      { plannerId: 'Самарская область', region: '-', city: '100 шт.', age: '3 000 ₽' },
+      { plannerId: 'Самарская область', region: '-', city: '150 шт.', age: '4 500 ₽' },
+      { plannerId: 'Самарская область', region: '-', city: '200 шт.', age: '6 000 ₽' },
+      { plannerId: 'Самарская область', region: '-', city: '250 шт.', age: '7 500 ₽' },
+      { plannerId: 'Самарская область', region: '-', city: '300 шт.', age: '9 000 ₽' },
+    ],
   },
   {
     id: '3',
-    transactionId: '1199975',
-    date: '15.03.2025 13:05:09',
-    type: 'Автопокупка',
-    quantity: '2 шт.',
-    cost: '60 ₽',
-    total: '270 ₽',
-    isExpandable: false,
-  },
-  {
-    id: '4',
-    transactionId: '1199975',
-    date: '15.03.2025 13:05:09',
-    type: 'Покупка',
-    quantity: '1 шт.',
-    cost: '30 ₽',
-    total: '300 ₽',
-    isExpandable: false,
-  },
-  {
-    id: '5',
-    transactionId: '1199975',
-    date: '15.03.2025 13:05:09',
-    type: 'Автопокупка',
-    quantity: '3 шт.',
-    cost: '90 ₽',
-    total: '390 ₽',
+    transactionId: '15.03.2025',
+    date: '5',
+    type: '250 шт.',
+    quantity: '7 500 ₽',
     isExpandable: true,
-    isExpanded: true,
-    details: {
-      plannerId: '2224',
-      region: 'Самарская область',
-      city: '-',
-      age: '20 — 50',
-      amount: '10 000 — 3 000 000',
-    },
-  },
-  {
-    id: '6',
-    transactionId: '1199975',
-    date: '15.03.2025 13:05:09',
-    type: 'Автопокупка',
-    quantity: '8 шт.',
-    cost: '240 ₽',
-    total: '630 ₽',
-    isExpandable: false,
-  },
-  {
-    id: '7',
-    transactionId: '1199975',
-    date: '15.03.2025 13:05:09',
-    type: 'Автопокупка',
-    quantity: '8 шт.',
-    cost: '240 ₽',
-    total: '870 ₽',
-    isExpandable: false,
+
   },
 ];
 
 // Column configuration
 const statistics = [
-  {
-    key: 'expand',
-    label: '',
-    type: 'expand',
-    width: 'w-[42px] sm:pl-5 sm:pr-3 pr-0',
-  },
+  { key: 'expand', label: '', type: 'expand', width: 'w-[42px] sm:pl-5 sm:pr-3 pr-0' },
   { key: 'transactionId', label: 'Транзакция' },
   { key: 'date', label: 'Дата' },
   { key: 'type', label: 'Тип' },
@@ -127,11 +70,11 @@ function renderTable() {
 
     // Expand cell
     const expandCell = document.createElement('td');
-    expandCell.className = 'px-3 py-2 text-start h-11 w-[42px] sm:pl-5 sm:pr-3 pr-0';
+    expandCell.className = 'px-3 py-2 text-start h-11 w-[54px] sm:pl-5 sm:pr-3 pr-0';
 
     if (row.isExpandable) {
       const expandButton = document.createElement('button');
-      expandButton.className = 'flex h-[18px] sm:h-auto w-[42px] items-center justify-center';
+      expandButton.className = 'flex h-[18px] sm:h-auto w-auto items-center justify-center';
       expandButton.dataset.id = row.id;
 
       if (expandedRows.includes(row.id)) {
@@ -179,52 +122,32 @@ function renderTable() {
     quantityCell.innerHTML = `<span class="md:text-sm text-xs text-gray-900">${row.quantity}</span>`;
     tr.appendChild(quantityCell);
 
-    // Cost cell
-    const costCell = document.createElement('td');
-    costCell.className = 'px-3 py-2 text-start h-11';
-    costCell.innerHTML = `<span class="md:text-sm text-xs text-gray-900">${row.cost}</span>`;
-    tr.appendChild(costCell);
-
-    // Total cell
-    const totalCell = document.createElement('td');
-    totalCell.className = 'px-3 py-2 text-start h-11';
-    totalCell.innerHTML = `<span class="md:text-sm text-xs text-gray-900">${row.total}</span>`;
-    tr.appendChild(totalCell);
-
     // Add the row to the table
     tableBody.appendChild(tr);
 
-    // If row is expanded and has details, add the expanded details row
+    // If row is expanded and has details, add a single expanded details row with all details
     if (expandedRows.includes(row.id) && row.details) {
       const detailsRow = document.createElement('tr');
       const detailsCell = document.createElement('td');
-      detailsCell.colSpan = 7;
-      detailsCell.className = 'p-3';
+      detailsCell.colSpan = 7; // Span all columns
+      detailsCell.className = 'px-3';
 
       const detailsContent = `
-        <div class="rounded-md bg-[#F4F8FF] p-3 h-[70px]">
-          <div class="grid grid-cols-5 gap-4 text-sm">
-            <div>
-              <div class="mb-2 text-xs text-[#707D89]">Планировщик ID</div>
-              <div class="font-semibold text-black md:text-sm text-xs">${row.details.plannerId}</div>
-            </div>
-            <div>
-              <div class="mb-2 text-xs text-[#707D89]">Регион</div>
-              <div class="font-semibold text-black md:text-sm text-xs">${row.details.region}</div>
-            </div>
-            <div>
+        <div class="rounded-md bg-[#F4F8FF] p-3 mb-3">
+        <div class="grid grid-cols-4">
+          <div class="mb-2 text-xs text-[#707D89]">Регион</div>
               <div class="mb-2 text-xs text-[#707D89]">Город</div>
-              <div class="font-semibold text-black md:text-sm text-xs">${row.details.city}</div>
-            </div>
-            <div>
-              <div class="mb-2 text-xs text-[#707D89]">Возраст</div>
-              <div class="font-semibold text-black md:text-sm text-xs">${row.details.age}</div>
-            </div>
-            <div>
+              <div class="mb-2 text-xs text-[#707D89]">Количество</div>
               <div class="mb-2 text-xs text-[#707D89]">Сумма</div>
-              <div class="font-semibold text-black md:text-sm text-xs">${row.details.amount}</div>
-            </div>
           </div>
+          ${row.details.map(detail => `
+            <div class="grid grid-cols-4 text-sm border-b border-border-light mb-2">
+              <div class="font-semibold text-black md:text-sm text-xs mb-2">${detail.plannerId}</div>
+              <div class="font-semibold text-black md:text-sm text-xs mb-2">${detail.region}</div>
+              <div class="font-semibold text-black md:text-sm text-xs mb-2">${detail.city}</div>
+              <div class="font-semibold text-black md:text-sm text-xs">${detail.age}</div>
+            </div>
+          `).join('')}
         </div>
       `;
 
@@ -237,8 +160,7 @@ function renderTable() {
 
 // Set up event listeners
 function setupEventListeners() {
-  // Expand/collapse buttons
-  document.addEventListener('click', function(e) {
+  document.addEventListener('click', function (e) {
     const expandButton = e.target.closest('button');
     if (expandButton && expandButton.dataset.id) {
       const rowId = expandButton.dataset.id;
@@ -260,7 +182,7 @@ function toggleExpanded(id) {
 // Initialize when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', initializeTable);
 
-// Export functionality for potential external use
+// Export functionality for potential external use with data modification
 window.transactionTable = {
   getExpandedRows: () => expandedRows,
   setExpandedRows: (rows) => {
@@ -268,5 +190,38 @@ window.transactionTable = {
     renderTable();
   },
   getData: () => statisticsTableData,
+  setData: (newData) => {
+    statisticsTableData.length = 0; // Clear existing data
+    newData.forEach(item => statisticsTableData.push(item));
+    renderTable();
+  },
   refresh: renderTable
 };
+document.addEventListener('DOMContentLoaded', () => {
+  const tabLinks = document.querySelectorAll('.tab-list');
+  const tabContents = document.querySelectorAll('.tab-content');
+
+  tabLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      // Remove active class from all tabs
+      tabLinks.forEach(l => l.classList.remove('active'));
+      // Add active class to the clicked tab
+      link.classList.add('active');
+
+      // Determine which tab was clicked
+      const tabId = link.querySelector('span').textContent === 'Общая' ? 'tab-general' : 'tab-geo';
+
+      // Hide all tab contents
+      tabContents.forEach(content => content.setAttribute('hidden', ''));
+
+      // Show the selected tab content
+      const selectedTab = document.getElementById(tabId);
+      if (selectedTab) {
+        selectedTab.removeAttribute('hidden');
+      }
+    });
+  });
+
+  // Trigger the default tab (Общая) on load
+  tabLinks[0].click();
+});

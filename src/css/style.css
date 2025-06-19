@@ -679,14 +679,14 @@ header {
   @apply bg-[#F9FBFF] relative z-10 !border-transparent;
 }
 .flatpickr-day.inRange::before {
-      content: '';
-    position: absolute;
-    top: -1px;
-    left: -6px;
-    background: #F9FBFF;
-    width: 132%;
-    height: 105%;
-    z-index: -1;
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -6px;
+  background: #f9fbff;
+  width: 132%;
+  height: 105%;
+  z-index: -1;
 }
 
 /* Katta hitbox zonasi */
@@ -701,4 +701,7 @@ header {
   background-color: transparent; /* Ko‘rinmaydi */
   cursor: pointer;
   z-index: 1;
+}
+.tab-content[hidden] {
+  display: none;
 }
