@@ -133,7 +133,7 @@ function renderTable() {
       detailsCell.className = 'px-3';
 
       const detailsContent = `
-        <div class="rounded-md bg-[#F4F8FF] p-3 mb-3">
+        <div class="rounded-md bg-[#F4F8FF] p-3 mb-3 collapse-child-items -mt-[2px]">
         <div class="grid grid-cols-4">
           <div class="mb-2 text-xs text-[#707D89]">Регион</div>
               <div class="mb-2 text-xs text-[#707D89]">Город</div>
