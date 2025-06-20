@@ -385,7 +385,8 @@
 
         <!-- UI code -->
         <div class="max-w-[908px] mx-auto space-y-6">
-          <div class="flex items-center justify-between bg-white md:p-6 sm:px-5 sm:py-6 p-4 rounded-xl border border-border-light">
+          <div
+            class="flex items-center justify-between bg-white md:p-6 sm:px-5 sm:py-6 p-4 rounded-xl border border-border-light">
             <div class="flex items-center gap-6">
               <div class="w-12 h-12 bg-[#F4F8FF] rounded-lg flex items-center justify-center">
                 <img src="src/images/icons/coins.svg" alt="">
@@ -441,22 +442,28 @@
                           </svg>
                         </div>
                         <ul class="select-options hidden" role="listbox">
-                          <li class="select-option flex items-center justify-between" data-value="Юридическое лицо/ИП"
+                          <li class="select-option flex items-center justify-between !text-sm" data-value="Юридическое лицо/ИП"
                             role="option" aria-selected="false">
                             <span>5536 91****** 1777</span>
-                            <img src="src/images/icons/trash.svg" alt="">
+                            <button data-modal-target="#delete-cart">
+                              <img src="src/images/icons/trash.svg" alt="">
+                            </button>
                           </li>
-                          <li class="select-option flex items-center justify-between" data-value="Москва2" role="option"
+                          <li class="select-option flex items-center justify-between !text-sm" data-value="Москва2" role="option"
                             aria-selected="false">
                             <span>5536 91****** 1778</span>
-                            <img src="src/images/icons/trash.svg" alt="">
+                            <button data-modal-target="#delete-cart">
+                              <img src="src/images/icons/trash.svg" alt="">
+                            </button>
                           </li>
-                          <li class="select-option flex items-center justify-between" data-value="Москва3" role="option"
+                          <li class="select-option flex items-center justify-between !text-sm" data-value="Москва3" role="option"
                             aria-selected="false">
                             <span>5536 91****** 1779</span>
-                            <img src="src/images/icons/trash.svg" alt="">
+                            <button data-modal-target="#delete-cart">
+                              <img src="src/images/icons/trash.svg" alt="">
+                            </button>
                           </li>
-                          <button class="flex items-center gap-3 py-[10px] px-[16px]">
+                          <button class="flex items-center gap-3 py-[10px] px-[16px]" data-modal-target="#add-cart">
                             <img src="src/images/icons/plus.svg" alt="">
                             <span class="text-sm text-[#407BFF] font-medium">Добавить новую карту</span>
                           </button>
@@ -610,6 +617,96 @@
   </main>
 
 
+  <!-- modal -->
+  <div class="modal" id="add-cart">
+    <div class="modal-body sm:max-w-[420px] w-[calc(100%_-_32px)] sm:m-4 sm:rounded-[12px] rounded-0">
+      <div class="modal-content w-full">
+        <div class="flex items-center justify-between sm:py-5 sm:px-6 p-4 border-b border-[#DEE3F3]">
+          <h3 class="md:text-base text-sm text-black font-semibold">Новая карта</h3>
+          <div class="flex gap-3 items-center">
+            <button class="modal-close">
+              <svg class="md:size-6 size-5" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M6.04289 16.5418C5.65237 16.9323 5.65237 17.5655 6.04289 17.956C6.43342 18.3465 7.06658 18.3465 7.45711 17.956L11.9987 13.4144L16.5408 17.9565C16.9313 18.347 17.5645 18.347 17.955 17.9565C18.3455 17.566 18.3455 16.9328 17.955 16.5423L13.4129 12.0002L17.955 7.45808C18.3455 7.06756 18.3455 6.43439 17.955 6.04387C17.5645 5.65335 16.9313 5.65335 16.5408 6.04387L11.9987 10.586L7.45711 6.04439C7.06658 5.65386 6.43342 5.65386 6.04289 6.04439C5.65237 6.43491 5.65237 7.06808 6.04289 7.4586L10.5845 12.0002L6.04289 16.5418Z"
+                  fill="#707D89"></path>
+              </svg></button>
+          </div>
+        </div>
+        <div class="p-6 space-y-[6px]">
+          <label class="text-xs text-gray-base">Номер карты</label>
+          <input type="text" class="form-control">
+        </div>
+        <div class='sm:p-6 p-3 border-t justify-end border-[#DEE3F3] flex gap-3 sticky bottom-0 bg-white z-[999999]'>
+          <button class="btn btn-primary">Сохранить</button>
+          <button class="btn btn-outline modal-close">
+            Закрыть
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="delete-cart">
+    <div class="modal-body sm:max-w-[420px] w-[calc(100%_-_32px)] sm:m-4 sm:rounded-[12px] rounded-0">
+      <div class="modal-content w-full md:p-10 p-6 text-center">
+        <h3 class="text-2xl font-semibold">Удаление карты</h3>
+        <span class="md:text-sm text-xs mt-6 mb-3 block">Вы точно хотите удалить карту?</span>
+        <span class="text-xl mb-6 font-semibold block">5536 91** **** 1777</span>
+        <span class="md:text-sm text-xs mb-6 block text-gray-base">Потребуется подтверждение по смс</span>
+        <button class="btn btn-primary block w-full font-medium" data-modal-target="#delete-cart-two">Удалить</button>
+        <button class="btn btn-outline modal-close mt-3 w-full justify-center font-medium">
+          Закрыть
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal" id="delete-cart-two">
+    <div class="modal-body felx justify-center !h-fit items-center sm:max-w-[420px] w-[calc(100%_-_32px)] sm:m-4 rounded-[12px]">
+      <div class="modal-content w-full md:p-10 p-6 text-center">
+        <div class="relative space-y-6">
+          <button class="prev-btn absolute top-2 left-0">
+            <img src="src/images/icons/prev.svg" alt="">
+          </button>
+          <div class="!mt-0">
+            <h3 class="text-2xl font-semibold">Удаление карты</h3>
+            <span class="md:text-sm text-xs mt-6 mb-3 block text-gray-base">Введите код, отправленный вам на номер +7 952 783-58-63
+              по СМС</span>
+            <div class="flex gap-5">
+              <div class="grid grid-cols-3 gap-[10px]">
+                <input type="number" placeholder="_"
+                  class="form-control h-[64px] py-[8px] rounded-xl md:px-4 px-[14px] text-2xl font-semibold text-black text-center">
+                <input type="number" placeholder="_"
+                  class="form-control h-[64px] py-[8px] rounded-xl md:px-4 px-[14px] text-2xl font-semibold text-black text-center">
+                <input type="number" placeholder="_"
+                  class="form-control h-[64px] py-[8px] rounded-xl md:px-4 px-[14px] text-2xl font-semibold text-black text-center">
+              </div>
+              <div class="grid grid-cols-3 gap-[10px]">
+                <input type="number" placeholder="_"
+                  class="form-control h-[64px] py-[8px] rounded-xl md:px-4 px-[14px] text-2xl font-semibold text-black text-center">
+                <input type="number" placeholder="_"
+                  class="form-control h-[64px] py-[8px] rounded-xl md:px-4 px-[14px] text-2xl font-semibold text-black text-center">
+                <input type="number" placeholder="_"
+                  class="form-control h-[64px] py-[8px] rounded-xl md:px-4 px-[14px] text-2xl font-semibold text-black text-center">
+              </div>
+            </div>
+          </div>
+          <div>
+            <span class="md:text-sm text-xs block text-gray-base mt-6 hide-el">Отправить смс повторно через 00:32</span>
+            <span class="md:text-sm text-xs mb-6 block text-blue mt-4 hide-el">Изменить номер телефона</span>
+          </div>
+          <div>
+            <button class="btn btn-primary block w-full font-medium confirm-button" disabled>Подтвердить</button>
+            <button class="btn btn-outline modal-close mt-3 w-full justify-center font-medium">
+              Закрыть
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- balance js -->
   <script src="src/js/balance.js"></script>

@@ -1,3 +1,4 @@
+
 // document.addEventListener("DOMContentLoaded", () => {
 //   // Modal ochish
 //   document.querySelectorAll('[data-modal-target]').forEach(btn => {
@@ -6,6 +7,7 @@
 //       if (modal) {
 //         modal.classList.remove("hidden");
 //         modal.classList.add("flex");
+//         document.body.classList.add("overflow-hidden"); // body scrollni bloklash
 //       }
 //     });
 //   });
@@ -14,7 +16,10 @@
 //   document.querySelectorAll(".modal-close").forEach(btn => {
 //     btn.addEventListener("click", () => {
 //       const modal = btn.closest(".modal");
-//       if (modal) modal.classList.add("hidden");
+//       if (modal) {
+//         modal.classList.add("hidden");
+//         document.body.classList.remove("overflow-hidden"); // body scrollni tiklash
+//       }
 //     });
 //   });
 
@@ -24,19 +29,28 @@
 //       // Faqat modal kontentidan tashqariga bosilganda yopilsin
 //       if (e.target === modal) {
 //         modal.classList.add("hidden");
+//         document.body.classList.remove("overflow-hidden"); // body scrollni tiklash
 //       }
 //     });
 //   });
 // });
-document.addEventListener("DOMContentLoaded", () => {
-  // Modal ochish
+document.addEventListener('DOMContentLoaded', () => {
+  // Modal ochish va yopish funksiyalari
   document.querySelectorAll('[data-modal-target]').forEach(btn => {
     btn.addEventListener("click", () => {
       const modal = document.querySelector(btn.dataset.modalTarget);
       if (modal) {
         modal.classList.remove("hidden");
         modal.classList.add("flex");
-        document.body.classList.add("overflow-hidden"); // body scrollni bloklash
+        document.body.classList.add("overflow-hidden");
+      }
+      // Agar delete-cart modalidagi "Удалить" tugmasi bosilsa
+      if (btn.dataset.modalTarget === '#delete-cart-two') {
+        const currentModal = btn.closest('.modal');
+        if (currentModal) {
+          currentModal.classList.add("hidden");
+          currentModal.classList.remove("flex");
+        }
       }
     });
   });
@@ -47,21 +61,89 @@ document.addEventListener("DOMContentLoaded", () => {
       const modal = btn.closest(".modal");
       if (modal) {
         modal.classList.add("hidden");
-        document.body.classList.remove("overflow-hidden"); // body scrollni tiklash
+        modal.classList.remove("flex");
+        document.body.classList.remove("overflow-hidden");
       }
     });
   });
 
-  // Modal tashqi qismiga (foniga) bosilganda yopish
+  // Modal tashqi qismiga bosilganda yopish
   document.querySelectorAll(".modal").forEach(modal => {
     modal.addEventListener("click", (e) => {
-      // Faqat modal kontentidan tashqariga bosilganda yopilsin
       if (e.target === modal) {
         modal.classList.add("hidden");
-        document.body.classList.remove("overflow-hidden"); // body scrollni tiklash
+        modal.classList.remove("flex");
+        document.body.classList.remove("overflow-hidden");
       }
     });
   });
+
+  // delete-cart-two modalidagi inputlar
+  const inputs = document.querySelectorAll('#delete-cart-two input[type="number"]');
+  const confirmButton = document.querySelector('.confirm-button');
+  const changePhoneText = document.querySelectorAll('#delete-cart-two .hide-el');
+
+  // Default holatga qaytarish funksiyasi
+  const resetModal = () => {
+    inputs.forEach(input => {
+      input.value = '';
+    });
+    confirmButton.setAttribute('disabled', 'true');
+    changePhoneText.forEach(el => {
+      el.classList.remove('hidden');
+    });
+    const modal = document.querySelector('#delete-cart-two');
+    if (modal) {
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+      document.body.classList.remove("overflow-hidden");
+    }
+  };
+
+  inputs.forEach((input, index) => {
+    input.addEventListener('input', (e) => {
+      // Faqat bitta raqam kiritish imkoniyati
+      if (e.target.value.length > 1) {
+        e.target.value = e.target.value.slice(0, 1);
+      }
+      // Agar raqam kiritilgan bo'lsa, keyingi inputga focus o'tkazish
+      if (e.target.value.length === 1 && index < inputs.length - 1) {
+        inputs[index + 1].focus();
+      }
+      // Barcha inputlar to'ldirilganligini tekshirish
+      const allFilled = Array.from(inputs).every(input => input.value.length === 1);
+      if (allFilled) {
+        confirmButton.removeAttribute('disabled');
+        changePhoneText.forEach(el => {
+          el.classList.add('hidden');
+        });
+      } else {
+        confirmButton.setAttribute('disabled', 'true');
+      }
+    });
+  });
+
+  // prev-btn funksiyasi
+  const prevButton = document.querySelector('#delete-cart-two .prev-btn');
+  if (prevButton) {
+    prevButton.addEventListener('click', () => {
+      const currentModal = document.querySelector('#delete-cart-two');
+      const prevModal = document.querySelector('#delete-cart');
+      if (currentModal && prevModal) {
+        currentModal.classList.add('hidden');
+        currentModal.classList.remove('flex');
+        prevModal.classList.remove('hidden');
+        prevModal.classList.add('flex');
+      }
+    });
+  }
+
+  // ConfirmButton bosilganda modal yopiladi va hamma narsa default holatga qaytadi
+  if (confirmButton) {
+    confirmButton.addEventListener('click', () => {
+      resetModal();
+    });
+  }
 });
 
 
