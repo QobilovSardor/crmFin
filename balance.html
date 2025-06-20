@@ -384,90 +384,222 @@
         </div>
 
         <!-- UI code -->
-        <div class="card max-w-[580px] mx-auto">
-          <div class="card-header p-4">
-            <h3 class="card-title text-lg font-semibold">Пополнение счета</h3>
-          </div>
-          <div class="card-content p-4">
-            <div>
-              <!-- Label -->
-              <span class="label md:text-base text-sm mb-4 font-semibold block">Сумма</span>
-              <!-- Input -->
-              <input class="form-control" type="email" placeholder="₽">
+        <div class="max-w-[908px] mx-auto space-y-6">
+          <div class="flex items-center justify-between bg-white md:p-6 sm:px-5 sm:py-6 p-4 rounded-xl border border-border-light">
+            <div class="flex items-center gap-6">
+              <div class="w-12 h-12 bg-[#F4F8FF] rounded-lg flex items-center justify-center">
+                <img src="src/images/icons/coins.svg" alt="">
+              </div>
+              <h3 class="md:text-xl text-lg font-semibold sm:block hidden">Доступный баланс</h3>
+              <h3 class="md:text-xl text-lg font-semibold sm:hidden block">Баланс</h3>
             </div>
-            <div class="mt-5">
-              <!-- Label -->
-              <span class="label md:text-base text-sm mb-4 font-semibold block">Способ пополнения</span>
-              <div class="space-y-5">
-                <button id="cardPayment"
-                  class="flex w-full items-center cursor-pointer gap-3 p-4 rounded-lg border border-[#DEE3F3]">
-                  <div class="sm:w-12 sm:h-12 w-10 h-10 rounded-lg flex items-center justify-center bg-[#F4F8FF]">
-                    <!-- BlueWallet -->
-                    <img src="src/images/icons/wallet-blue.svg" alt="">
-                  </div>
-                  <span class="md:text-sm text-xs leading-5 font-medium">Оплата банковской картой</span>
-                </button>
-                <button id="invoicePayment"
-                  class="flex w-full items-center cursor-pointer gap-3 p-4 rounded-lg border border-[#DEE3F3]">
-                  <div class="sm:w-12 sm:h-12 w-10 h-10 rounded-lg flex items-center justify-center bg-[#F4F8FF]">
-                    <!-- Report -->
-                    <img src="src/images/icons/report.svg" alt="">
-                  </div>
-                  <span class="md:text-sm text-xs leading-5 font-medium">Оплата по счету</span>
-                </button>
-                <!-- Warning box -->
-                <div id="warningBox"
-                  class="items-start cursor-pointer gap-3 p-4 rounded-lg border border-[#F79009] bg-[#FFFAEB] flex hidden">
-                  <!-- InfoIcon -->
-                  <img src="src/images/icons/info.svg" alt="">
-                  <div>
-                    <h3 class="md:text-sm text-xs font-semibold mb-1">Внимание</h3>
-                    <span class="md:text-sm text-xs leading-5 font-medium">Требуется заполнить все реквизиты в
-                      профиле</span>
-                    <a href="profile.html"
-                      class="block mt-3 md:text-sm font-medium text-xs text-[#FFA928] border-b border-[#FFA928] w-fit">Перейти
-                      в
-                      профиль</a>
-                  </div>
-                </div>
-                <!-- Invoice details -->
-                <div id="invoiceDetails" class="hidden">
-                  <!-- Label -->
-                  <span class="label md:text-base text-sm mb-4 font-semibold block">Счет</span>
-                  <button class="block w-full items-center cursor-pointer gap-3 p-4 rounded-lg border">
-                    <div class="pb-4 border-b border-[#DEE3F3] flex gap-6 mb-4">
+            <h3 class="md:text-2xl text-xl font-semibold">732 ₽</h3>
+          </div>
+          <div class="card">
+            <div class="card-header p-4">
+              <h3 class="card-title text-lg font-semibold">Вывод средств</h3>
+            </div>
+            <div class="card-content p-4">
+              <div>
+                <!-- Label -->
+                <span class="label md:text-base text-sm mb-4 font-semibold block">Сумма</span>
+                <!-- Input -->
+                <input class="form-control" type="email" placeholder="₽">
+              </div>
+              <div class="mt-5">
+                <!-- Label -->
+                <span class="label md:text-base text-sm mb-4 font-semibold block">Способ пополнения</span>
+                <div class="space-y-5">
+                  <div class="flex gap-3 sm:flex-row flex-col">
+                    <button id="cardPayment"
+                      class="flex w-full items-center cursor-pointer gap-3 p-4 rounded-lg border border-[#DEE3F3]">
+                      <div class="sm:w-12 sm:h-12 w-10 h-10 rounded-lg flex items-center justify-center bg-[#F4F8FF]">
+                        <!-- BlueWallet -->
+                        <img src="src/images/icons/wallet-blue.svg" alt="">
+                      </div>
+                      <span class="md:text-sm text-xs leading-5 font-medium">Банковская карта</span>
+                    </button>
+                    <button id="invoicePayment"
+                      class="flex  w-full items-center cursor-pointer gap-3 p-4 rounded-lg border border-[#DEE3F3]">
                       <div class="sm:w-12 sm:h-12 w-10 h-10 rounded-lg flex items-center justify-center bg-[#F4F8FF]">
                         <!-- Report -->
                         <img src="src/images/icons/report.svg" alt="">
                       </div>
-                      <div class="grid grid-cols-3 gap-6 flex-1 md:text-sm text-xs">
-                        <div class="text-left space-y-1">
-                          <span class="block">Номер</span>
-                          <h4 class="font-semibold">R0250</h4>
+                      <span class="md:text-sm text-xs leading-5 font-medium">Расчетный счет</span>
+                    </button>
+                  </div>
+                  <!-- Invoice details -->
+                  <div id="invoiceDetails" class="hidden">
+                    <div class="select-container">
+                      <div class="select " role="combobox" aria-expanded="false" aria-controls="select-options-1">
+                        <div class="select-toggle">
+                          <span class="select-display font-normal text-black text-sm">5536 91** **** 1777</span>
+                          <svg class="select-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 6L8 10L12 6" stroke="#707D89" stroke-width="1.5" stroke-linecap="round"
+                              stroke-linejoin="round" />
+                          </svg>
                         </div>
-                        <div class="text-left space-y-1">
-                          <span class="block">Дата</span>
-                          <h4 class="font-semibold">18.02.2024</h4>
-                        </div>
-                        <div class="text-left space-y-1">
-                          <span class="block">Сумма</span>
-                          <h4 class="font-semibold">2 500 ₽</h4>
-                        </div>
+                        <ul class="select-options hidden" role="listbox">
+                          <li class="select-option flex items-center justify-between" data-value="Юридическое лицо/ИП"
+                            role="option" aria-selected="false">
+                            <span>5536 91****** 1777</span>
+                            <img src="src/images/icons/trash.svg" alt="">
+                          </li>
+                          <li class="select-option flex items-center justify-between" data-value="Москва2" role="option"
+                            aria-selected="false">
+                            <span>5536 91****** 1778</span>
+                            <img src="src/images/icons/trash.svg" alt="">
+                          </li>
+                          <li class="select-option flex items-center justify-between" data-value="Москва3" role="option"
+                            aria-selected="false">
+                            <span>5536 91****** 1779</span>
+                            <img src="src/images/icons/trash.svg" alt="">
+                          </li>
+                          <button class="flex items-center gap-3 py-[10px] px-[16px]">
+                            <img src="src/images/icons/plus.svg" alt="">
+                            <span class="text-sm text-[#407BFF] font-medium">Добавить новую карту</span>
+                          </button>
+                        </ul>
                       </div>
                     </div>
-                    <div class="flex sm:items-center justify-between sm:gap-2 sm:flex-row flex-col gap-[14px]">
-                      <!-- Badge -->
-                      <span class="badge badge-light badge-warning">
-                        <span class="text-xs font-normal">Ожидает оплаты</span>
-                      </span>
-                      <div class="flex gap-3 sm:w-fit w-full">
-                        <!-- Button: Pay -->
-                        <a href="#!" class="sm:w-fit justify-center w-full btn btn-primary">Оплатить</a>
-                        <!-- Button: Cancel -->
-                        <a href="#!" class="sm:w-fit justify-center w-full btn btn-outline">Отменить</a>
-                      </div>
-                    </div>
-                  </button>
+                    <a href="#!" class="sm:w-fit justify-center w-full btn btn-primary mt-5">Оплатить</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-3">История вывода</h3>
+            <div class="overflow-x-auto scroll-box">
+              <div class="min-w-[900px] bg-[#F9FBFF] relative">
+                <div class="rounded-xl border border-gray-200 overflow-hidden bg-white">
+                  <div class="w-full">
+                    <table class="min-w-full bg-white">
+                      <thead class="border-b border-gray-100 bg-[#F4F8FF]">
+                        <tr>
+                          <th class="p-3 h-11 text-[#707D89] text-start md:text-xs text-[10px] font-normal pl-6">
+                            <div class="flex items-center gap-2">
+                              ID
+                            </div>
+                          </th>
+                          <th class="p-3 h-11 text-[#707D89] text-start md:text-xs text-[10px] font-normal">
+                            <div class="flex items-center gap-2 cursor-pointer select-none">
+                              Дата
+                            </div>
+                          </th>
+                          <th class="p-3 h-11 text-[#707D89] text-start md:text-xs text-[10px] font-normal">
+                            <div class="flex items-center gap-2">
+                              Описание
+                            </div>
+                          </th>
+                          <th class="p-3 h-11 text-[#707D89] text-start md:text-xs text-[10px] font-normal">
+                            <div class="flex items-center gap-2">
+                              Сумма
+                            </div>
+                          </th>
+                          <th class="p-3 h-11 text-[#707D89] text-start md:text-xs text-[10px] font-normal">
+                            <div class="flex items-center gap-2">
+                              Статус
+                            </div>
+                          </th>
+
+                        </tr>
+                      </thead>
+                      <tbody class="divide-y divide-gray-100">
+                        <tr>
+                          <td class="px-3 h-11 py-2 text-start  pl-6">
+                            <div class="flex items-center gap-2">
+                              <span class="md:text-sm text-xs">2224</span>
+                            </div>
+                          </td>
+                          <td class="px-3 h-11 py-2 text-start  "><span class="md:text-sm text-xs">15.03.2025</span>
+                          </td>
+                          <td class="px-3 h-11 py-2 text-start  "><span class="md:text-sm text-xs"> Вывод на
+                              карту</span>
+                          </td>
+                          <td class="px-3 h-11 py-2 text-start  "><span class="md:text-sm text-xs">7 500 ₽</span> </td>
+                          <td class="px-3 h-11 py-2 text-start  "><span
+                              class="badge badge-success badge-light">Принята</span></td>
+                        </tr>
+                        <tr>
+                          <td class="px-3 h-11 py-2 text-start  pl-6">
+                            <div class="flex items-center gap-2">
+                              <span class="md:text-sm text-xs">2224</span>
+                            </div>
+                          </td>
+                          <td class="px-3 h-11 py-2 text-start  "><span class="md:text-sm text-xs">15.03.2025</span>
+                          </td>
+                          <td class="px-3 h-11 py-2 text-start  "><span class="md:text-sm text-xs"> Вывод на
+                              карту</span>
+                          </td>
+                          <td class="px-3 h-11 py-2 text-start  "><span class="md:text-sm text-xs">7 500 ₽</span> </td>
+                          <td class="px-3 h-11 py-2 text-start  "><span
+                              class="badge badge-error badge-light">Отказ</span></td>
+                        </tr>
+                        <tr>
+                          <td class="px-3 h-11 py-2 text-start  pl-6">
+                            <div class="flex items-center gap-2">
+                              <span class="md:text-sm text-xs">2224</span>
+                            </div>
+                          </td>
+                          <td class="px-3 h-11 py-2 text-start  "><span class="md:text-sm text-xs">15.03.2025</span>
+                          </td>
+                          <td class="px-3 h-11 py-2 text-start  "><span class="md:text-sm text-xs"> Вывод на
+                              карту</span>
+                          </td>
+                          <td class="px-3 h-11 py-2 text-start  "><span class="md:text-sm text-xs">7 500 ₽</span> </td>
+                          <td class="px-3 h-11 py-2 text-start  "><span
+                              class="badge badge-warning badge-light">Ожидает</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Pagination -->
+          <div class="table-pagination flex justify-between md:mt-6 sm:mt-5 mt-4 sm:flex-row flex-col gap-4">
+            <div class="flex gap-2 sm:justify-start justify-between">
+              <button class="btn btn-outline h-11 w-11 justify-center p-0">
+                <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'>
+                  <path d='M12.7083 5L7.5 10.2083L12.7083 15.4167' stroke='#707D89' strokeWidth='2'
+                    strokeLinecap='round' strokeLinejoin='round' />
+                </svg>
+              </button>
+              <button class="btn btn-primary h-11 w-11 justify-center">1</button>
+              <button class="btn btn-full-outline h-11 w-11 justify-center text-black">2</button>
+              <button class="btn btn-full-outline h-11 w-11 justify-center text-black">3</button>
+              <button class="btn btn-full-outline h-11 w-11 justify-center text-black">...</button>
+              <button class="btn btn-full-outline h-11 w-11 justify-center text-black sm:flex hidden">8</button>
+              <button class="btn btn-full-outline h-11 w-11 justify-center text-black sm:flex hidden">9</button>
+              <button class="btn btn-full-outline h-11 w-11 justify-center text-black">10</button>
+              <button class="btn btn-outline h-11 w-11 justify-center p-0">
+                <svg class="rotate-180" xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'
+                  fill='none' class='rotate-180'>
+                  <path d='M12.7083 5L7.5 10.2083L12.7083 15.4167' stroke='#141414' strokeWidth='2'
+                    strokeLinecap='round' strokeLinejoin='round' />
+                </svg>
+              </button>
+            </div>
+            <div class='flex gap-4 items-start sm:ml-0 ml-auto'>
+              <span class='md:text-sm text-xs text-[#707D89] mt-3'>Показывать по</span>
+              <div class="w-[75px] slect-container">
+                <div class="select">
+                  <div class="select-toggle">
+                    <span class="select-display font-medium text-black sm:text-sm text-xs">10</span>
+                    <svg class="select-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 6L8 10L12 6" stroke="#407BFF" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </div>
+                  <ul class="select-options hidden relative" role="listbox">
+                    <li class="select-option">10</li>
+                    <li class="select-option">22</li>
+                    <li class="select-option">30</li>
+                  </ul>
                 </div>
               </div>
             </div>
