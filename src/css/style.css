@@ -707,13 +707,59 @@ header {
 }
 
 /* Chrome, Safari, Edge, Opera */
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
 /* Firefox */
-input[type="number"] {
+input[type='number'] {
   -moz-appearance: textfield;
+}
+
+@media (min-width: 1350px) {
+  .chart-box,
+  .chart-box div:not(.apexcharts-tooltip),
+  .chart-box svg {
+    height: 100% !important;
+    width: fit-content !important;
+  }
+}
+.chart-box,
+.chart-box div:not(.apexcharts-tooltip),
+.chart-box svg {
+  height: 100% !important;
+  width: 100% !important;
+  overflow: hidden;
+}
+.apexcharts-legend.apx-legend-position-bottom {
+  opacity: 0;
+  visibility: hidden;
+}
+#chartTwo {
+  height: 154px !important;
+}
+@media (max-width: 768px) {
+  .chart-box,
+  .chart-box div:not(.apexcharts-tooltip),
+  .chart-box svg {
+    height: 100% !important;
+    min-width: 700px;
+  }
+  .chart-box {
+    height: 164px !important;
+    padding-right: 16px;
+  }
+  .chart-box>* {
+    pointer-events: none;
+  }
+  .scroll-bar {
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin-right: -16px;
+  }
+  .chart-box__parent {
+    height: 220px !important;
+  }
 }
