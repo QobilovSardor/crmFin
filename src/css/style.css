@@ -793,3 +793,14 @@ input[type='number'] {
 .collapse-child-items > div:last-child > div {
   margin-bottom: 0;
 }
+
+#statistics-table-body tr:last-child {
+  border: none;
+}
+
+.user-tablist .tab-list{
+  @apply bg-transparent text-gray-base h-[36px];
+}
+.user-tablist .tab-list.active{
+  @apply bg-white !text-black
+}

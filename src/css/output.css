@@ -1545,6 +1545,10 @@ video {
   height: 42px;
 }
 
+.h-\[44px\]{
+  height: 44px;
+}
+
 .h-\[48px\]{
   height: 48px;
 }
@@ -1600,6 +1604,10 @@ video {
 
 .min-h-\[calc\(100\%_-_77px\)\]{
   min-height: calc(100% - 77px);
+}
+
+.\!w-\[18px\]{
+  width: 18px !important;
 }
 
 .w-1{
@@ -1662,12 +1670,12 @@ video {
   width: 23px;
 }
 
-.w-\[260px\]{
-  width: 260px;
-}
-
 .w-\[284px\]{
   width: 284px;
+}
+
+.w-\[288px\]{
+  width: 288px;
 }
 
 .w-\[42px\]{
@@ -1751,20 +1759,8 @@ video {
   min-width: 3rem;
 }
 
-.min-w-\[1080px\]{
-  min-width: 1080px;
-}
-
 .min-w-\[1290px\]{
   min-width: 1290px;
-}
-
-.min-w-\[1380px\]{
-  min-width: 1380px;
-}
-
-.min-w-\[150px\]{
-  min-width: 150px;
 }
 
 .min-w-\[296px\]{
@@ -1783,6 +1779,10 @@ video {
   min-width: 540px;
 }
 
+.min-w-\[708px\]{
+  min-width: 708px;
+}
+
 .min-w-\[900px\]{
   min-width: 900px;
 }
@@ -1791,24 +1791,12 @@ video {
   min-width: 100%;
 }
 
-.min-w-\[7-8px\]{
-  min-width: 7-8px;
-}
-
-.min-w-\[708px\]{
-  min-width: 708px;
-}
-
 .max-w-1{
   max-width: 0.25rem;
 }
 
 .max-w-12{
   max-width: 3rem;
-}
-
-.max-w-\[200px\]{
-  max-width: 200px;
 }
 
 .max-w-\[42px\]{
@@ -3018,11 +3006,6 @@ video {
   background-color: rgb(249 251 255 / var(--tw-bg-opacity));
 }
 
-.bg-bg-hover{
-  --tw-bg-opacity: 1;
-  background-color: rgb(244 248 255 / var(--tw-bg-opacity));
-}
-
 .bg-blue{
   --tw-bg-opacity: 1;
   background-color: rgb(64 123 255 / var(--tw-bg-opacity));
@@ -3320,6 +3303,10 @@ video {
 
 .pr-6{
   padding-right: 1.5rem;
+}
+
+.pt-0{
+  padding-top: 0px;
 }
 
 .pt-2{
@@ -5002,6 +4989,24 @@ input[type='number'] {
   margin-bottom: 0;
 }
 
+#statistics-table-body tr:last-child {
+  border: none;
+}
+
+.user-tablist .tab-list{
+  height: 36px;
+  background-color: transparent;
+  --tw-text-opacity: 1;
+  color: rgb(112 125 137 / var(--tw-text-opacity));
+}
+
+.user-tablist .tab-list.active{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1 !important;
+  color: rgb(20 20 20 / var(--tw-text-opacity)) !important;
+}
+
 @media (min-width: 640px){
   .sm\:container{
     width: 100%;
@@ -5196,11 +5201,6 @@ input[type='number'] {
 
   .sm\:min-w-\[400px\]{
     min-width: 400px;
-  }
-
-  .sm\:min-w-fit{
-    min-width: -moz-fit-content;
-    min-width: fit-content;
   }
 
   .sm\:max-w-\[360px\]{

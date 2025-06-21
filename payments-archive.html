@@ -144,7 +144,7 @@
             <div class="lg:flex hidden items-center">
               <span class="text-gray-base text-sm">Баланс</span>
               <span class="text-lg font-medium pr-4 pl-2">732 ₽</span>
-              <span class="text-blue text-sm cursor-pointer hover:text-blue-600">Пополнить</span>
+
             </div>
           </div>
 
@@ -155,19 +155,6 @@
             <div class="lg:hidden flex gap-3 items-center">
               <span class="text-xs text-gray-base sm:block hidden">Баланс</span>
               <span class="font-semibold text-base">732 ₽</span>
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"
-                class="cursor-pointer">
-                <g clip-path="url(#clip0_7456_3618)">
-                  <path
-                    d="M9 6V12M6 9H12M16.5 9C16.5 13.1421 13.1421 16.5 9 16.5C4.85786 16.5 1.5 13.1421 1.5 9C1.5 4.85786 4.85786 1.5 9 1.5C13.1421 1.5 16.5 4.85786 16.5 9Z"
-                    stroke="#407BFF" stroke-width="1.125" stroke-linecap="round" stroke-linejoin="round" />
-                </g>
-                <defs>
-                  <clipPath id="clip0_7456_3618">
-                    <rect width="18" height="18" fill="white" />
-                  </clipPath>
-                </defs>
-              </svg>
             </div>
 
             <div class="flex gap-4">
@@ -303,7 +290,7 @@
 
                 <!-- User Dropdown Menu -->
                 <div id="user-dropdown"
-                  class="dropdown absolute right-0 mt-[26px] flex w-[260px] flex-col rounded-2xl border border-gray-200 bg-white p-4 shadow-theme-lg">
+                  class="dropdown absolute right-0 mt-[26px] flex w-[288px] flex-col rounded-2xl border border-gray-200 bg-white p-4 shadow-theme-lg">
                   <div>
                     <span class="block font-bold text-gray-700 text-theme-sm no-underline border-none">
                       Алексей
@@ -312,8 +299,19 @@
                       emirhanboruch51@gmail.com
                     </span>
                   </div>
+                  <ul
+                    class="tab my-4 w-full user-tablist flex items-center rounded-lg bg-[#F4F8FF] p-0.5 whitespace-nowrap">
+                    <li
+                      class="tab-list text-black active px-3 py-2 font-medium w-full rounded-md md:text-sm text-xs flex justify-center items-center gap-2 cursor-pointer active">
+                      <span>Вебмастер</span>
+                    </li>
+                    <li
+                      class="tab-list text-black px-3 py-2 font-medium w-full rounded-md md:text-sm text-xs flex justify-center items-center gap-2 cursor-pointer">
+                      <span>Покупатель</span>
 
-                  <ul class="flex flex-col sm:gap-1 pt-4 pb-3 border-b border-gray-200">
+                    </li>
+                  </ul>
+                  <ul class="flex flex-col sm:gap-1 pt-0 pb-3 border-b border-gray-200">
                     <li>
                       <a href="profile.html"
                         class="flex items-center gap-3 sm:pl-3 pl-0 px-3 py-[10px] font-medium text-black rounded-lg group md:text-theme-sm text-xs hover:bg-bg-hover hover:text-gray-700 group">
@@ -432,7 +430,7 @@
           <div class="mx-auto">
             <div class="relative">
               <div class="tab-content" id="tab-general">
-                <div class="overflow-x-auto scroll-box">
+                <div class="overflow-x-auto scroll-box !pb-0">
                   <div class="bg-[#F9FBFF] overflow-x-auto">
                     <div class="rounded-xl border border-gray-200 overflow-hidden bg-white">
                       <div class="w-full">
@@ -452,30 +450,24 @@
                           </thead>
                           <tbody class="divide-y divide-gray-100 whitespace-nowrap table-body">
                             <tr>
-                              <td
-                                class="px-3 pl-6 py-2 sm:h-11 h-[42px] text-start">
+                              <td class="px-3 pl-6 py-2 sm:h-11 h-[42px] text-start">
                                 <span class="md:text-sm text-xs">15.03.2025</span>
                               </td>
-                              <td
-                                class="px-3 py-2 sm:h-11 h-[42px] text-start">
+                              <td class="px-3 py-2 sm:h-11 h-[42px] text-start">
                                 <span class="md:text-sm text-xs">250 шт.</span>
                               </td>
-                              <td
-                                class="px-3 py-2 sm:h-11 h-[42px] text-start">
+                              <td class="px-3 py-2 sm:h-11 h-[42px] text-start">
                                 <span class="md:text-sm text-xs">7 500 ₽</span>
                               </td>
                             </tr>
                             <tr>
-                              <td
-                                class="px-3 pl-6 py-2 sm:h-11 h-[42px] text-start">
+                              <td class="px-3 pl-6 py-2 sm:h-11 h-[42px] text-start">
                                 <span class="md:text-sm text-xs">15.03.2025</span>
                               </td>
-                              <td
-                                class="px-3 py-2 sm:h-11 h-[42px] text-start">
+                              <td class="px-3 py-2 sm:h-11 h-[42px] text-start">
                                 <span class="md:text-sm text-xs">250 шт.</span>
                               </td>
-                              <td
-                                class="px-3 py-2 sm:h-11 h-[42px] text-start">
+                              <td class="px-3 py-2 sm:h-11 h-[42px] text-start">
                                 <span class="md:text-sm text-xs">7 500 ₽</span>
                               </td>
                             </tr>
@@ -485,7 +477,7 @@
                     </div>
                     <table class="bg-[#F9FBFF] mt-[10px] lg:block hidden">
                       <tr>
-                        <td class="py-2 px-3 pl-6 md:text-sm text-xs sm:w-[526px] w-[200px] text-start text-[#707D89]">
+                        <td class="py-3 px-3 pl-6 md:text-sm text-xs sm:w-[526px] w-[200px] text-start text-[#707D89]">
                           Итого</td>
                         <td
                           class="py-2 px-3 md:text-sm text-xs sm:w-[526px] w-[200px] text-start text-[#707D89] sm:pl-[14px] pl-5">
@@ -521,7 +513,7 @@
                           </thead>
 
                           <!-- Table Body -->
-                          <tbody class="divide-y divide-gray-100 whitespace-nowrap" id="statistics-table-body">
+                          <tbody class="whitespace-nowrap" id="statistics-table-body">
                             <!-- Table rows will be inserted by JavaScript -->
                           </tbody>
                         </table>
@@ -529,7 +521,8 @@
                     </div>
                     <table class="bg-[#F9FBFF] mt-[10px] lg:block hidden">
                       <tr>
-                        <td class="py-2 px-3 pl-6 md:text-sm text-xs sm:w-[54px] w-[54px] text-start text-[#707D89]">
+                        <td
+                          class="py-3 h-[44px] px-3 pl-6 md:text-sm text-xs sm:w-[54px] w-[54px] text-start text-[#707D89]">
                         </td>
                         <td class="py-2 px-3 pl-4 md:text-sm text-xs sm:w-[405px] w-[200px] text-start text-[#707D89]">
                           Итого</td>
@@ -551,7 +544,7 @@
               </div>
 
               <!-- Pagination -->
-              <div class="table-pagination flex justify-between md:mt-6 sm:mt-5 mt-4 sm:flex-row flex-col gap-4">
+              <div class="table-pagination flex justify-between md:mt-[10px] sm:mt-5 mt-4 sm:flex-row flex-col gap-4">
                 <div class="flex gap-2 sm:justify-start justify-between">
                   <button class="btn btn-outline h-11 w-11 justify-center p-0">
                     <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'>
