@@ -3160,6 +3160,10 @@ video {
   fill: currentColor;
 }
 
+.fill-gray-500{
+  fill: #6b7280;
+}
+
 .stroke-gray-500{
   stroke: #6b7280;
 }
@@ -5773,6 +5777,10 @@ input[type='number'] {
 @media (prefers-color-scheme: dark){
   .dark\:divide-white\/\[0\.05\] > :not([hidden]) ~ :not([hidden]){
     border-color: rgb(255 255 255 / 0.05);
+  }
+
+  .dark\:fill-gray-400{
+    fill: #667085;
   }
 
   .dark\:stroke-gray-400{
