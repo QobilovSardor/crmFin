@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // Tab switching functionality
-  const tabLinks = document.querySelectorAll('.table-tab .tab-list');
+  const tabLinks = document.querySelectorAll('.table-tab-wrapper .tab-list');
   const tabContents = document.querySelectorAll('.tab-content-wrapper .tab-content');
 
   function setDefaultTabState() {
