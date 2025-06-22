@@ -1371,6 +1371,10 @@ video {
   margin-top: 6px;
 }
 
+.mb-5{
+  margin-bottom: 1.25rem;
+}
+
 .box-border{
   box-sizing: border-box;
 }
@@ -2991,6 +2995,11 @@ video {
 .border-gray-300{
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
+}
+
+.border-blue{
+  --tw-border-opacity: 1;
+  border-color: rgb(64 123 255 / var(--tw-border-opacity));
 }
 
 .bg-\[\#039855\]{
@@ -5438,6 +5447,10 @@ input[type='number'] {
 
   .md\:mt-\[10px\]{
     margin-top: 10px;
+  }
+
+  .md\:mb-4{
+    margin-bottom: 1rem;
   }
 
   .md\:hidden{
