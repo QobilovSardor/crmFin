@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
   // Data structure for the transaction table (static and editable)
   const statisticsTableData = [
@@ -159,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Remove border from the main row when expanded
         tr.classList.remove('border-b', 'border-border-light');
-        detailsCell.classList.add('border-b', 'border-border-light')
+        detailsCell.classList.add('border-b', 'border-border-light');
       } else if (row.isExpandable) {
         tr.classList.add('border-b', 'border-border-light');
       }
@@ -188,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Initialize when the DOM is fully loaded
-  initializeTable()
+  initializeTable();
 
   // Export functionality for potential external use with data modification
   window.transactionTable = {
@@ -207,14 +206,31 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // Tab switching functionality
-  const tabLinks = document.querySelectorAll('.tab-list');
-  const tabContents = document.querySelectorAll('.tab-content');
+  const tabLinks = document.querySelectorAll('.table-tab .tab-list');
+  const tabContents = document.querySelectorAll('.tab-content-wrapper .tab-content');
+
+  function setDefaultTabState() {
+    // Remove hidden attribute from the first tab-content and add it to others
+    tabContents.forEach((content, index) => {
+      if (index === 0) {
+        content.removeAttribute('hidden');
+      } else {
+        content.setAttribute('hidden', '');
+      }
+    });
+
+    // Add active class to the first tab-list and remove from others
+    tabLinks.forEach((link, index) => {
+      if (index === 0) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  }
 
   tabLinks.forEach(link => {
-    console.log(link)
     link.addEventListener('click', () => {
-      console.log('s');
-
       // Remove active class from all tabs
       tabLinks.forEach(l => l.classList.remove('active'));
       // Add active class to the clicked tab
@@ -234,6 +250,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Trigger the default tab (Общая) on load
-  tabLinks[0].click();
+  // Set the default tab state on load
+  setDefaultTabState();
 });
