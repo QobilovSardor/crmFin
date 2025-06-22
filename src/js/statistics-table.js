@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (expandedRows.includes(row.id) && row.details) {
         const detailsRow = document.createElement('tr');
         const detailsCell = document.createElement('td');
-        detailsCell.colSpan = 7; // Span all columns
+        detailsCell.colSpan = 5; // Span all columns
         detailsCell.className = 'px-3';
 
         const detailsContent = `

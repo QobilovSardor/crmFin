@@ -1271,3 +1271,32 @@ if (tabs) {
     });
   });
 }
+
+
+const input = document.getElementById('moneyInput');
+if (input) {
+
+
+  input.addEventListener('input', () => {
+    // Cursor position
+    const selectionStart = input.selectionStart;
+
+    // Remove all non-digit characters
+    let raw = input.value.replace(/[^\d]/g, '');
+
+    if (raw === '') {
+      input.value = '';
+      return;
+    }
+
+    // Format with spaces
+    let formatted = raw.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    input.value = formatted + ' ₽';
+
+    // Move cursor to before the ₽
+    setTimeout(() => {
+      const pos = input.value.length - 2; // Before ₽
+      input.setSelectionRange(pos, pos);
+    }, 0);
+  });
+}
