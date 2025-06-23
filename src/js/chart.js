@@ -141,9 +141,10 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       responsive: [{
         breakpoint: 640,
+
         options: {
           chart: { height: '100%' },
-          plotOptions: { bar: { columnWidth: '50%' } }
+          plotOptions: { bar: { columnWidth: '50%', borderRadius: 8 } }
         }
       }]
     };

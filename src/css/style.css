@@ -649,7 +649,7 @@ header {
   .rangeMode .flatpickr-day {
     width: 100% !important;
     text-align: center;
-    /* max-width: 100%; */
+    /* max-width: 100%;   */
   }
 }
 .blue-icon {
@@ -817,4 +817,7 @@ input[type='number'] {
 }
 .user-tablist .tab-list.active {
   @apply bg-white !text-black;
+}
+line.apexcharts-xaxis-tick {
+  display: none !important;
 }

@@ -3257,8 +3257,8 @@ video {
   padding-bottom: 0px !important;
 }
 
-.\!pb-\[150px\]{
-  padding-bottom: 150px !important;
+.\!pb-\[50px\]{
+  padding-bottom: 50px !important;
 }
 
 .pb-3{
@@ -3273,8 +3273,8 @@ video {
   padding-bottom: 1.5rem;
 }
 
-.pb-\[150px\]{
-  padding-bottom: 150px;
+.pb-\[50px\]{
+  padding-bottom: 50px;
 }
 
 .pl-0{
@@ -3331,14 +3331,6 @@ video {
 
 .pt-\[80px\]{
   padding-top: 80px;
-}
-
-.\!pb-\[50px\]{
-  padding-bottom: 50px !important;
-}
-
-.pb-\[50px\]{
-  padding-bottom: 50px;
 }
 
 .text-left{
@@ -4827,7 +4819,7 @@ header {
   .rangeMode .flatpickr-day {
     width: 100% !important;
     text-align: center;
-    /* max-width: 100%; */
+    /* max-width: 100%;   */
   }
 }
 
@@ -5039,6 +5031,10 @@ input[type='number'] {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
   --tw-text-opacity: 1 !important;
   color: rgb(20 20 20 / var(--tw-text-opacity)) !important;
+}
+
+line.apexcharts-xaxis-tick {
+  display: none !important;
 }
 
 @media (min-width: 640px){
