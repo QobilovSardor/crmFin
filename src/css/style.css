@@ -632,11 +632,26 @@ header {
     width: 40px;
     height: 40px;
   }
-  .flatpickr-calendar {
+}
+@media (max-width: 490px) {
+  .flatpickr-calendar,
+  .dayContainer,
+  .flatpickr-days,
+  .flatpickr-weekdays,
+  .flatpickr-rContainer {
     width: 100% !important;
   }
+  .dayContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    min-width: 100%;
+  }
+  .rangeMode .flatpickr-day {
+    width: 100% !important;
+    text-align: center;
+    /* max-width: 100%; */
+  }
 }
-
 .blue-icon {
   @apply stroke-blue;
 }
@@ -742,9 +757,9 @@ input[type='number'] {
 /* #chartTwo {
   height: 154px !important;
 } */
- .chart-box {
-    min-height: 170px !important;
-  }
+.chart-box {
+  min-height: 170px !important;
+}
 @media (max-width: 768px) {
   .chart-box,
   .chart-box div:not(.apexcharts-tooltip),
@@ -773,7 +788,6 @@ input[type='number'] {
   }
 }
 
-
 .apexcharts-bar-area:hover {
   fill: #407bff !important;
 }
@@ -798,9 +812,9 @@ input[type='number'] {
   border: none;
 }
 
-.user-tablist .tab-list{
+.user-tablist .tab-list {
   @apply bg-transparent text-gray-base h-[36px];
 }
-.user-tablist .tab-list.active{
-  @apply bg-white !text-black
+.user-tablist .tab-list.active {
+  @apply bg-white !text-black;
 }
