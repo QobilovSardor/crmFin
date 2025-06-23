@@ -3333,6 +3333,14 @@ video {
   padding-top: 80px;
 }
 
+.\!pb-\[50px\]{
+  padding-bottom: 50px !important;
+}
+
+.pb-\[50px\]{
+  padding-bottom: 50px;
+}
+
 .text-left{
   text-align: left;
 }
