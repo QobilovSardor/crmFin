@@ -733,30 +733,6 @@ input[type='number'] {
   -moz-appearance: textfield;
 }
 
-/* chart */
-/* @media (min-width: 1350px) {
-  .chart-box,
-  .chart-box div:not(.apexcharts-tooltip),
-  .chart-box svg {
-    height: 100% !important;
-    width: fit-content !important;
-  }
-} */
-/*
-.chart-box,
-.chart-box div:not(.apexcharts-tooltip),
-.chart-box svg {
-  height: 300px !important;
-  overflow: hidden;
-}
-.apexcharts-legend.apx-legend-position-bottom {
-  opacity: 0;
-  visibility: hidden;
-} */
-
-/* #chartTwo {
-  height: 154px !important;
-} */
 .chart-box {
   min-height: 170px !important;
 }
