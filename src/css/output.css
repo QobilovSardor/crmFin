@@ -5476,6 +5476,11 @@ line.apexcharts-xaxis-tick {
     padding-bottom: 1rem;
   }
 
+  .md\:py-6{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
   .md\:pb-6{
     padding-bottom: 1.5rem;
   }
@@ -5651,6 +5656,11 @@ line.apexcharts-xaxis-tick {
   .lg\:py-\[18px\]{
     padding-top: 18px;
     padding-bottom: 18px;
+  }
+
+  .lg\:py-6{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
   }
 
   .lg\:pt-0{
