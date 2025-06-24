@@ -4985,7 +4985,7 @@ input[type='number'] {
   }
 
   .chart-box__parent {
-    height: 220px !important;
+    height: 210px !important;
   }
 
   .chart-box {
@@ -5035,6 +5035,19 @@ input[type='number'] {
 
 line.apexcharts-xaxis-tick {
   display: none !important;
+}
+
+/* line.apexcharts-xaxis-tick ,
+.apexcharts-grid-borders line{
+  display: none !important;
+}
+
+g.apexcharts-xaxis {
+  transform: translateY(-15px) !important;
+} */
+
+.apexcharts-canvas {
+  /* height: 180px !important; */
 }
 
 @media (min-width: 640px){

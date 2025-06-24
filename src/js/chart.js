@@ -107,10 +107,11 @@ document.addEventListener('DOMContentLoaded', () => {
       stroke: { show: false },
       grid: {
         yaxis: { lines: { show: true } },
-        xaxis: { lines: { show: false } }
+        xaxis: { lines: { show: false }, axisBorder: { show: false }, }
       },
       xaxis: {
         categories: labels,
+        axisBorder: { show: false },
         labels: {
           style: {
             fontSize: '12px',
@@ -120,31 +121,45 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       yaxis: {
         max: 60,
-        tickAmount: 4,
+        tickAmount: 3,
         labels: {
           formatter: val => {
-            const ticks = [0, 10, 40, 60];
+            const ticks = [0, 10, 10, 40, 60];
             return ticks.includes(val) ? val.toString() : '';
           }
         }
       },
       tooltip: {
-        theme: false,
-        style: { background: '#407BFF', color: '#fff' },
-        marker: { show: false },
-        x: {
-          formatter: function (_, { dataPointIndex }) {
-            return labels[dataPointIndex];
-          }
+        shared: true,
+        intersect: false,
+        style: {
+          fontFamily: "Inter, sans-serif",
         },
-        y: { formatter: val => `Продано: ${val}` }
       },
+      // tooltip: {
+      //   theme: false,
+      //   style: { background: '#FFF', color: '#fff', border: '1px solid #DEE3F3', borderRadius: '8px' },
+      //   marker: { show: false },
+      //   x: {
+      //     formatter: function (_, { dataPointIndex }) {
+      //       return labels[dataPointIndex];
+      //     }
+      //   },
+      //   y: { formatter: val => `Продано: ${val}` }
+      // },
       responsive: [{
         breakpoint: 640,
-
         options: {
           chart: { height: '100%' },
-          plotOptions: { bar: { columnWidth: '50%', borderRadius: 8 } }
+          plotOptions: {
+            bar: {
+              columnWidth: '50%',
+              borderRadius: 6,
+              borderRadiusWhenStacked: 'last',
+              borderRadiusApplication: 'end',
+              borderRadiusOnAllStackedSeries: true
+            }
+          }
         }
       }]
     };
