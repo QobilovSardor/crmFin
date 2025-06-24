@@ -760,7 +760,13 @@ input[type='number'] {
 .chart-box {
   min-height: 170px !important;
 }
+#chartTwo.chart-box {
+  min-height: 150px !important;
+}
 @media (max-width: 768px) {
+  #chartTwo.chart-box {
+    min-height: 322px !important;
+  }
   .chart-box,
   .chart-box div:not(.apexcharts-tooltip),
   .chart-box svg {
@@ -820,16 +826,4 @@ input[type='number'] {
 }
 line.apexcharts-xaxis-tick {
   display: none !important;
-}
-/* line.apexcharts-xaxis-tick ,
-.apexcharts-grid-borders line{
-  display: none !important;
-}
-
-g.apexcharts-xaxis {
-  transform: translateY(-15px) !important;
-} */
-
-.apexcharts-canvas {
-  /* height: 180px !important; */
 }

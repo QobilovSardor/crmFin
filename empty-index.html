@@ -421,13 +421,14 @@
             <div class="flex items-center justify-between">
               <h2 class="text-sm font-semibold">График продаж</h2>
               <div class="flex items-center gap-5">
-                <button class="text-sm font-medium text-blue">За 14 дней</button>
-                <button class="text-sm font-medium text-gray-base">За месяц</button>
+                <button class="text-sm font-medium text-blue weekly">За 14 дней</button>
+                <button class="text-sm font-medium text-gray-base monthly">За месяц</button>
               </div>
             </div>
 
-            <div class="scroll-bar custom-scrollbar">
-              <div id="chartTwo" class="chart-box !h-full w-full !min-h-full"></div>
+            <div class="scroll-bar custom-scrollbar overflow-y-hidden">
+              <div id="chartTwo" class="chart-box -ml-5 h-full  pl-2 xl:min-w-full overflow-hidden"
+                style="min-height: 195px;"></div>
             </div>
           </div>
         </div>
