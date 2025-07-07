@@ -147,3 +147,14 @@ if (priceTabs) {
     });
   });
 }
+
+
+const accordions = document.querySelectorAll(".accordion");
+accordions.forEach(accordion => {
+  const accordionHeader = accordion.querySelector(".accordion-header");
+  const accordionContent = accordion.querySelector(".accordion-content");
+
+  accordionHeader.addEventListener("click", () => {
+    accordionContent.classList.toggle("active")
+  })
+})
