@@ -511,6 +511,9 @@ header {
 .badge-light.badge-info {
   @apply bg-[#F2F4F7] text-[#707D89];
 }
+.badge-light.badge-light-info {
+  @apply bg-[#F4F8FF] text-[#407BFF] flex items-center justify-center px-2;
+}
 
 .badge-light.badge-dark {
   @apply bg-gray-500 text-white;
@@ -802,4 +805,19 @@ input[type='number'] {
 }
 line.apexcharts-xaxis-tick {
   display: none !important;
+}
+
+.tooltip-btn.active path {
+  @apply stroke-blue;
+}
+/* .price-tabs .tab-content {
+  @apply xl:block hidden
+}
+.price-tabs .tab-content.active {
+  @apply block
+} */
+@media (min-width: 1280px) {
+  .price-tabs .tab-content.hidden {
+    @apply !block;
+  }
 }
