@@ -155,6 +155,7 @@ accordions.forEach(accordion => {
   const accordionContent = accordion.querySelector(".accordion-content");
 
   accordionHeader.addEventListener("click", () => {
-    accordionContent.classList.toggle("active")
+    accordionContent.classList.toggle("active");
+    accordionHeader.classList.toggle("active")
   })
 })
