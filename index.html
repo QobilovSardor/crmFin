@@ -1272,7 +1272,7 @@
                           <span class="text-gray-base md:text-sm text-xs">₽</span>
                         </div>
                       </div>
-                      <button class="min-w-[18px] max-w-[18px] h-[18px] items-center justify-center edit-btn flex">
+                      <button class="min-w-[18px] max-w-[18px] h-[18px] items-center justify-center edit-btn flex" data-modal-target="#edit-modal2">
                         <svg width="16" height="16" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path
                             d="M12.5 7.5L9.50002 4.5M0.875 16.125L3.41328 15.843C3.72339 15.8085 3.87845 15.7913 4.02338 15.7444C4.15197 15.7027 4.27434 15.6439 4.38717 15.5695C4.51434 15.4857 4.62466 15.3753 4.84529 15.1547L14.75 5.25C15.5784 4.42157 15.5784 3.07843 14.75 2.25C13.9216 1.42157 12.5784 1.42157 11.75 2.25L1.8453 12.1547C1.62466 12.3753 1.51434 12.4857 1.43048 12.6128C1.35607 12.7257 1.29726 12.848 1.25564 12.9766C1.20872 13.1215 1.19149 13.2766 1.15703 13.5867L0.875 16.125Z"
@@ -1414,7 +1414,7 @@
   </div>
 
   <!-- edit modal -->
-  <div class="modal" id="edit-modal">
+  <div class="modal " id="edit-modal">
     <div class="modal-body sm:max-w-[480px] w-[calc(100%_-_32px)] sm:m-4 sm:rounded-[12px] rounded-0">
       <div class="modal-content w-full">
         <div class="flex items-center justify-between sm:py-5 sm:px-6 p-4 border-b border-[#DEE3F3]">
@@ -1437,6 +1437,40 @@
               <input class="form-control" type="text" placeholder="20 — 50" readonly>
               <div class="range-slider"></div>
             </div>
+            <div class="space-y-[6px]">
+              <label class="sm:text-xs text-[10px] text-gray-base">Стоимость, ₽</label>
+              <input type="text" class="form-control" value="10">
+            </div>
+          </div>
+        </div>
+        <div
+          class='md:px-6 md:py-6 p-4 border-t justify-end border-[#DEE3F3] flex gap-3 sticky bottom-0 bg-white z-[999999]'>
+          <button class="btn btn-primary md:w-fit w-full justify-center">Сохранить</button>
+          <button class="btn btn-outline modal-close md:w-fit w-full justify-center">
+            Закрыть
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="edit-modal2">
+    <div class="modal-body sm:max-w-[480px] w-[calc(100%_-_32px)] sm:m-4 sm:rounded-[12px] rounded-0">
+      <div class="modal-content w-full">
+        <div class="flex items-center justify-between sm:py-5 sm:px-6 p-4 border-b border-[#DEE3F3]">
+          <h3 class="md:text-base text-sm text-black font-semibold">Редактирование</h3>
+          <div class="flex gap-3 items-center">
+            <button class="modal-close">
+              <svg class="md:size-6 size-5" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M6.04289 16.5418C5.65237 16.9323 5.65237 17.5655 6.04289 17.956C6.43342 18.3465 7.06658 18.3465 7.45711 17.956L11.9987 13.4144L16.5408 17.9565C16.9313 18.347 17.5645 18.347 17.955 17.9565C18.3455 17.566 18.3455 16.9328 17.955 16.5423L13.4129 12.0002L17.955 7.45808C18.3455 7.06756 18.3455 6.43439 17.955 6.04387C17.5645 5.65335 16.9313 5.65335 16.5408 6.04387L11.9987 10.586L7.45711 6.04439C7.06658 5.65386 6.43342 5.65386 6.04289 6.04439C5.65237 6.43491 5.65237 7.06808 6.04289 7.4586L10.5845 12.0002L6.04289 16.5418Z"
+                  fill="#707D89"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="md:p-6 p-4 max-h-[calc(100vh_-_300px)] overflow-y-auto no-scrollbar">
+          <div class="md:space-y-6 sm:space-y-5 space-y-4">
             <div class="space-y-[6px]">
               <label class="sm:text-xs text-[10px] text-gray-base">Стоимость, ₽</label>
               <input type="text" class="form-control" value="10">
