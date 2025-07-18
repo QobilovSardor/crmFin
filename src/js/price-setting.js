@@ -188,3 +188,60 @@ dropdownContainerTwo.forEach(dropdown => {
     dropdownBtn.classList.toggle('active');
   });
 })
+
+const addBtn = document.querySelector('.add-price-btn');
+if (addBtn) {
+  const container = document.querySelector('.add-price-container');
+
+  // Template funksiyasi
+  const getTemplate = () => `
+  <div class="flex gap-4 items-end">
+    <div class="sm:w-[128px] w-[88px]">
+      <label class="md:text-xs text-[10px] leading-4 md:leading-[18px] text-gray-base mb-[6px]">Условие</label>
+      <div class="flex counter">
+        <button class="decrement active">
+          <svg width="14" height="2" viewBox="0 0 14 2"><path d="M1.16663 1H12.8333" stroke="#707D89" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="increment">
+          <svg width="14" height="14" viewBox="0 0 14 14"><path d="M7.00033 1.16675V12.8334M1.16699 7.00008H12.8337" stroke="#707D89" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="flex-1">
+      <label class="sm:text-xs text-[10px] text-gray-base mb-[6px]">Стоимость, %</label>
+      <input type="text" class="form-control" value="5">
+    </div>
+    <div class="flex-1 ">
+      <label class="sm:text-xs text-[10px] text-gray-base mb-[6px]">Стоимость, %</label>
+      <div class="flex gap-4">
+        <input type="text" class="form-control min-w-[71px]" value="5">
+      </div>
+    </div>
+    <button class="w-[18px] h-11 flex items-center justify-center remove-price-btn">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.75 1.25H10.25M1.25 3.5H14.75M13.25 3.5L12.724 11.3895C12.6451 12.5732 12.6057 13.165 12.35 13.6138C12.1249 14.0088 11.7854 14.3265 11.3762 14.5248C10.9115 14.75 10.3183 14.75 9.13201 14.75H6.86799C5.68168 14.75 5.08852 14.75 4.62375 14.5248C4.21457 14.3265 3.87507 14.0088 3.64999 13.6138C3.39433 13.165 3.35488 12.5732 3.27596 11.3895L2.75 3.5M6.5 6.875V10.625M9.5 6.875V10.625" stroke="#707D89" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+    </button>
+  </div>
+`;
+
+  // Boshlanishda bitta blok chiqsin
+  window.addEventListener('DOMContentLoaded', () => {
+    container.insertAdjacentHTML('beforeend', getTemplate());
+  });
+
+  // Yangi blok qo‘shish
+  addBtn.addEventListener('click', () => {
+    container.insertAdjacentHTML('beforeend', getTemplate());
+  });
+
+  // Trash tugmasi bosilganda istalgan blokni o‘chirish
+  container.addEventListener('click', (e) => {
+    const removeBtn = e.target.closest('.remove-price-btn');
+    if (removeBtn) {
+      const block = removeBtn.closest('.flex.gap-4.items-end');
+      if (block) block.remove();
+    }
+  });
+}

@@ -614,7 +614,7 @@
                 <div class="card !border-[#DEE3F3]">
                   <div class="card-header p-4 flex items-center justify-between">
                     <h3 class="card-title text-lg font-semibold">Динамическая</h3>
-                    <button data-modal-target="#region-modal" class="">
+                    <button data-modal-target="#new-discount" class="">
                       <img class="w-5 h-5" src="src/images/icons/plus-circle.svg" alt="">
                     </button>
                   </div>
@@ -1541,7 +1541,7 @@
     <div class="modal-body sm:max-w-[480px] w-[calc(100%_-_32px)] sm:m-4 sm:rounded-[12px] rounded-0">
       <div class="modal-content w-full">
         <div class="flex items-center justify-between sm:py-5 sm:px-6 p-4 border-b border-[#DEE3F3]">
-          <h3 class="md:text-base text-sm text-black font-semibold">Новый регион</h3>
+          <h3 class="md:text-base text-sm text-black font-semibold">Новая скидка</h3>
           <div class="flex gap-3 items-center">
             <button class="modal-close">
               <svg class="md:size-6 size-5" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -1554,190 +1554,126 @@
           </div>
         </div>
         <div class="md:p-6 p-4 max-h-[calc(100vh_-_300px)] overflow-y-auto no-scrollbar">
-          <div class="md:space-y-6 sm:space-y-5 space-y-4">
-            <div class="space-y-[6px]">
-              <label class="sm:text-xs text-[10px] text-gray-base">Регион</label>
-              <div class="relative bg-white form-control-box" id="regionInput">
-                <input type="text" class="form-control shadow-none" value="Все регионы">
-                <img class="absolute top-1/2 -translate-y-1/2 right-[18px] sm:w-[18px] sm:h-[18px] w-[15px] h-[15px]"
-                  src="src/images/icons/search-lg.svg" alt="">
+          <div>
+            <div class="space-y-4">
+              <div class="space-y-[6px]">
+                <label class="sm:text-xs text-[10px] text-gray-base">Название</label>
+                <input type="text" class="form-control" value="Индивидуальная">
+              </div>
+              <div class="space-y-[6px]">
+                <label class="sm:text-xs text-[10px] text-gray-base">Скидка, %</label>
+                <input type="text" class="form-control" value="10">
               </div>
             </div>
-            <div class="space-y-[6px]">
-              <label class="sm:text-xs text-[10px] text-gray-base">Город</label>
-              <div class="relative bg-white form-control-box" id="regionInput">
-                <input type="text" class="form-control shadow-none">
-                <img class="absolute top-1/2 -translate-y-1/2 right-[18px] sm:w-[18px] sm:h-[18px] w-[15px] h-[15px]"
-                  src="src/images/icons/search-lg.svg" alt="">
+            <div class="w-full h-[1px] bg-[#DEE3F3] sm:my-6 my-5"></div>
+            <div class="space-y-4">
+              <div class="space-y-[6px]">
+                <label class="sm:text-xs text-[10px] text-gray-base">Количество заявок</label>
+                <div class="select-container">
+                  <div class="select " role="combobox" aria-expanded="false" aria-controls="select-options-1">
+                    <div class="select-toggle">
+                      <span class="select-display font-normal text-black sm:text-sm text-xs">Юридическое лицо/ИП</span>
+                      <svg class="select-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 6L8 10L12 6" stroke="#707D89" stroke-width="1.5" stroke-linecap="round"
+                          stroke-linejoin="round" />
+                      </svg>
+                    </div>
+                    <ul class="select-options hidden" role="listbox">
+                      <li class="select-option" data-value="Юридическое лицо/ИП" role="option" aria-selected="false">
+                        Юридическое лицо/ИП</li>
+                      <li class="select-option" data-value="Москва2" role="option" aria-selected="false">Москва2</li>
+                      <li class="select-option" data-value="Москва3" role="option" aria-selected="false">Москва3</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="space-y-[6px]">
+                <label class="sm:text-xs text-[10px] text-gray-base">Условие</label>
+                <input type="text" class="form-control" value="25">
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div
+          class='md:px-6 md:py-6 p-4 border-t justify-end border-[#DEE3F3] flex gap-3 sticky bottom-0 bg-white z-[999999]'>
+          <button class="btn btn-primary w-fit">Сохранить</button>
+          <button class="btn btn-outline modal-close w-fit">
+            Закрыть
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="new-discount">
+    <div class="modal-body sm:max-w-[480px] w-[calc(100%_-_32px)] sm:m-4 sm:rounded-[12px] rounded-0">
+      <div class="modal-content w-full">
+        <div class="flex items-center justify-between sm:py-5 sm:px-6 p-4 border-b border-[#DEE3F3]">
+          <h3 class="md:text-base text-sm text-black font-semibold">Новая скидка</h3>
+          <div class="flex gap-3 items-center">
+            <button class="modal-close">
+              <svg class="md:size-6 size-5" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M6.04289 16.5418C5.65237 16.9323 5.65237 17.5655 6.04289 17.956C6.43342 18.3465 7.06658 18.3465 7.45711 17.956L11.9987 13.4144L16.5408 17.9565C16.9313 18.347 17.5645 18.347 17.955 17.9565C18.3455 17.566 18.3455 16.9328 17.955 16.5423L13.4129 12.0002L17.955 7.45808C18.3455 7.06756 18.3455 6.43439 17.955 6.04387C17.5645 5.65335 16.9313 5.65335 16.5408 6.04387L11.9987 10.586L7.45711 6.04439C7.06658 5.65386 6.43342 5.65386 6.04289 6.04439C5.65237 6.43491 5.65237 7.06808 6.04289 7.4586L10.5845 12.0002L6.04289 16.5418Z"
+                  fill="#707D89"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="md:p-6 p-4 max-h-[calc(100vh_-_300px)] overflow-y-auto no-scrollbar">
+          <div>
+            <div class="space-y-4">
+              <div class="space-y-[6px]">
+                <label class="sm:text-xs text-[10px] text-gray-base">Название</label>
+                <input type="text" class="form-control" value="Индивидуальная">
+              </div>
+              <div class="space-y-[6px]">
+                <label class="sm:text-xs text-[10px] text-gray-base">Вид</label>
+                <div class="select-container">
+                  <div class="select " role="combobox" aria-expanded="false" aria-controls="select-options-1">
+                    <div class="select-toggle">
+                      <span class="select-display font-normal text-black sm:text-sm text-xs">%</span>
+                      <svg class="select-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 6L8 10L12 6" stroke="#707D89" stroke-width="1.5" stroke-linecap="round"
+                          stroke-linejoin="round" />
+                      </svg>
+                    </div>
+                    <ul class="select-options hidden" role="listbox">
+                      <li class="select-option" data-value="Юридическое лицо/ИП" role="option" aria-selected="false">
+                        Юридическое лицо/ИП</li>
+                      <li class="select-option" data-value="Москва2" role="option" aria-selected="false">Москва2</li>
+                      <li class="select-option" data-value="Москва3" role="option" aria-selected="false">Москва3</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
+            <div class="w-full h-[1px] bg-[#DEE3F3] sm:my-6 my-5"></div>
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <h3 class="sm:text-sm text-xs font-semibold">Цена заявки базовая</h3>
+                <button class="add-price-btn">
+                  <img class="w-5 h-5" src="src/images/icons/plus-circle.svg" alt="">
+                </button>
+              </div>
+              <div class="space-y-4 add-price-container">
+              </div>
+            </div>
+            <div class="w-full h-[1px] bg-[#DEE3F3] sm:my-6 my-5"></div>
             <div class="space-y-[6px]">
-              <label class="sm:text-xs text-[10px] text-gray-base">Стоимость, ₽</label>
-              <input type="text" class="form-control" value="10">
+              <label class="sm:text-xs text-[10px] text-gray-base">Цена не ниже, ₽</label>
+              <input type="text" class="form-control">
             </div>
           </div>
         </div>
         <div
           class='md:px-6 md:py-6 p-4 border-t justify-end border-[#DEE3F3] flex gap-3 sticky bottom-0 bg-white z-[999999]'>
-          <button class="btn btn-primary md:w-fit w-full justify-center">Сохранить</button>
-          <button class="btn btn-outline modal-close md:w-fit w-full justify-center">
-            Закрыть
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- edit modal -->
-  <div class="modal " id="edit-modal">
-    <div class="modal-body sm:max-w-[480px] w-[calc(100%_-_32px)] sm:m-4 sm:rounded-[12px] rounded-0">
-      <div class="modal-content w-full">
-        <div class="flex items-center justify-between sm:py-5 sm:px-6 p-4 border-b border-[#DEE3F3]">
-          <h3 class="md:text-base text-sm text-black font-semibold">Редактирование</h3>
-          <div class="flex gap-3 items-center">
-            <button class="modal-close">
-              <svg class="md:size-6 size-5" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                  d="M6.04289 16.5418C5.65237 16.9323 5.65237 17.5655 6.04289 17.956C6.43342 18.3465 7.06658 18.3465 7.45711 17.956L11.9987 13.4144L16.5408 17.9565C16.9313 18.347 17.5645 18.347 17.955 17.9565C18.3455 17.566 18.3455 16.9328 17.955 16.5423L13.4129 12.0002L17.955 7.45808C18.3455 7.06756 18.3455 6.43439 17.955 6.04387C17.5645 5.65335 16.9313 5.65335 16.5408 6.04387L11.9987 10.586L7.45711 6.04439C7.06658 5.65386 6.43342 5.65386 6.04289 6.04439C5.65237 6.43491 5.65237 7.06808 6.04289 7.4586L10.5845 12.0002L6.04289 16.5418Z"
-                  fill="#707D89"></path>
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div class="md:p-6 p-4 max-h-[calc(100vh_-_300px)] overflow-y-auto no-scrollbar">
-          <div class="md:space-y-6 sm:space-y-5 space-y-4">
-            <div class="range-slider-container flex-1 space-y-[6px]">
-              <label class="sm:text-xs text-[10px] text-gray-base">Возраст</label>
-              <input class="form-control" type="text" placeholder="20 — 50" readonly>
-              <div class="range-slider"></div>
-            </div>
-            <div class="space-y-[6px]">
-              <label class="sm:text-xs text-[10px] text-gray-base">Стоимость, ₽</label>
-              <input type="text" class="form-control" value="10">
-            </div>
-          </div>
-        </div>
-        <div
-          class='md:px-6 md:py-6 p-4 border-t justify-end border-[#DEE3F3] flex gap-3 sticky bottom-0 bg-white z-[999999]'>
-          <button class="btn btn-primary md:w-fit w-full justify-center">Сохранить</button>
-          <button class="btn btn-outline modal-close md:w-fit w-full justify-center">
-            Закрыть
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal" id="edit-modal2">
-    <div class="modal-body sm:max-w-[480px] w-[calc(100%_-_32px)] sm:m-4 sm:rounded-[12px] rounded-0">
-      <div class="modal-content w-full">
-        <div class="flex items-center justify-between sm:py-5 sm:px-6 p-4 border-b border-[#DEE3F3]">
-          <h3 class="md:text-base text-sm text-black font-semibold">Редактирование</h3>
-          <div class="flex gap-3 items-center">
-            <button class="modal-close">
-              <svg class="md:size-6 size-5" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                  d="M6.04289 16.5418C5.65237 16.9323 5.65237 17.5655 6.04289 17.956C6.43342 18.3465 7.06658 18.3465 7.45711 17.956L11.9987 13.4144L16.5408 17.9565C16.9313 18.347 17.5645 18.347 17.955 17.9565C18.3455 17.566 18.3455 16.9328 17.955 16.5423L13.4129 12.0002L17.955 7.45808C18.3455 7.06756 18.3455 6.43439 17.955 6.04387C17.5645 5.65335 16.9313 5.65335 16.5408 6.04387L11.9987 10.586L7.45711 6.04439C7.06658 5.65386 6.43342 5.65386 6.04289 6.04439C5.65237 6.43491 5.65237 7.06808 6.04289 7.4586L10.5845 12.0002L6.04289 16.5418Z"
-                  fill="#707D89"></path>
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div class="md:p-6 p-4 max-h-[calc(100vh_-_300px)] overflow-y-auto no-scrollbar">
-          <div class="md:space-y-6 sm:space-y-5 space-y-4">
-            <div class="space-y-[6px]">
-              <label class="sm:text-xs text-[10px] text-gray-base">Стоимость, ₽</label>
-              <input type="text" class="form-control" value="10">
-            </div>
-          </div>
-        </div>
-        <div
-          class='md:px-6 md:py-6 p-4 border-t justify-end border-[#DEE3F3] flex gap-3 sticky bottom-0 bg-white z-[999999]'>
-          <button class="btn btn-primary md:w-fit w-full justify-center">Сохранить</button>
-          <button class="btn btn-outline modal-close md:w-fit w-full justify-center">
-            Закрыть
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- New age modal -->
-  <div class="modal" id="new-age-modal">
-    <div class="modal-body sm:max-w-[480px] w-[calc(100%_-_32px)] sm:m-4 sm:rounded-[12px] rounded-0">
-      <div class="modal-content w-full">
-        <div class="flex items-center justify-between sm:py-5 sm:px-6 p-4 border-b border-[#DEE3F3]">
-          <h3 class="md:text-base text-sm text-black font-semibold">Новый возраст</h3>
-          <div class="flex gap-3 items-center">
-            <button class="modal-close">
-              <svg class="md:size-6 size-5" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                  d="M6.04289 16.5418C5.65237 16.9323 5.65237 17.5655 6.04289 17.956C6.43342 18.3465 7.06658 18.3465 7.45711 17.956L11.9987 13.4144L16.5408 17.9565C16.9313 18.347 17.5645 18.347 17.955 17.9565C18.3455 17.566 18.3455 16.9328 17.955 16.5423L13.4129 12.0002L17.955 7.45808C18.3455 7.06756 18.3455 6.43439 17.955 6.04387C17.5645 5.65335 16.9313 5.65335 16.5408 6.04387L11.9987 10.586L7.45711 6.04439C7.06658 5.65386 6.43342 5.65386 6.04289 6.04439C5.65237 6.43491 5.65237 7.06808 6.04289 7.4586L10.5845 12.0002L6.04289 16.5418Z"
-                  fill="#707D89"></path>
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div class="md:p-6 p-4 max-h-[calc(100vh_-_300px)] overflow-y-auto no-scrollbar">
-          <div class="md:space-y-6 sm:space-y-5 space-y-4">
-            <div class="range-slider-container flex-1 space-y-[6px]">
-              <label class="sm:text-xs text-[10px] text-gray-base">Возраст</label>
-              <input class="form-control" type="text" placeholder="20 — 50" readonly>
-              <div class="range-slider"></div>
-            </div>
-            <div class="space-y-[6px]">
-              <label class="sm:text-xs text-[10px] text-gray-base">Стоимость, ₽</label>
-              <input type="text" class="form-control" value="10">
-            </div>
-          </div>
-        </div>
-        <div
-          class='md:px-6 md:py-6 p-4 border-t justify-end border-[#DEE3F3] flex gap-3 sticky bottom-0 bg-white z-[999999]'>
-          <button class="btn btn-primary md:w-fit w-full justify-center">Сохранить</button>
-          <button class="btn btn-outline modal-close md:w-fit w-full justify-center">
-            Закрыть
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- New price modal -->
-  <div class="modal" id="new-price-modal">
-    <div class="modal-body sm:max-w-[480px] w-[calc(100%_-_32px)] sm:m-4 sm:rounded-[12px] rounded-0">
-      <div class="modal-content w-full">
-        <div class="flex items-center justify-between sm:py-5 sm:px-6 p-4 border-b border-[#DEE3F3]">
-          <h3 class="md:text-base text-sm text-black font-semibold">Новая сумма кредита</h3>
-          <div class="flex gap-3 items-center">
-            <button class="modal-close">
-              <svg class="md:size-6 size-5" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                  d="M6.04289 16.5418C5.65237 16.9323 5.65237 17.5655 6.04289 17.956C6.43342 18.3465 7.06658 18.3465 7.45711 17.956L11.9987 13.4144L16.5408 17.9565C16.9313 18.347 17.5645 18.347 17.955 17.9565C18.3455 17.566 18.3455 16.9328 17.955 16.5423L13.4129 12.0002L17.955 7.45808C18.3455 7.06756 18.3455 6.43439 17.955 6.04387C17.5645 5.65335 16.9313 5.65335 16.5408 6.04387L11.9987 10.586L7.45711 6.04439C7.06658 5.65386 6.43342 5.65386 6.04289 6.04439C5.65237 6.43491 5.65237 7.06808 6.04289 7.4586L10.5845 12.0002L6.04289 16.5418Z"
-                  fill="#707D89"></path>
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div class="md:p-6 p-4 max-h-[calc(100vh_-_300px)] overflow-y-auto no-scrollbar">
-          <div class="md:space-y-6 sm:space-y-5 space-y-4">
-            <div class="range-slider-container flex-1 space-y-[6px]">
-              <label class="sm:text-xs text-[10px] text-gray-base">Возраст</label>
-              <input class="form-control" type="text" placeholder="20 — 50" readonly>
-              <div class="range-slider"></div>
-            </div>
-            <div class="space-y-[6px]">
-              <label class="sm:text-xs text-[10px] text-gray-base">Стоимость, ₽</label>
-              <input type="text" class="form-control" value="10">
-            </div>
-          </div>
-        </div>
-        <div
-          class='md:px-6 md:py-6 p-4 border-t justify-end border-[#DEE3F3] flex gap-3 sticky bottom-0 bg-white z-[999999]'>
-          <button class="btn btn-primary md:w-fit w-full justify-center">Сохранить</button>
-          <button class="btn btn-outline modal-close md:w-fit w-full justify-center">
+          <button class="btn btn-primary w-fit">Сохранить</button>
+          <button class="btn btn-outline modal-close w-fit">
             Закрыть
           </button>
         </div>
