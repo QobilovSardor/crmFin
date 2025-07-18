@@ -159,3 +159,32 @@ accordions.forEach(accordion => {
     accordionHeader.classList.toggle("active")
   })
 })
+
+const dropdownContainer = document.querySelectorAll(".dropdown-container");
+dropdownContainer.forEach(dropdown => {
+  const dropdownBtn = dropdown.querySelector(".dropdown-btn");
+  const dropdownContent = dropdown.querySelector(".dropdown-box");
+
+  dropdownBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    dropdownContent.classList.toggle("block");
+    dropdownContent.classList.toggle("hidden");
+    dropdownBtn.classList.toggle('active');
+  });
+})
+
+
+const dropdownContainerTwo = document.querySelectorAll(".dropdown-container-two");
+dropdownContainerTwo.forEach(dropdown => {
+  const dropdownBtn = dropdown.querySelector(".dropdown-btn");
+  const dropdownContent = dropdown.querySelector(".dropdown-box");
+  console.log(dropdown);
+
+  dropdownBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    dropdown.classList.toggle('active')
+    dropdownContent.classList.toggle("block");
+    dropdownContent.classList.toggle("hidden");
+    dropdownBtn.classList.toggle('active');
+  });
+})

@@ -10,7 +10,7 @@ label {
   @apply block;
 }
 body {
-  @apply font-montserrat text-sm font-normal bg-bg-avatar text-black;
+  @apply font-Montserrat text-sm font-normal bg-bg-avatar text-black;
 }
 
 /* core styles */
@@ -807,15 +807,17 @@ line.apexcharts-xaxis-tick {
   display: none !important;
 }
 
-.tooltip-btn.active path {
+.tooltip-btn.active path,
+.dropdown-btn.active path {
   @apply stroke-blue;
 }
-/* .price-tabs .tab-content {
-  @apply xl:block hidden
+.dropdown-btn svg {
+  @apply duration-300 transition-all;
 }
-.price-tabs .tab-content.active {
-  @apply block
-} */
+.dropdown-btn.active svg {
+  @apply rotate-180;
+}
+
 @media (min-width: 1280px) {
   .price-tabs .tab-content.hidden {
     @apply !block;
@@ -839,4 +841,44 @@ line.apexcharts-xaxis-tick {
 }
 .accordion-header.active svg path {
   stroke: #407bff;
+}
+
+.input-group .form-control {
+  @apply border-l-0 rounded-none;
+}
+.input-group input {
+  @apply !shadow-none
+}
+.input-group .form-control.first {
+  @apply rounded-l-lg border-l;
+}
+.input-group .form-control.last {
+  @apply rounded-r-lg border-l-0;
+}
+
+.counter {
+  @apply flex h-11;
+}
+.counter button {
+  @apply w-full border border-[#E4E7EC]  flex items-center justify-center h-full;
+}
+
+.counter .decrement {
+  @apply rounded-l-lg;
+}
+.counter .increment {
+  @apply rounded-r-lg border-l-0;
+}
+.counter button.active {
+  @apply border-blue bg-[#D9E5FF];
+}
+.counter button.active svg path {
+  @apply stroke-blue;
+}
+.counter .increment.active {
+  @apply border-l-[1px];
+}
+
+.dropdown-container-two.active {
+  @apply bg-[#F8FBFF] p-[6px] -mx-[6px] rounded-xl;
 }

@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        montserrat: ['Montserrat', 'sans-serif'],
+        Montserrat: ["'Montserrat', sans-serif"],
       },
       fontSize: {
         'theme-xs': '0.75rem',
@@ -19,11 +19,11 @@ module.exports = {
         black: '#141414',
         blackLight: '#1D2939',
         border: {
-          light: '#DEE3F3', // Used for borders
+          light: '#DEE3F3',
         },
         bg: {
-          hover: '#F4F8FF', // Used for hover states
-          avatar: '#F9FBFF', // Used for avatar background
+          hover: '#F4F8FF',
+          avatar: '#F9FBFF',
         },
         gray: {
           'base': '#707D89',
@@ -48,7 +48,8 @@ module.exports = {
         '1.5': '6px'
       },
       screens: {
-        '1350': '1350px'
+        '1350': '1350px',
+        "1700": "1700px"
       },
 
     },

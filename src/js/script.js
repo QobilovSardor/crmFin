@@ -1,39 +1,3 @@
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   // Modal ochish
-//   document.querySelectorAll('[data-modal-target]').forEach(btn => {
-//     btn.addEventListener("click", () => {
-//       const modal = document.querySelector(btn.dataset.modalTarget);
-//       if (modal) {
-//         modal.classList.remove("hidden");
-//         modal.classList.add("flex");
-//         document.body.classList.add("overflow-hidden"); // body scrollni bloklash
-//       }
-//     });
-//   });
-
-//   // Modal yopish tugmalari
-//   document.querySelectorAll(".modal-close").forEach(btn => {
-//     btn.addEventListener("click", () => {
-//       const modal = btn.closest(".modal");
-//       if (modal) {
-//         modal.classList.add("hidden");
-//         document.body.classList.remove("overflow-hidden"); // body scrollni tiklash
-//       }
-//     });
-//   });
-
-//   // Modal tashqi qismiga (foniga) bosilganda yopish
-//   document.querySelectorAll(".modal").forEach(modal => {
-//     modal.addEventListener("click", (e) => {
-//       // Faqat modal kontentidan tashqariga bosilganda yopilsin
-//       if (e.target === modal) {
-//         modal.classList.add("hidden");
-//         document.body.classList.remove("overflow-hidden"); // body scrollni tiklash
-//       }
-//     });
-//   });
-// });
 document.addEventListener('DOMContentLoaded', () => {
   // Modal ochish va yopish funksiyalari
   document.querySelectorAll('[data-modal-target]').forEach(btn => {
@@ -360,7 +324,7 @@ class ApplicationState {
                     <path d="M1 9L1 19M13 9L13 19M7 1L7 19M19 1V19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>`,
         name: 'Статистика',
-        path: '/payments-archive.html'
+        path: '/discount.html'
       },
       {
         icon: `<svg width="20" height="20" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
