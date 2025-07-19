@@ -634,6 +634,16 @@ video {
   }
 }
 
+@media (min-width: 1700px){
+  .\!container{
+    max-width: 1700px !important;
+  }
+
+  .container{
+    max-width: 1700px;
+  }
+}
+
 .modal{
   position: fixed;
   inset: 0px;
@@ -1355,10 +1365,6 @@ video {
   margin-top: 6px;
 }
 
-.ml-2{
-  margin-left: 0.5rem;
-}
-
 .box-border{
   box-sizing: border-box;
 }
@@ -1374,12 +1380,12 @@ video {
   -webkit-line-clamp: none;
 }
 
-.block{
-  display: block;
-}
-
 .\!block{
   display: block !important;
+}
+
+.block{
+  display: block;
 }
 
 .inline-block{
@@ -4982,6 +4988,12 @@ line.apexcharts-xaxis-tick {
       max-width: 1600px;
     }
   }
+
+  @media (min-width: 1700px){
+    .sm\:container{
+      max-width: 1700px;
+    }
+  }
 }
 
 .hover\:bg-bg-hover:hover{
@@ -5421,8 +5433,22 @@ line.apexcharts-xaxis-tick {
 }
 
 @media (min-width: 1600px){
-  .\31 700\:grid-cols-2{
+  .\31 600\:grid-cols-2{
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1700px){
+  .\31 700\:w-\[106px\]{
+    width: 106px;
+  }
+
+  .\31 700\:w-\[80px\]{
+    width: 80px;
+  }
+
+  .\31 700\:w-\[88px\]{
+    width: 88px;
   }
 }
 
