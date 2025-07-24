@@ -847,7 +847,7 @@ line.apexcharts-xaxis-tick {
   @apply border-l-0 rounded-none;
 }
 .input-group input {
-  @apply !shadow-none
+  @apply !shadow-none;
 }
 .input-group .form-control.first {
   @apply rounded-l-lg border-l;
@@ -881,4 +881,29 @@ line.apexcharts-xaxis-tick {
 
 .dropdown-container-two.active {
   @apply bg-[#F8FBFF] p-[6px] -mx-[6px] rounded-xl;
+}
+
+.radio-container label {
+  @apply relative pl-7 md:text-sm text-xs cursor-pointer select-none;
+}
+.radio-container label::before {
+  @apply content-[''] absolute top-1/2 -translate-y-1/2 left-0 w-4 h-4 rounded-full border border-[#DEE3F3];
+}
+.radio-container label::after {
+  @apply content-[''] absolute top-1/2 -translate-y-1/2 left-[5px] w-[6px] h-[6px] rounded-full bg-white;
+}
+.radio-container input:checked + label::before {
+  @apply border-transparent bg-[#407BFF];
+}
+.radio-container input:checked + label::after {
+  @apply block;
+}
+
+.date-picker .flatpickr-calendar.arrowBottom:before,
+.date-picker .flatpickr-calendar.arrowBottom:after {
+  @apply hidden;
+}
+
+.date-picker .flatpickr-day {
+  @apply min-w-[39px];
 }
