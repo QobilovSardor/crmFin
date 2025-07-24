@@ -1102,28 +1102,22 @@ document.querySelectorAll('.date-picker').forEach((picker, index) => {
   const defaultValue = input.dataset.default || '';
 
   const flatpickrInstance = flatpickr(input, {
-        mode: 'single',
-        static: true,
-        monthSelectorType: 'static',
-        dateFormat: 'd.m.Y',
-        defaultDate: '2025-03-15',
-        altInput: true,
-        altFormat: 'd.m.Y',
-        locale: flatpickr.l10ns.ru,
-        defaultHour: 0,
-        defaultMinute: 0,
-
+    mode: 'single',
+    static: true,
+    monthSelectorType: 'static',
+    dateFormat: 'd.m.Y',
+    defaultDate: '2025-03-15',
+    altInput: true,
+    altFormat: 'd.m.Y',
+    locale: {
+      rangeSeparator: ' — '
+    },
+    defaultHour: 0,
+    defaultMinute: 0,
     onChange: (selectedDates, dateStr) => {
       console.log(`Date Picker ${index + 1} selected: `, dateStr);
       console.log('Start date:', selectedDates[0]);
       console.log('End date:', selectedDates[1]);
-    },
-
-    onDayCreate: (dObj, dStr, fp, dayElem) => {
-      // Bu class `inRange` bo‘lsa, fonni rangga o‘zgartiramiz
-      if (dayElem.classList.contains('inRange')) {
-        dayElem.style.background = '#F9FBFF';
-      }
     }
   });
 

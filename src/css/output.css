@@ -1666,6 +1666,10 @@ video {
   min-height: calc(100% - 77px);
 }
 
+.\!w-full{
+  width: 100% !important;
+}
+
 .w-1{
   width: 0.25rem;
 }
@@ -1809,10 +1813,6 @@ video {
 
 .w-full{
   width: 100%;
-}
-
-.\!w-full{
-  width: 100% !important;
 }
 
 .min-w-\[18px\]{
