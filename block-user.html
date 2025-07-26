@@ -4,10 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>crmFin</title>
-  <!-- Datepicker css -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <link rel="stylesheet" href="src/css/flatpickr.min.css">
+  <link rel="stylesheet" href="src/css/jquery-ui.css">
   <!-- Monserat font -->
   <link rel="stylesheet" href="src/fonts/Montserrat/stylesheet.css">
   <!-- custom css link -->
@@ -371,29 +370,24 @@
         </div>
         <div class="flex justify-between md:mb-6 sm:mb-5 mb-4 flex-wrap gap-5 md:flex-wrap md:flex-row">
           <div class='overflow-x-auto scroll-box !pb-0 no-scrollbar'>
-            <div class='min-w-[540px] bg-[#F9FBFF] relative pr-4'>
-              <div class="tab flex items-center rounded-lg bg-white p-0.5 whitespace-nowrap md:w-fit w-fit">
-                <button
-                  class="tab-list active px-3 py-2 font-medium sm:w-full w-fit rounded-md md:text-sm text-xs flex justify-center items-center gap-2 cursor-pointer active">
-                  <span>Все</span>
-
-                </button>
-                <button
-                  class="tab-list px-3 py-2 font-medium sm:w-full w-fit rounded-md md:text-sm text-xs flex justify-center items-center gap-2 cursor-pointer">
-                  <span>Телефон</span>
-
-                </button>
-                <button
-                  class="tab-list px-3 py-2 font-medium sm:w-full w-fit rounded-md md:text-sm text-xs flex justify-center items-center gap-2 cursor-pointer">
-                  <span>ФИО </span>
-
-                </button>
-                <button
-                  class="tab-list px-3 py-2 font-medium sm:w-full w-fit rounded-md md:text-sm text-xs flex justify-center items-center gap-2 cursor-pointer">
-                  <span>Почта</span>
-
-                </button>
-              </div>
+            <div id="tab-container"
+              class="tab flex items-center rounded-lg bg-white p-0.5 whitespace-nowrap md:w-fit w-fit">
+              <button data-tab="all"
+                class="tab-list active px-3 py-2 font-medium sm:w-full w-fit rounded-md md:text-sm text-xs flex justify-center items-center gap-2 cursor-pointer">
+                <span>Все</span>
+              </button>
+              <button data-tab="phone"
+                class="tab-list px-3 py-2 font-medium sm:w-full w-fit rounded-md md:text-sm text-xs flex justify-center items-center gap-2 cursor-pointer">
+                <span>Телефон</span>
+              </button>
+              <button data-tab="fullname"
+                class="tab-list px-3 py-2 font-medium sm:w-full w-fit rounded-md md:text-sm text-xs flex justify-center items-center gap-2 cursor-pointer">
+                <span>ФИО</span>
+              </button>
+              <button data-tab="email"
+                class="tab-list px-3 py-2 font-medium sm:w-full w-fit rounded-md md:text-sm text-xs flex justify-center items-center gap-2 cursor-pointer">
+                <span>Почта</span>
+              </button>
             </div>
           </div>
           <button class="btn btn-primary btn-sm sm:w-fit w-full justify-center" data-modal-target="#new-block">
@@ -427,7 +421,8 @@
                   <table class="min-w-full bg-white" id="application-table">
                     <tbody id="table-body" class="divide-y divide-gray-100">
                       <tr>
-                        <td class="pl-6 w-14"><input type="checkbox" class="checkbox checkbox-input mt-[6px]" data-row-id="2221">
+                        <td class="pl-6 w-14"><input type="checkbox" class="checkbox checkbox-input mt-[6px]"
+                            data-row-id="2221">
                         </td>
                         <td class="px-3 h-11 py-2 text-start  ">
                           <div class="flex items-center gap-2">
@@ -446,7 +441,8 @@
                         </td>
                       </tr>
                       <tr>
-                        <td class="pl-6 w-14"><input type="checkbox" class="checkbox checkbox-input mt-[6px]" data-row-id="2221">
+                        <td class="pl-6 w-14"><input type="checkbox" class="checkbox checkbox-input mt-[6px]"
+                            data-row-id="2221">
                         </td>
                         <td class="px-3 h-11 py-2 text-start  ">
                           <div class="flex items-center gap-4">
@@ -467,9 +463,10 @@
                         </td>
                       </tr>
                       <tr>
-                        <td class="pl-6 w-14"><input type="checkbox" class="checkbox checkbox-input mt-[6px]" data-row-id="2221">
+                        <td class="pl-6 w-14"><input type="checkbox" class="checkbox checkbox-input mt-[6px]"
+                            data-row-id="2221">
                         </td>
-                        <td class="px-3 h-11 py-2 text-start  ">
+                        <td class="px-3 h-11 py-2 text-start">
                           <div class="flex items-center gap-2">
                             <span class="md:text-sm text-xs">+7 (925) ххх-хх-хх</span>
                           </div>
@@ -598,10 +595,10 @@
               <div>
                 <label class="mb-1.5 block md:text-xs text-[10px] font-normal text-gray-700 dark:text-gray-base">Дата
                   рождения</label>
-                <div class="date-picker date-picker-2  w-full">
+                <input class="date-picker-input form-control !w-full" type="text" id="datepicker" />
+                <!-- <div class="date-picker date-picker-2  w-full">
                   <div class="relative w-full">
-                    <input id="date-picker-2" class="date-picker-input form-control !w-full" type="text"
-  id="custom-date" />
+                    <input class="date-picker-input form-control !w-full" type="text" id="datepicker" />
                     <span class="date-picker-icon">
                       <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -611,7 +608,7 @@
 
                     </span>
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
 
@@ -624,7 +621,7 @@
         </div>
         <div
           class='md:px-6 md:py-6 p-4 border-t justify-end border-[#DEE3F3] flex gap-3 sticky bottom-0 bg-white z-[999999]'>
-          <button class="btn btn-primary justify-center">Сохранить</button>
+          <button class="btn btn-primary justify-center modal-close">Сохранить</button>
           <button class="btn btn-outline modal-close justify-center">
             Закрыть
           </button>
@@ -634,9 +631,11 @@
   </div>
 
 
+
+
   <!-- Datepicker js -->
-  <script src="src/js/flatpickr.js"></script>
-  <script src="src/js/flatpickr-ru.js"></script>
+  <script src="src/js/jquery.js"></script>
+  <script src="src/js/jquery-ui.js"></script>
   <!-- price-setting js -->
   <script src="src/js/price-setting.js"></script>
   <!-- js -->
@@ -644,34 +643,86 @@
   <!-- js -->
   <script src="src/js/script.js"></script>
   <script>
-    // Barcha radio tugmalarni olamiz
-    const radios = document.querySelectorAll('input[name="choose-type"]');
+    document.addEventListener('DOMContentLoaded', function () {
+      // Tab va radio elementlarini tanlab olamiz
+      const tabs = document.querySelectorAll('#tab-container .tab-list');
+      const radios = document.querySelectorAll('input[name="choose-type"]');
 
-    if (radios) {
-      // Content block IDlari
+      // Kontent bloklari
       const contents = {
-        phone: document.getElementById('phone-content'),
-        fullname: document.getElementById('fullname-content'),
-        email: document.getElementById('email-content')
+        'all': () => {
+          // Faqat telefon kontenti ko'rinadi
+          document.getElementById('phone-content').classList.remove('hidden');
+          document.getElementById('fullname-content').classList.add('hidden');
+          document.getElementById('email-content').classList.add('hidden');
+        },
+        'phone': () => {
+          document.getElementById('phone-content').classList.remove('hidden');
+          document.getElementById('fullname-content').classList.add('hidden');
+          document.getElementById('email-content').classList.add('hidden');
+        },
+        'fullname': () => {
+          document.getElementById('phone-content').classList.add('hidden');
+          document.getElementById('fullname-content').classList.remove('hidden');
+          document.getElementById('email-content').classList.add('hidden');
+        },
+        'email': () => {
+          document.getElementById('phone-content').classList.add('hidden');
+          document.getElementById('fullname-content').classList.add('hidden');
+          document.getElementById('email-content').classList.remove('hidden');
+        }
       };
 
-      // Dastlabki holat
-      contents.phone.classList.remove('hidden');
-      contents.fullname.classList.add('hidden');
-      contents.email.classList.add('hidden');
+      // Dastlabki holat - Все aktiv va faqat telefon ko'rinadi
+      contents['all']();
 
-      // Radio tugmalar bosilganda contentni almashtirish
-      radios.forEach(radio => {
-        radio.addEventListener('change', () => {
-          // Avval hammasini yashiramiz
-          Object.values(contents).forEach(el => el.classList.add('hidden'));
+      // Tab bosilganda
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function () {
+          // Barcha tablardan active klassini olib tashlaymiz
+          tabs.forEach(t => t.classList.remove('active'));
 
-          // Tanlangan contentni ko‘rsatamiz
-          const selected = radio.id; // id=phone / fullname / email
-          contents[selected].classList.remove('hidden');
+          // Bosilgan tabga active klassini qo'shamiz
+          this.classList.add('active');
+
+          // Tegishli kontentni ko'rsatamiz
+          const tabId = this.getAttribute('data-tab');
+          contents[tabId]();
+
+          // Radio tugmalarni yangilaymiz
+          if (tabId !== 'all') {
+            document.getElementById(tabId).checked = true;
+          } else {
+            document.getElementById('all').checked = true;
+          }
         });
       });
-    }
+
+      // Radio bosilganda
+      radios.forEach(radio => {
+        radio.addEventListener('change', function () {
+          if (this.checked) {
+            const radioId = this.id;
+
+            // Barcha tablardan active klassini olib tashlaymiz
+            tabs.forEach(t => t.classList.remove('active'));
+
+            // Tegishli tabni topamiz va active qilamiz
+            const correspondingTab = document.querySelector(`[data-tab="${radioId}"]`);
+            if (correspondingTab) {
+              correspondingTab.classList.add('active');
+            }
+
+            // Kontentni yangilaymiz
+            contents[radioId]();
+          }
+        });
+      });
+    });
+    $(function () {
+      $.datepicker.setDefaults($.datepicker.regional["ru"]); // Rus tilini faollashtirish
+      $("#datepicker").datepicker();
+    });
   </script>
 </body>
 
