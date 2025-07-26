@@ -541,7 +541,7 @@
 
 
   <!-- modal -->
-  <div class="modal" id="new-block">
+  <div class="modal show" id="new-block">
     <div class="modal-body sm:max-w-[480px] w-[calc(100%_-_32px)] sm:m-4 sm:rounded-[12px] rounded-0">
       <div class="modal-content w-full">
         <div class="flex items-center justify-between sm:py-5 sm:px-6 p-4 border-b border-[#DEE3F3]">
@@ -582,13 +582,13 @@
           </div>
           <div>
             <!-- phone-content -->
-            <div class="space-y-[6px]" id="phone-content">
+            <div class="space-y-[6px]" id="fullname-content">
               <label class="sm:text-xs text-[10px] text-gray-base">Номер телефона</label>
               <input type="text" class="form-control">
             </div>
 
             <!-- fullname-content -->
-            <div id="fullname-content" class="md:space-y-6 space-y-5 hidden">
+            <div id="phone-content" class="md:space-y-6 space-y-5 hidden">
               <div class="space-y-[6px]">
                 <label class="sm:text-xs text-[10px] text-gray-base">ФИО</label>
                 <input type="text" class="form-control">
@@ -596,14 +596,9 @@
               <div>
                 <label class="mb-1.5 block md:text-xs text-[10px] font-normal text-gray-700 dark:text-gray-base">Дата
                   рождения</label>
-                <!-- <div class="date-picker">
-                  <input class="date-picker-input" data-default="15.03.2025">
-                </div> -->
-                <div class="date-picker">
+                <div class="date-picker date-picker-2">
                   <div class="relative">
                     <input class="date-picker-input" data-default="15.03.2025">
-                    <!-- <input id="date-picker-1" class="date-picker-input form-control"
-                      placeholder="DD.MM.YYYY — DD.MM.YYYY" data-default="15.03.2025 — 15.03.2025" /> -->
                     <span class="date-picker-icon">
                       <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
