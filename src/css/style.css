@@ -928,7 +928,7 @@ line.apexcharts-xaxis-tick {
     0 -1px 0 #e6e6e6, 0 3px 13px rgba(0, 0, 0, 0.08);
   box-shadow: 1px 0 0 #e6e6e6, -1px 0 0 #e6e6e6, 0 1px 0 #e6e6e6,
     0 -1px 0 #e6e6e6, 0 3px 13px rgba(0, 0, 0, 0.08);
-  @apply sm:w-[432px] w-fit
+  @apply sm:w-[432px] w-fit;
 }
 
 .ui-datepicker .ui-datepicker-header {
@@ -994,7 +994,7 @@ line.apexcharts-xaxis-tick {
   border: none;
   display: flex;
   align-items: center;
-  font-size: 0.75rem;
+  font-size: 14px;
   line-height: 1rem;
   font-weight: 500;
   height: 39px;

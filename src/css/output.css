@@ -1009,77 +1009,6 @@ video {
   stroke-width: 1.5;
 }
 
-.flatpickr-wrapper{
-  width: 100% !important;
-}
-
-.flatpickr-calendar{
-  margin-top: 0.5rem;
-  border-radius: 0.75rem;
-  border-width: 1px;
-  --tw-border-opacity: 1;
-  border-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
-  padding: 1.25rem;
-  --tw-text-opacity: 1;
-  color: rgb(112 125 137 / var(--tw-text-opacity, 1));
-}
-
-.flatpickr-weekdays{
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
-  background-color: transparent;
-}
-
-.flatpickr-weekday{
-  background-color: transparent;
-  font-size: 0.75rem;
-  line-height: 1rem;
-  font-weight: 500;
-  --tw-text-opacity: 1;
-  color: rgb(112 125 137 / var(--tw-text-opacity, 1));
-}
-
-.flatpickr-day{
-  display: flex;
-  align-items: center;
-  font-size: 0.75rem;
-  line-height: 1rem;
-  font-weight: 500;
-  --tw-text-opacity: 1;
-  color: rgb(20 20 20 / var(--tw-text-opacity, 1));
-}
-
-.flatpickr-day.nextMonthDay,
-  .flatpickr-day.prevMonthDay{
-  --tw-text-opacity: 1;
-  color: rgb(112 125 137 / var(--tw-text-opacity, 1));
-}
-
-.flatpickr-month .flatpickr-current-month .flatpickr-monthDropdown-months{
-  font-weight: 500;
-}
-
-.flatpickr-month
-    .flatpickr-current-month
-    .flatpickr-monthDropdown-months:focus{
-  border-width: 0px;
-  outline: 2px solid transparent;
-  outline-offset: 2px;
-}
-
-.flatpickr-current-month .cur-month,
-  .flatpickr-current-month input.cur-year{
-  height: auto;
-  padding-top: 0px;
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-  font-weight: 500;
-  --tw-text-opacity: 1;
-  color: rgb(20 20 20 / var(--tw-text-opacity, 1));
-}
-
 .flatpickr-calendar.static.open{
   left: 0px !important;
   z-index: 99999 !important;
@@ -1512,12 +1441,12 @@ video {
   display: inline-block;
 }
 
-.inline{
-  display: inline;
-}
-
 .\!inline{
   display: inline !important;
+}
+
+.inline{
+  display: inline;
 }
 
 .flex{
@@ -1588,12 +1517,12 @@ video {
   display: list-item;
 }
 
-.hidden{
-  display: none;
-}
-
 .\!hidden{
   display: none !important;
+}
+
+.hidden{
+  display: none;
 }
 
 .size-5{
@@ -3818,14 +3747,14 @@ video {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
-.invert{
-  --tw-invert: invert(100%);
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-
 .\!invert{
   --tw-invert: invert(100%) !important;
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow) !important;
+}
+
+.invert{
+  --tw-invert: invert(100%);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .sepia{
@@ -5224,7 +5153,7 @@ line.apexcharts-xaxis-tick {
   box-shadow: 1px 0 0 #e6e6e6, -1px 0 0 #e6e6e6, 0 1px 0 #e6e6e6,
     0 -1px 0 #e6e6e6, 0 3px 13px rgba(0, 0, 0, 0.08);
   width: -moz-fit-content;
-  width: fit-content
+  width: fit-content;
 }
 
 @media (min-width: 640px){
@@ -5304,7 +5233,7 @@ line.apexcharts-xaxis-tick {
   border: none;
   display: flex;
   align-items: center;
-  font-size: 0.75rem;
+  font-size: 14px;
   line-height: 1rem;
   font-weight: 500;
   height: 39px;
