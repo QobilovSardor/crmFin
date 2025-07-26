@@ -1056,20 +1056,136 @@ document.querySelectorAll('.select').forEach((select, index) => {
   });
 });
 
+// document.querySelectorAll('.date-picker').forEach((picker, index) => {
+//   const input = picker.querySelector('.date-picker-input');
+//   const id = `date-picker-${index + 1}`;
+//   input.id = id;
 
-// // Initialize all date pickers
+//   const startDateStr = input.dataset.default || '15.03.2025';
+//   const [day, month, year] = startDateStr.split('.');
+//   const startDate = new Date(`${year}-${month}-${day}T00:00:00`);
+
+//   const flatpickrInstance = flatpickr(input, {
+//     mode: 'range',
+//     static: true,
+//     dateFormat: 'd.m.Y',
+//     altInput: true,
+//     altFormat: 'd.m.Y',
+//     defaultDate: [startDate],
+//     locale: {
+//       rangeSeparator: ' — '
+//     },
+//     onChange: (selectedDates, dateStr, instance) => {
+//       if (selectedDates.length === 2) {
+//         const [first, second] = selectedDates;
+
+//         if (second.getTime() < startDate.getTime()) {
+//           // ❌ Agar tanlangan sana oldingi bo‘lsa: End date noto‘g‘ri
+//           instance.setDate([startDate], false); // Faqat start date qolsin
+//           instance.input.value = instance.formatDate(startDate, 'd.m.Y');
+//           instance.altInput.value = instance.formatDate(startDate, 'd.m.Y');
+
+//           console.log(`Date Picker ${index + 1}:`);
+//           console.log('Start date:', startDate);
+//           console.log('End date:', null);
+
+//           instance.close();
+//         } else {
+//           // ✅ Agar tanlangan sana keyingi bo‘lsa: Start date ni yo‘q qilamiz
+//           instance.setDate([second], false); // End date sifatida qoldiramiz
+//           instance.input.value = instance.formatDate(second, 'd.m.Y');
+//           instance.altInput.value = instance.formatDate(second, 'd.m.Y');
+
+//           console.log(`Date Picker ${index + 1}:`);
+//           console.log('Start date:', null);
+//           console.log('End date:', second);
+
+//           instance.close();
+//         }
+//       }
+//     }
+//   });
+
+//   // Boshlang‘ich holatda inputni tozalaymiz (ko‘rsatmaslik uchun)
+//   if (flatpickrInstance.altInput) {
+//     flatpickrInstance.altInput.value = '';
+//     flatpickrInstance.input.value = '';
+//   }
+
+//   window.addEventListener('unload', () => {
+//     if (!Array.isArray(flatpickrInstance)) {
+//       flatpickrInstance.destroy();
+//     }
+//   });
+// });
+document.querySelectorAll('.date-picker').forEach((picker, index) => {
+  const input = picker.querySelector('.date-picker-input');
+  const id = `date-picker-${index + 1}`;
+  input.id = id;
+
+  const startDate = input.dataset.default || '15.03.2025';
+
+  const flatpickrInstance = flatpickr(input, {
+    mode: 'range',
+    static: true,
+    monthSelectorType: 'static',
+    dateFormat: 'd.m.Y',
+    altInput: true,
+    altFormat: 'd.m.Y',
+    defaultDate: [startDate], // faqat start date tanlangan bo‘ladi
+    locale: {
+      rangeSeparator: ' — '
+    },
+    defaultHour: 0,
+    defaultMinute: 0,
+    onChange: (selectedDates, dateStr, instance) => {
+      if (selectedDates.length === 2) {
+        const endDate = selectedDates[1];
+
+        // Start date ni "yo‘q" qilamiz (faqat end date qolsin)
+        instance.setDate([endDate], false); // triggerChange = false
+
+        // Input qiymatlarini end date bilan yangilaymiz
+        const formatted = instance.formatDate(endDate, 'd.m.Y');
+        instance.input.value = formatted;
+        instance.altInput.value = formatted;
+
+        // Consolga chiqamiz
+        console.log(`Date Picker ${index + 1} selected:`, formatted);
+        console.log('Start date:', null);
+        console.log('End date:', endDate);
+
+        // Calendarni yopamiz
+        instance.close();
+      }
+    }
+  });
+
+  // Boshlang'ich holat: start date inputda ko‘rsatilmasin, lekin Flatpickr ichida tursin
+  if (flatpickrInstance.altInput) {
+    flatpickrInstance.altInput.value = ''; // ko‘rsatmaslik
+    flatpickrInstance.input.value = '';    // inputni tozalash
+  }
+
+  window.addEventListener('unload', () => {
+    if (!Array.isArray(flatpickrInstance)) {
+      flatpickrInstance.destroy();
+    }
+  });
+});
+// Initialize all date pickers
 // document.querySelectorAll('.date-picker').forEach((picker, index) => {
 //   const input = picker.querySelector('.date-picker-input');
 //   const id = `date - picker - ${index + 1} `;
 //   input.id = id; // Ensure unique ID
-//   const defaultValue = input.dataset.default || '15.03.2025 — 15.03.2025';
+//   const defaultValue = input.dataset.default || '15.03.2025';
 
 //   const flatpickrInstance = flatpickr(input, {
 //     mode: 'range',
 //     static: true,
 //     monthSelectorType: 'static',
 //     dateFormat: 'd.m.Y',
-//     defaultDate: ['2025-03-15', '2025-03-15'],
+//     defaultDate: '15.03.2025',
 //     altInput: true,
 //     altFormat: 'd.m.Y',
 //     locale: {
@@ -1095,79 +1211,6 @@ document.querySelectorAll('.select').forEach((select, index) => {
 //     }
 //   });
 // });
-document.querySelectorAll('.date-picker').forEach((picker, index) => {
-  const input = picker.querySelector('.date-picker-input');
-  const id = `date-picker-${index + 1}`;
-  input.id = id;
-  const defaultValue = input.dataset.default || '';
-
-  const flatpickrInstance = flatpickr(input, {
-    mode: 'single',
-    static: true,
-    monthSelectorType: 'static',
-    dateFormat: 'd.m.Y',
-    defaultDate: '2025-03-15',
-    altInput: true,
-    altFormat: 'd.m.Y',
-    locale: {
-      rangeSeparator: ' — '
-    },
-    defaultHour: 0,
-    defaultMinute: 0,
-    onChange: (selectedDates, dateStr) => {
-      console.log(`Date Picker ${index + 1} selected: `, dateStr);
-      console.log('Start date:', selectedDates[0]);
-      console.log('End date:', selectedDates[1]);
-    }
-  });
-
-  if (flatpickrInstance.altInput) {
-    flatpickrInstance.altInput.value = defaultValue;
-  }
-
-  window.addEventListener('unload', () => {
-    if (!Array.isArray(flatpickrInstance)) {
-      flatpickrInstance.destroy();
-    }
-  });
-});
-
-// document.querySelectorAll('.date-picker-2').forEach((picker, index) => {
-//   const input = picker.querySelector('.date-picker-input');
-//   const id = `date-picker-${index + 1}`;
-//   input.id = id;
-
-//   const defaultValue = input.dataset.default || '15.03.2025';
-
-//   const flatpickrInstance = flatpickr(input, {
-//     mode: 'single',
-//     static: true,
-//     monthSelectorType: 'static',
-//     dateFormat: 'd.m.Y',
-//     defaultDate: '2025-03-15',
-//     altInput: true,
-//     altFormat: 'd.m.Y',
-//     locale: flatpickr.l10ns.ru,
-//     defaultHour: 0,
-//     defaultMinute: 0,
-
-//     onChange: (selectedDates, dateStr) => {
-//       console.log(`Date Picker ${index + 1} selected: `, dateStr);
-//       console.log('Selected date:', selectedDates[0]);
-//     }
-//   });
-
-//   if (flatpickrInstance.altInput) {
-//     flatpickrInstance.altInput.value = defaultValue;
-//   }
-
-//   window.addEventListener('unload', () => {
-//     if (!Array.isArray(flatpickrInstance)) {
-//       flatpickrInstance.destroy();
-//     }
-//   });
-// });
-
 
 
 // custom checkbox

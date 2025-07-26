@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>crmFin</title>
-  <link rel="stylesheet" href="src/css/jquery-ui.css">
+  <!-- Datepicker css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <!-- Monserat font -->
   <link rel="stylesheet" href="src/fonts/Montserrat/stylesheet.css">
   <!-- custom css link -->
@@ -371,7 +372,7 @@
         <div class="flex justify-between md:mb-6 sm:mb-5 mb-4 flex-wrap gap-5 md:flex-wrap md:flex-row">
           <div class='overflow-x-auto scroll-box !pb-0 no-scrollbar'>
             <div id="tab-container"
-              class="tab flex items-center rounded-lg bg-white p-0.5 whitespace-nowrap md:w-fit w-fit">
+              class="tab flex items-center rounded-lg bg-white !p-0.5 whitespace-nowrap md:w-fit w-fit">
               <button data-tab="all"
                 class="tab-list active px-3 py-2 font-medium sm:w-full w-fit rounded-md md:text-sm text-xs flex justify-center items-center gap-2 cursor-pointer">
                 <span>Все</span>
@@ -540,7 +541,7 @@
 
 
   <!-- modal -->
-  <div class="modal " id="new-block">
+  <div class="modal show" id="new-block">
     <div class="modal-body sm:max-w-[480px] w-[calc(100%_-_32px)] sm:m-4 sm:rounded-[12px] rounded-0">
       <div class="modal-content w-full">
         <div class="flex items-center justify-between sm:py-5 sm:px-6 p-4 border-b border-[#DEE3F3]">
@@ -595,10 +596,14 @@
               <div>
                 <label class="mb-1.5 block md:text-xs text-[10px] font-normal text-gray-700 dark:text-gray-base">Дата
                   рождения</label>
-                <input class="date-picker-input form-control !w-full" type="text" id="datepicker" />
-                <!-- <div class="date-picker date-picker-2  w-full">
-                  <div class="relative w-full">
-                    <input class="date-picker-input form-control !w-full" type="text" id="datepicker" />
+                <!-- <div class="date-picker">
+                  <input class="date-picker-input" data-default="15.03.2025">
+                </div> -->
+                <div class="date-picker">
+                  <div class="relative">
+                    <input class="date-picker-input" data-default="15.03.2025">
+                    <!-- <input id="date-picker-1" class="date-picker-input form-control"
+                      placeholder="DD.MM.YYYY — DD.MM.YYYY" data-default="15.03.2025 — 15.03.2025" /> -->
                     <span class="date-picker-icon">
                       <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -608,7 +613,7 @@
 
                     </span>
                   </div>
-                </div> -->
+                </div>
               </div>
             </div>
 
@@ -634,8 +639,12 @@
 
 
   <!-- Datepicker js -->
-  <script src="src/js/jquery.js"></script>
-  <script src="src/js/jquery-ui.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ru.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ru.js"></script>
+  <!-- Datepicker js -->
+  <!-- <script src="src/js/jquery.js"></script>
+  <script src="src/js/jquery-ui.js"></script> -->
   <!-- price-setting js -->
   <script src="src/js/price-setting.js"></script>
   <!-- js -->
@@ -718,10 +727,6 @@
           }
         });
       });
-    });
-    $(function () {
-      $.datepicker.setDefaults($.datepicker.regional["ru"]); // Rus tilini faollashtirish
-      $("#datepicker").datepicker();
     });
   </script>
 </body>
