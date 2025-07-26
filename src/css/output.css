@@ -1009,11 +1009,6 @@ video {
   stroke-width: 1.5;
 }
 
-.flatpickr-calendar.static.open{
-  left: 0px !important;
-  z-index: 99999 !important;
-}
-
 /* checkbox */
 
 .checkbox-container{
@@ -1176,6 +1171,10 @@ video {
 
 .inset-0{
   inset: 0px;
+}
+
+.\!top-\[22px\]{
+  top: 22px !important;
 }
 
 .bottom-0{
@@ -1593,6 +1592,10 @@ video {
 
 .h-screen{
   height: 100vh;
+}
+
+.max-h-\[calc\(100vh_-_125px\)\]{
+  max-height: calc(100vh - 125px);
 }
 
 .max-h-\[calc\(100vh_-_300px\)\]{
@@ -4153,6 +4156,82 @@ header {
   z-index: 7777;
 }
 
+.flatpickr-wrapper{
+  width: 100% !important;
+}
+
+.flatpickr-calendar{
+  margin-top: 0.5rem;
+  border-radius: 0.75rem;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+  padding: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(112 125 137 / var(--tw-text-opacity, 1));
+}
+
+.flatpickr-weekdays{
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  background-color: transparent;
+}
+
+.flatpickr-weekday{
+  background-color: transparent;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 500;
+  --tw-text-opacity: 1;
+  color: rgb(112 125 137 / var(--tw-text-opacity, 1));
+}
+
+.flatpickr-day{
+  display: flex;
+  align-items: center;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 500;
+  --tw-text-opacity: 1;
+  color: rgb(20 20 20 / var(--tw-text-opacity, 1));
+}
+
+.flatpickr-day.nextMonthDay,
+.flatpickr-day.prevMonthDay{
+  --tw-text-opacity: 1;
+  color: rgb(112 125 137 / var(--tw-text-opacity, 1));
+}
+
+.flatpickr-month .flatpickr-current-month .flatpickr-monthDropdown-months{
+  font-weight: 500;
+}
+
+.flatpickr-month
+  .flatpickr-current-month
+  .flatpickr-monthDropdown-months:focus{
+  border-width: 0px;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.flatpickr-current-month .cur-month,
+.flatpickr-current-month input.cur-year{
+  height: auto;
+  padding-top: 0px;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 500;
+  --tw-text-opacity: 1;
+  color: rgb(20 20 20 / var(--tw-text-opacity, 1));
+}
+
+.flatpickr-calendar.static.open{
+  left: 0px !important;
+  z-index: 99999 !important;
+}
+
 .flatpickr-wrapper {
   width: 100% !important;
 }
@@ -5271,6 +5350,16 @@ line.apexcharts-xaxis-tick {
 
 .date-picker-2 .flatpickr-calendar {
   position: relative !important;
+  margin-top: 8px;
+}
+
+.date-picker-2 .flatpickr-days,
+.flatpickr-innerContainer{
+  overflow: visible;
+}
+
+.flatpickr-day {
+  font-size: 14px;
 }
 
 @media (min-width: 640px){

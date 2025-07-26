@@ -228,48 +228,6 @@ header {
     @apply absolute text-gray-base -translate-y-1/2 pointer-events-none right-[15px] top-1/2;
   }
 
-  .flatpickr-wrapper {
-    @apply !w-full;
-  }
-
-  .flatpickr-calendar {
-    @apply mt-2 bg-white rounded-xl p-5 border border-gray-300 text-gray-base;
-  }
-
-  .flatpickr-weekdays {
-    @apply mt-6 mb-4 bg-transparent;
-  }
-
-  .flatpickr-weekday {
-    @apply text-xs font-medium text-gray-base bg-transparent;
-  }
-
-  .flatpickr-day {
-    @apply flex items-center text-xs font-medium text-black;
-  }
-
-  .flatpickr-day.nextMonthDay,
-  .flatpickr-day.prevMonthDay {
-    @apply text-gray-base;
-  }
-
-  .flatpickr-month .flatpickr-current-month .flatpickr-monthDropdown-months {
-    @apply font-medium;
-  }
-
-  .flatpickr-month
-    .flatpickr-current-month
-    .flatpickr-monthDropdown-months:focus {
-    @apply outline-none border-0;
-  }
-
-  .flatpickr-current-month .cur-month,
-  .flatpickr-current-month input.cur-year {
-    @apply h-auto pt-0 text-lg font-medium text-black;
-  }
-  .flatpickr-calendar.static.open {
-    @apply !left-0 !z-[99999];
-  }
   /* checkbox */
   .checkbox-container {
     @apply flex items-center space-x-3 cursor-pointer;
@@ -306,6 +264,48 @@ header {
   .checkbox-link {
     @apply md:text-sm text-xs text-blue;
   }
+}
+.flatpickr-wrapper {
+  @apply !w-full;
+}
+
+.flatpickr-calendar {
+  @apply mt-2 bg-white rounded-xl p-5 border border-gray-300 text-gray-base;
+}
+
+.flatpickr-weekdays {
+  @apply mt-6 mb-4 bg-transparent;
+}
+
+.flatpickr-weekday {
+  @apply text-xs font-medium text-gray-base bg-transparent;
+}
+
+.flatpickr-day {
+  @apply flex items-center text-xs font-medium text-black;
+}
+
+.flatpickr-day.nextMonthDay,
+.flatpickr-day.prevMonthDay {
+  @apply text-gray-base;
+}
+
+.flatpickr-month .flatpickr-current-month .flatpickr-monthDropdown-months {
+  @apply font-medium;
+}
+
+.flatpickr-month
+  .flatpickr-current-month
+  .flatpickr-monthDropdown-months:focus {
+  @apply outline-none border-0;
+}
+
+.flatpickr-current-month .cur-month,
+.flatpickr-current-month input.cur-year {
+  @apply h-auto pt-0 text-lg font-medium text-black;
+}
+.flatpickr-calendar.static.open {
+  @apply !left-0 !z-[99999];
 }
 .flatpickr-wrapper {
   width: 100% !important;
@@ -1029,4 +1029,12 @@ line.apexcharts-xaxis-tick {
 
 .date-picker-2 .flatpickr-calendar {
   position: relative !important;
+  margin-top: 8px;
+}
+.date-picker-2 .flatpickr-days,
+.flatpickr-innerContainer {
+  @apply overflow-visible;
+}
+.flatpickr-day {
+  font-size: 14px;
 }
