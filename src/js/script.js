@@ -1136,6 +1136,7 @@ document.querySelectorAll('.date-picker').forEach((picker, index) => {
     locale: {
       rangeSeparator: ' — '
     },
+    locale: 'ru',
     defaultHour: 0,
     defaultMinute: 0,
     onChange: (selectedDates, dateStr, instance) => {
